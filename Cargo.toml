@@ -1,0 +1,23 @@
+[package]
+name = "ressai"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+sp-core = "*"
+verifiable = { version = "0.2.0" }
+ark-vrf = "*"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[features]
+small-ring = ["verifiable/small-ring"]
+
+[[bench]]
+name = "ed25519_verify"
+harness = false
+
+[[bench]]
+name = "verifiable_validate"
+harness = false

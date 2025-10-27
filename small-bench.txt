@@ -1,0 +1,228 @@
+
+running 1 test
+test tests::ring_size_is_the_push_limit ... ignored
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+ed25519_verify          time:   [40.135 µs 40.230 µs 40.339 µs]
+                        change: [-0.7001% -0.3542% +0.0060%] (p = 0.05 > 0.05)
+                        No change in performance detected.
+
+verifiable_start_members
+                        time:   [1.1880 µs 1.1889 µs 1.1897 µs]
+                        change: [+0.8100% +0.9905% +1.1653%] (p = 0.00 < 0.05)
+                        Change within noise threshold.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+
+verifiable_push_all_members_in_one_time
+                        time:   [28.405 ms 28.688 ms 28.983 ms]
+                        change: [-98.351% -98.331% -98.309%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+verifiable_push_one_member_in_almost_full
+                        time:   [665.32 µs 682.75 µs 700.82 µs]
+                        change: [-35.904% -32.524% -29.457%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  4 (4.00%) high mild
+  3 (3.00%) high severe
+
+verifiable_finish_members
+                        time:   [84.237 ns 85.906 ns 87.312 ns]
+                        change: [-10.682% -8.0125% -5.1953%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+verifiable_finish_members_full
+                        time:   [84.829 ns 87.820 ns 90.522 ns]
+                        change: [-13.494% -10.666% -7.4636%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 17 outliers among 100 measurements (17.00%)
+  7 (7.00%) high mild
+  10 (10.00%) high severe
+
+verifiable_new_secret   time:   [90.007 µs 91.728 µs 94.042 µs]
+                        change: [+18.609% +23.280% +27.341%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+
+verifiable_member_from_secret
+                        time:   [48.329 ns 48.516 ns 48.714 ns]
+                        change: [+1.5165% +1.9180% +2.2988%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 24 outliers among 100 measurements (24.00%)
+  12 (12.00%) low severe
+  3 (3.00%) low mild
+  3 (3.00%) high mild
+  6 (6.00%) high severe
+
+verifiable_open         time:   [49.551 ms 49.728 ms 49.912 ms]
+                        change: [-97.289% -97.225% -97.169%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+verifiable_create       time:   [133.33 ms 134.44 ms 135.84 ms]
+                        change: [-95.258% -95.146% -95.018%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  3 (3.00%) high mild
+  3 (3.00%) high severe
+
+verifiable_sign         time:   [298.09 µs 298.84 µs 299.64 µs]
+                        change: [+3.1718% +3.4442% +3.6888%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 14 outliers among 100 measurements (14.00%)
+  5 (5.00%) low severe
+  4 (4.00%) low mild
+  2 (2.00%) high mild
+  3 (3.00%) high severe
+
+verifiable_alias_in_context
+                        time:   [122.92 µs 123.24 µs 123.52 µs]
+                        change: [+5.9525% +6.2623% +6.5526%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 27 outliers among 100 measurements (27.00%)
+  14 (14.00%) low severe
+  5 (5.00%) high mild
+  8 (8.00%) high severe
+
+verifiable_validate     time:   [14.242 ms 14.939 ms 15.653 ms]
+                        change: [-58.409% -56.222% -54.139%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+verifiable_is_valid     time:   [11.824 ms 12.002 ms 12.187 ms]
+                        change: [-65.093% -64.430% -63.702%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+verifiable_verify_signature
+                        time:   [577.47 µs 579.12 µs 580.63 µs]
+                        change: [+7.6805% +7.9978% +8.3217%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 13 outliers among 100 measurements (13.00%)
+  6 (6.00%) low severe
+  6 (6.00%) low mild
+  1 (1.00%) high mild
+
+verifiable_is_member_valid
+                        time:   [78.643 µs 78.798 µs 78.948 µs]
+                        change: [+4.8045% +5.0813% +5.3705%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 27 outliers among 100 measurements (27.00%)
+  7 (7.00%) low severe
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  17 (17.00%) high severe
+
+verifiable_start_members_for_255_ring_size
+                        time:   [1.2271 µs 1.2311 µs 1.2352 µs]
+                        change: [+6.1334% +6.5018% +6.8688%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 33 outliers among 100 measurements (33.00%)
+  16 (16.00%) low mild
+  17 (17.00%) high mild
+
+verifiable_push_members_for_255_ring_size
+                        time:   [33.235 ms 33.574 ms 33.932 ms]
+                        change: [+16.382% +18.159% +19.969%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+
+verifiable_push_one_member_in_almost_full_for_255_ring_size
+                        time:   [997.09 µs 1.0090 ms 1.0214 ms]
+                        change: [+41.083% +47.007% +52.810%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 9 outliers among 100 measurements (9.00%)
+  6 (6.00%) high mild
+  3 (3.00%) high severe
+
+verifiable_finish_members_for_255_ring_size
+                        time:   [87.283 ns 90.320 ns 92.931 ns]
+                        change: [-0.2142% +3.3427% +7.0686%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+
+verifiable_finish_members_full_for_255_ring_size
+                        time:   [86.158 ns 89.482 ns 92.397 ns]
+                        change: [-2.6778% +0.8645% +4.4831%] (p = 0.63 > 0.05)
+                        No change in performance detected.
+Found 6 outliers among 100 measurements (6.00%)
+  6 (6.00%) high mild
+
+verifiable_new_secret_for_255_ring_size
+                        time:   [85.224 µs 85.470 µs 85.691 µs]
+                        change: [-2.4367% -2.0709% -1.6919%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 33 outliers among 100 measurements (33.00%)
+  19 (19.00%) low severe
+  1 (1.00%) low mild
+  3 (3.00%) high mild
+  10 (10.00%) high severe
+
+verifiable_member_from_secret_for_255_ring_size
+                        time:   [47.472 ns 47.610 ns 47.762 ns]
+                        change: [-1.3950% +0.4074% +1.6044%] (p = 0.71 > 0.05)
+                        No change in performance detected.
+
+verifiable_open_for_255_ring_size
+                        time:   [39.313 ms 40.979 ms 42.655 ms]
+                        change: [-88.097% -87.589% -87.043%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+verifiable_create_for_255_ring_size
+                        time:   [73.221 ms 73.683 ms 74.165 ms]
+                        change: [-95.258% -95.090% -94.896%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+verifiable_sign_for_255_ring_size
+                        time:   [315.93 µs 316.43 µs 317.01 µs]
+                        change: [+6.4801% +6.8079% +7.1305%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 5 outliers among 100 measurements (5.00%)
+  5 (5.00%) high mild
+
+verifiable_alias_in_contex_for_255_ring_sizet
+                        time:   [124.56 µs 124.84 µs 125.10 µs]
+                        change: [+1.6302% +2.1506% +2.6965%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) low mild
+
+verifiable_validate_for_255_ring_size
+                        time:   [11.958 ms 12.098 ms 12.240 ms]
+                        change: [-66.773% -66.208% -65.640%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+verifiable_is_valid_for_255_ring_size
+                        time:   [11.899 ms 12.062 ms 12.229 ms]
+                        change: [-66.562% -66.023% -65.479%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high mild
+
+verifiable_verify_signature_for_255_ring_size
+                        time:   [587.38 µs 588.63 µs 589.97 µs]
+                        change: [+1.0669% +1.4344% +1.7875%] (p = 0.00 < 0.05)
+                        Performance has regressed.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+
+verifiable_is_member_valid_for_255_ring_size
+                        time:   [78.578 µs 78.683 µs 78.765 µs]
+                        change: [-0.6130% -0.3737% -0.1524%] (p = 0.00 < 0.05)
+                        Change within noise threshold.
+Found 14 outliers among 100 measurements (14.00%)
+  8 (8.00%) low severe
+  2 (2.00%) high mild
+  4 (4.00%) high severe
+

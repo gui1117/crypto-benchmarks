@@ -1,0 +1,2 @@
+* benchmark native vs wasm
+* when implementation is done benchmark batch vs non-batch (also different ring, same ring)
