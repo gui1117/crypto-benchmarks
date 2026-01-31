@@ -713,5 +713,313 @@ fn bench_verifiable_methods_255(c: &mut Criterion) {
     }
 }
 
-criterion_group!(benches, bench_verifiable_methods, bench_verifiable_methods_255);
+/// Context for benchmarking at a specific ring fill level
+struct FillLevelContext {
+    fill_count: usize,
+    label: &'static str,
+    members: Vec<Member>,
+    members_commitment: Members,
+    target_secret: Secret,
+    target_member: Member,
+    proof: Proof,
+    alias: Alias,
+    context_bytes: Vec<u8>,
+    message_bytes: Vec<u8>,
+}
+
+impl FillLevelContext {
+    fn new(fill_count: usize, label: &'static str, builder_params: &RingBuilderParams) -> Self {
+        let entropies: Vec<Entropy> = (0..fill_count).map(entropy_from_index).collect();
+
+        let secrets: Vec<Secret> = entropies
+            .iter()
+            .map(|&e| VerifiableImpl::new_secret(e))
+            .collect();
+
+        let members: Vec<Member> = secrets
+            .iter()
+            .map(VerifiableImpl::member_from_secret)
+            .collect();
+
+        // Build the intermediate and finish it to get members_commitment
+        let mut intermediate = VerifiableImpl::start_members();
+        VerifiableImpl::push_members(
+            &mut intermediate,
+            members.iter().cloned(),
+            |range: Range<usize>| {
+                builder_params
+                    .lookup(range)
+                    .map(|chunks| chunks.into_iter().map(StaticChunk).collect())
+                    .ok_or(())
+            },
+        )
+        .expect("fill level context setup");
+        let members_commitment = VerifiableImpl::finish_members(intermediate);
+
+        // Target is in the middle of the ring
+        let target_index = fill_count / 2;
+        let target_secret = secrets[target_index].clone();
+        let target_member = members[target_index].clone();
+
+        let context_bytes = b"verifiable-bench-context".to_vec();
+        let message_bytes = b"benchmark message for verifiable trait".to_vec();
+
+        // Create proof for this fill level
+        let commitment =
+            VerifiableImpl::open(&target_member, members.iter().cloned()).expect("context open");
+        let (proof, alias) = VerifiableImpl::create(
+            commitment,
+            &target_secret,
+            context_bytes.as_slice(),
+            message_bytes.as_slice(),
+        )
+        .expect("context create");
+
+        FillLevelContext {
+            fill_count,
+            label,
+            members,
+            members_commitment,
+            target_secret,
+            target_member,
+            proof,
+            alias,
+            context_bytes,
+            message_bytes,
+        }
+    }
+}
+
+fn bench_ring_fill_levels(c: &mut Criterion) {
+    let builder_params = Arc::new(ring_verifier_builder_params());
+
+    // Define fill levels (must have at least 1 member for most operations)
+    let fill_levels: &[(usize, &'static str)] = &[
+        (1.max(RING_SIZE / 100), "nearly_empty"),
+        (RING_SIZE / 4, "quarter"),
+        (RING_SIZE / 2, "half"),
+        (RING_SIZE * 3 / 4, "three_quarters"),
+        (RING_SIZE, "full"),
+    ];
+
+    // Pre-build contexts for each fill level
+    let contexts: Vec<FillLevelContext> = fill_levels
+        .iter()
+        .map(|(count, label)| FillLevelContext::new(*count, label, builder_params.as_ref()))
+        .collect();
+
+    // Generate all members for push benchmarks
+    let all_members: Vec<Member> = (0..RING_SIZE)
+        .map(|i| {
+            let secret = VerifiableImpl::new_secret(entropy_from_index(i));
+            VerifiableImpl::member_from_secret(&secret)
+        })
+        .collect();
+
+    // ===== push_one_member benchmarks =====
+    let push_fill_levels = [
+        (0, "empty"),
+        (RING_SIZE / 4, "quarter"),
+        (RING_SIZE / 2, "half"),
+        (RING_SIZE * 3 / 4, "three_quarters"),
+        (RING_SIZE - 1, "full_minus_one"),
+    ];
+
+    let mut group = c.benchmark_group("push_one_member_at_fill_level");
+    for (fill_count, label) in push_fill_levels.iter() {
+        let builder_params = Arc::clone(&builder_params);
+        let members = all_members.clone();
+
+        let template = {
+            let mut intermediate = VerifiableImpl::start_members();
+            if *fill_count > 0 {
+                VerifiableImpl::push_members(
+                    &mut intermediate,
+                    (0..*fill_count).map(|i| members[i].clone()),
+                    |range: Range<usize>| {
+                        builder_params
+                            .as_ref()
+                            .lookup(range)
+                            .map(|chunks| chunks.into_iter().map(StaticChunk).collect())
+                            .ok_or(())
+                    },
+                )
+                .expect("template setup");
+            }
+            intermediate
+        };
+
+        let template = Arc::new(template);
+        let builder_params = Arc::clone(&builder_params);
+        let next_member = members[*fill_count].clone();
+
+        group.bench_function(*label, move |b| {
+            let template = Arc::clone(&template);
+            let builder_params = Arc::clone(&builder_params);
+            let next_member = next_member.clone();
+            b.iter_batched_ref(
+                || template.as_ref().clone(),
+                |intermediate| {
+                    VerifiableImpl::push_members(
+                        intermediate,
+                        std::iter::once(next_member.clone()),
+                        |range: Range<usize>| {
+                            builder_params
+                                .as_ref()
+                                .lookup(range)
+                                .map(|chunks| chunks.into_iter().map(StaticChunk).collect())
+                                .ok_or(())
+                        },
+                    )
+                    .expect("bench push_members");
+                    black_box(&*intermediate);
+                },
+                BatchSize::SmallInput,
+            );
+        });
+    }
+    group.finish();
+
+    // ===== finish_members benchmarks =====
+    let mut group = c.benchmark_group("finish_members_at_fill_level");
+    for ctx in contexts.iter() {
+        let builder_params = Arc::clone(&builder_params);
+        let members = ctx.members.clone();
+        let fill_count = ctx.fill_count;
+
+        let template = {
+            let mut intermediate = VerifiableImpl::start_members();
+            VerifiableImpl::push_members(
+                &mut intermediate,
+                (0..fill_count).map(|i| members[i].clone()),
+                |range: Range<usize>| {
+                    builder_params
+                        .as_ref()
+                        .lookup(range)
+                        .map(|chunks| chunks.into_iter().map(StaticChunk).collect())
+                        .ok_or(())
+                },
+            )
+            .expect("template setup");
+            intermediate
+        };
+
+        let template = Arc::new(template);
+        let label = ctx.label;
+
+        group.bench_function(label, move |b| {
+            let template = Arc::clone(&template);
+            b.iter_batched(
+                || template.as_ref().clone(),
+                |intermediate| {
+                    let members = VerifiableImpl::finish_members(black_box(intermediate));
+                    black_box(members);
+                },
+                BatchSize::SmallInput,
+            );
+        });
+    }
+    group.finish();
+
+    // ===== open benchmarks =====
+    let mut group = c.benchmark_group("open_at_fill_level");
+    for ctx in contexts.iter() {
+        let members = ctx.members.clone();
+        let target_member = ctx.target_member.clone();
+        let label = ctx.label;
+
+        group.bench_function(label, move |b| {
+            b.iter(|| {
+                let commitment = VerifiableImpl::open(
+                    black_box(&target_member),
+                    black_box(&members).iter().cloned(),
+                )
+                .expect("bench open");
+                black_box(commitment);
+            });
+        });
+    }
+    group.finish();
+
+    // ===== create benchmarks =====
+    let mut group = c.benchmark_group("create_at_fill_level");
+    for ctx in contexts.iter() {
+        let members = ctx.members.clone();
+        let target_member = ctx.target_member.clone();
+        let target_secret = ctx.target_secret.clone();
+        let context_bytes = ctx.context_bytes.clone();
+        let message_bytes = ctx.message_bytes.clone();
+        let label = ctx.label;
+
+        group.bench_function(label, move |b| {
+            b.iter(|| {
+                let commitment = VerifiableImpl::open(
+                    black_box(&target_member),
+                    black_box(&members).iter().cloned(),
+                )
+                .expect("bench create open");
+                let result = VerifiableImpl::create(
+                    black_box(commitment),
+                    black_box(&target_secret),
+                    black_box(context_bytes.as_slice()),
+                    black_box(message_bytes.as_slice()),
+                )
+                .expect("bench create");
+                black_box(result);
+            });
+        });
+    }
+    group.finish();
+
+    // ===== validate benchmarks =====
+    let mut group = c.benchmark_group("validate_at_fill_level");
+    for ctx in contexts.iter() {
+        let proof = ctx.proof.clone();
+        let members_commitment = ctx.members_commitment.clone();
+        let context_bytes = ctx.context_bytes.clone();
+        let message_bytes = ctx.message_bytes.clone();
+        let label = ctx.label;
+
+        group.bench_function(label, move |b| {
+            b.iter(|| {
+                let alias = VerifiableImpl::validate(
+                    black_box(&proof),
+                    black_box(&members_commitment),
+                    black_box(context_bytes.as_slice()),
+                    black_box(message_bytes.as_slice()),
+                )
+                .expect("bench validate");
+                black_box(alias);
+            });
+        });
+    }
+    group.finish();
+
+    // ===== is_valid benchmarks =====
+    let mut group = c.benchmark_group("is_valid_at_fill_level");
+    for ctx in contexts.iter() {
+        let proof = ctx.proof.clone();
+        let members_commitment = ctx.members_commitment.clone();
+        let alias = ctx.alias;
+        let context_bytes = ctx.context_bytes.clone();
+        let message_bytes = ctx.message_bytes.clone();
+        let label = ctx.label;
+
+        group.bench_function(label, move |b| {
+            b.iter(|| {
+                let valid = VerifiableImpl::is_valid(
+                    black_box(&proof),
+                    black_box(&members_commitment),
+                    black_box(context_bytes.as_slice()),
+                    black_box(&alias),
+                    black_box(message_bytes.as_slice()),
+                );
+                assert!(valid);
+            });
+        });
+    }
+    group.finish();
+}
+
+criterion_group!(benches, bench_verifiable_methods, bench_verifiable_methods_255, bench_ring_fill_levels);
 criterion_main!(benches);
