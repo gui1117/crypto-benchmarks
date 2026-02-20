@@ -1,21 +1,20 @@
-#[cfg(feature = "small-ring")]
-pub const RING_SIZE: usize = 255;
-#[cfg(not(feature = "small-ring"))]
-pub const RING_SIZE: usize = 16127;
-
-
 #[cfg(test)]
 mod tests {
-    use super::RING_SIZE;
+    use verifiable::ring::ark_vrf;
     use ark_vrf::ring::SrsLookup;
-    use verifiable::ring_vrf_impl::{
-        ring_verifier_builder_params, BandersnatchVrfVerifiable, RingBuilderParams, StaticChunk,
+    use ark_vrf::suites::bandersnatch::BandersnatchSha512Ell2;
+    use verifiable::ring::{
+        bandersnatch::BandersnatchVrfVerifiable, ring_verifier_builder_params, RingDomainSize,
+        StaticChunk,
     };
-    use verifiable::GenerateVerifiable;
+    use verifiable::{Capacity, GenerateVerifiable};
 
+    type Suite = BandersnatchSha512Ell2;
+    type BuilderParams = ark_vrf::ring::RingBuilderPcsParams<Suite>;
     type VerifiableImpl = BandersnatchVrfVerifiable;
     type Intermediate = <VerifiableImpl as GenerateVerifiable>::Intermediate;
     type Member = <VerifiableImpl as GenerateVerifiable>::Member;
+    type Cap = <VerifiableImpl as GenerateVerifiable>::Capacity;
 
     fn entropy_from_index(idx: usize) -> [u8; 32] {
         let mut entropy = [0u8; 32];
@@ -31,37 +30,42 @@ mod tests {
     fn push_with_lookup(
         intermediate: &mut Intermediate,
         members: impl Iterator<Item = Member>,
-        params: &RingBuilderParams,
+        params: &BuilderParams,
     ) -> Result<(), ()> {
         VerifiableImpl::push_members(intermediate, members, |range| {
             params
                 .lookup(range)
-                .map(|chunks| chunks.into_iter().map(StaticChunk).collect())
+                .map(|chunks: Vec<_>| chunks.into_iter().map(|c| StaticChunk(c)).collect())
                 .ok_or(())
         })
     }
 
     #[test]
-    fn ring_size_is_the_push_limit() {
-        let builder_params = ring_verifier_builder_params();
+    fn ring_size_is_the_push_limit_domain11() {
+        test_push_limit(RingDomainSize::Domain11);
+    }
 
-        let mut builder = VerifiableImpl::start_members();
-        for idx in 0..RING_SIZE {
+    fn test_push_limit(domain: RingDomainSize) {
+        let capacity: Cap = domain.into();
+        let ring_size = capacity.size();
+        let builder_params =
+            ring_verifier_builder_params::<Suite>(domain);
+
+        let mut builder = VerifiableImpl::start_members(capacity);
+        for idx in 0..ring_size {
             let result =
                 push_with_lookup(&mut builder, std::iter::once(member_at(idx)), &builder_params);
             assert!(
                 result.is_ok(),
-                "failed while pushing member {idx} before reaching the expected ring size limit {RING_SIZE}"
+                "failed while pushing member {idx} before reaching the expected ring size limit {ring_size}"
             );
         }
 
         let overflow =
-            push_with_lookup(&mut builder, std::iter::once(member_at(RING_SIZE)), &builder_params);
+            push_with_lookup(&mut builder, std::iter::once(member_at(ring_size)), &builder_params);
         assert!(
             overflow.is_err(),
-            "pushing {RING_SIZE} + 1 members should fail"
+            "pushing {ring_size} + 1 members should fail"
         );
     }
 }
-
-

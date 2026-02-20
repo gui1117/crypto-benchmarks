@@ -5,8 +5,6 @@ import argparse
 import csv
 import math
 
-# This file could use the output of Criterion instead of texts...
-
 UNIT_SCALE = {
     "ns": 1e-9,
     "us": 1e-6,
@@ -93,6 +91,20 @@ def parse_bench(text: str) -> dict:
             prev_nonempty = stripped
     return res
 
+def split_by_domain(bench_map: dict) -> dict:
+    """Split benchmarks by domain prefix (e.g. 'domain11/name' -> domain='domain11', key='name')."""
+    domains = {}
+    for name, val in bench_map.items():
+        parts = name.split('/', 1)
+        if len(parts) == 2:
+            domain = parts[0]
+            bench_name = parts[1]
+        else:
+            domain = 'default'
+            bench_name = name
+        domains.setdefault(domain, {})[bench_name] = val
+    return domains
+
 def human_time(seconds: float) -> str:
     if seconds < 1e-6:
         return f"{seconds*1e9:.3f} ns"
@@ -102,7 +114,7 @@ def human_time(seconds: float) -> str:
         return f"{seconds*1e3:.3f} ms"
     return f"{seconds:.3f} s"
 
-def compare(small_map: dict, big_map: dict):
+def compare(small_map: dict, big_map: dict, small_label="Small", big_label="Big"):
     names = sorted(set(small_map) | set(big_map))
     rows = []
     for name in names:
@@ -130,12 +142,12 @@ def compare(small_map: dict, big_map: dict):
         })
     return rows
 
-def write_markdown(rows, out):
+def write_markdown(rows, out, small_label="Small", big_label="Big"):
     rows_sorted = sorted(
         rows,
         key=lambda r: ({"regressed":0, "same":1, "improved":2}[r["trend"]],
                        -(r["% change (big vs small)"] or float("nan"))))
-    print("| Function | Small (median) | Big (median) | big/small | % change | Trend |", file=out)
+    print(f"| Function | {small_label} (median) | {big_label} (median) | {big_label}/{small_label} | % change | Trend |", file=out)
     print("|---|---:|---:|---:|---:|---|", file=out)
     for r in rows_sorted:
         bs = f'{r["big/small"]:.2f}' if r["big/small"]==r["big/small"] else "—"
@@ -150,32 +162,54 @@ def write_csv(rows, out):
         w.writerow(r)
 
 def main():
-    ap = argparse.ArgumentParser(description="Compare two Criterion benchmark outputs (small vs big).")
-    ap.add_argument("small_file", help="Path to small benchmark output text")
-    ap.add_argument("big_file", help="Path to big benchmark output text")
+    ap = argparse.ArgumentParser(description="Compare Criterion benchmark outputs.")
+    ap.add_argument("files", nargs='+', help="One file (domain comparison) or two files (small vs big)")
+    ap.add_argument("--small-domain", default="domain11", help="Domain prefix for small ring (single-file mode)")
+    ap.add_argument("--big-domain", default="domain16", help="Domain prefix for big ring (single-file mode)")
     ap.add_argument("--out-md", help="Write a Markdown table to this path")
     ap.add_argument("--out-csv", help="Write a CSV table to this path")
     args = ap.parse_args()
 
-    with open(args.small_file, "r", encoding="utf-8") as f:
-        small_txt = f.read()
-    with open(args.big_file, "r", encoding="utf-8") as f:
-        big_txt = f.read()
+    if len(args.files) == 2:
+        # Two-file mode (backward compatible)
+        with open(args.files[0], "r", encoding="utf-8") as f:
+            small_txt = f.read()
+        with open(args.files[1], "r", encoding="utf-8") as f:
+            big_txt = f.read()
+        small_map = parse_bench(small_txt)
+        big_map = parse_bench(big_txt)
+        small_label = "Small"
+        big_label = "Big"
+    elif len(args.files) == 1:
+        # Single-file mode: split by domain prefix
+        with open(args.files[0], "r", encoding="utf-8") as f:
+            text = f.read()
+        all_benches = parse_bench(text)
+        domains = split_by_domain(all_benches)
+        small_map = domains.get(args.small_domain, {})
+        big_map = domains.get(args.big_domain, {})
+        if not small_map:
+            print(f"Warning: no benchmarks found for domain '{args.small_domain}'", file=sys.stderr)
+            print(f"  Available domains: {', '.join(sorted(domains.keys()))}", file=sys.stderr)
+        if not big_map:
+            print(f"Warning: no benchmarks found for domain '{args.big_domain}'", file=sys.stderr)
+            print(f"  Available domains: {', '.join(sorted(domains.keys()))}", file=sys.stderr)
+        small_label = args.small_domain
+        big_label = args.big_domain
+    else:
+        ap.error("Expected 1 or 2 files")
 
-    small_map = parse_bench(small_txt)
-    big_map = parse_bench(big_txt)
-    rows = compare(small_map, big_map)
+    rows = compare(small_map, big_map, small_label, big_label)
 
     if not args.out_md and not args.out_csv:
-        write_markdown(rows, sys.stdout)
+        write_markdown(rows, sys.stdout, small_label, big_label)
     else:
         if args.out_md:
             with open(args.out_md, "w", encoding="utf-8") as out:
-                write_markdown(rows, out)
+                write_markdown(rows, out, small_label, big_label)
         if args.out_csv:
             with open(args.out_csv, "w", encoding="utf-8", newline="") as out:
                 write_csv(rows, out)
 
 if __name__ == "__main__":
     main()
-
