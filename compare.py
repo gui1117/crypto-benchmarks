@@ -2,10 +2,7 @@
 import sys
 import re
 import argparse
-import csv
 import math
-
-# This file could use the output of Criterion instead of texts...
 
 UNIT_SCALE = {
     "ns": 1e-9,
@@ -13,6 +10,13 @@ UNIT_SCALE = {
     "µs": 1e-6,
     "ms": 1e-3,
     "s": 1.0,
+}
+
+DOMAINS = ["domain11", "domain12", "domain16"]
+DOMAIN_LABELS = {
+    "domain11": "Domain11 (255)",
+    "domain12": "Domain12 (767)",
+    "domain16": "Domain16 (16127)",
 }
 
 def parse_duration(token: str) -> float:
@@ -27,7 +31,6 @@ def parse_duration(token: str) -> float:
     return val * UNIT_SCALE[unit]
 
 def extract_median_from_brackets(bracket_str: str) -> float:
-    # bracket_str like: '40.135 µs 40.230 µs 40.339 µs'
     parts = [p for p in bracket_str.strip().split()]
     vals = []
     i = 0
@@ -57,14 +60,13 @@ def extract_median_from_brackets(bracket_str: str) -> float:
         i += 1
     if len(vals) < 2:
         raise ValueError(f"Could not extract three values from: {bracket_str}")
-    return sorted(vals)[len(vals)//2]  # median
+    return sorted(vals)[len(vals)//2]
 
 def parse_bench(text: str) -> dict:
     res = {}
     lines = text.splitlines()
     prev_nonempty = ""
     for line in lines:
-        # Case 1: name and time on same line
         m = re.match(r"^([^\s].*?)\s+time:\s+\[(.*?)\]", line)
         if m:
             name = m.group(1).strip()
@@ -76,7 +78,6 @@ def parse_bench(text: str) -> dict:
                 pass
             prev_nonempty = name
             continue
-        # Case 2: time on following line; name on previous non-empty line
         if "time:" in line:
             m2 = re.search(r"time:\s+\[(.*?)\]", line)
             if m2 and prev_nonempty:
@@ -93,6 +94,19 @@ def parse_bench(text: str) -> dict:
             prev_nonempty = stripped
     return res
 
+def split_by_domain(bench_map: dict) -> dict:
+    domains = {}
+    for name, val in bench_map.items():
+        parts = name.split('/', 1)
+        if len(parts) == 2:
+            domain = parts[0]
+            bench_name = parts[1]
+        else:
+            domain = 'default'
+            bench_name = name
+        domains.setdefault(domain, {})[bench_name] = val
+    return domains
+
 def human_time(seconds: float) -> str:
     if seconds < 1e-6:
         return f"{seconds*1e9:.3f} ns"
@@ -102,80 +116,55 @@ def human_time(seconds: float) -> str:
         return f"{seconds*1e3:.3f} ms"
     return f"{seconds:.3f} s"
 
-def compare(small_map: dict, big_map: dict):
-    names = sorted(set(small_map) | set(big_map))
+def collect_rows(domain_maps: dict) -> list:
+    all_names = set()
+    for m in domain_maps.values():
+        all_names |= set(m.keys())
+    names = sorted(all_names)
+
     rows = []
     for name in names:
-        s = small_map.get(name, float("nan"))
-        b = big_map.get(name, float("nan"))
-        ratio = (b / s) if (not math.isnan(s) and not math.isnan(b) and s != 0) else float("nan")
-        pct = ((b - s) / s * 100.0) if (not math.isnan(s) and not math.isnan(b) and s != 0) else float("nan")
-        if math.isnan(pct):
-            trend = "same"
-        elif pct > 2.0:
-            trend = "regressed"
-        elif pct < -2.0:
-            trend = "improved"
-        else:
-            trend = "same"
-        rows.append({
-            "function": name,
-            "small_seconds": s,
-            "big_seconds": b,
-            "small_pretty": ("" if math.isnan(s) else human_time(s)),
-            "big_pretty": ("" if math.isnan(b) else human_time(b)),
-            "big/small": ratio,
-            "% change (big vs small)": pct,
-            "trend": trend,
-        })
+        row = {"function": name}
+        for domain in DOMAINS:
+            val = domain_maps.get(domain, {}).get(name, float("nan"))
+            row[domain] = val
+        rows.append(row)
     return rows
 
 def write_markdown(rows, out):
-    rows_sorted = sorted(
-        rows,
-        key=lambda r: ({"regressed":0, "same":1, "improved":2}[r["trend"]],
-                       -(r["% change (big vs small)"] or float("nan"))))
-    print("| Function | Small (median) | Big (median) | big/small | % change | Trend |", file=out)
-    print("|---|---:|---:|---:|---:|---|", file=out)
-    for r in rows_sorted:
-        bs = f'{r["big/small"]:.2f}' if r["big/small"]==r["big/small"] else "—"
-        pct = f'{r["% change (big vs small)"]:.1f}%' if r["% change (big vs small)"]==r["% change (big vs small)"] else "—"
-        print(f'| {r["function"]} | {r["small_pretty"]} | {r["big_pretty"]} | {bs} | {pct} | {r["trend"]} |', file=out)
-
-def write_csv(rows, out):
-    fieldnames = ["function","small_seconds","big_seconds","small_pretty","big_pretty","big/small","% change (big vs small)","trend"]
-    w = csv.DictWriter(out, fieldnames=fieldnames)
-    w.writeheader()
+    headers = ["Function"] + [DOMAIN_LABELS[d] for d in DOMAINS]
+    print("| " + " | ".join(headers) + " |", file=out)
+    print("|---" + "|---:" * len(DOMAINS) + "|", file=out)
     for r in rows:
-        w.writerow(r)
+        cols = [r["function"]]
+        for d in DOMAINS:
+            v = r[d]
+            cols.append("" if math.isnan(v) else human_time(v))
+        print("| " + " | ".join(cols) + " |", file=out)
 
 def main():
-    ap = argparse.ArgumentParser(description="Compare two Criterion benchmark outputs (small vs big).")
-    ap.add_argument("small_file", help="Path to small benchmark output text")
-    ap.add_argument("big_file", help="Path to big benchmark output text")
+    ap = argparse.ArgumentParser(description="Display Criterion benchmark results for all ring domains.")
+    ap.add_argument("file", help="Benchmark output file")
     ap.add_argument("--out-md", help="Write a Markdown table to this path")
-    ap.add_argument("--out-csv", help="Write a CSV table to this path")
     args = ap.parse_args()
 
-    with open(args.small_file, "r", encoding="utf-8") as f:
-        small_txt = f.read()
-    with open(args.big_file, "r", encoding="utf-8") as f:
-        big_txt = f.read()
+    with open(args.file, "r", encoding="utf-8") as f:
+        text = f.read()
 
-    small_map = parse_bench(small_txt)
-    big_map = parse_bench(big_txt)
-    rows = compare(small_map, big_map)
+    all_benches = parse_bench(text)
+    domain_maps = split_by_domain(all_benches)
 
-    if not args.out_md and not args.out_csv:
-        write_markdown(rows, sys.stdout)
+    for d in DOMAINS:
+        if d not in domain_maps:
+            print(f"Warning: no benchmarks found for '{d}'", file=sys.stderr)
+
+    rows = collect_rows(domain_maps)
+
+    if args.out_md:
+        with open(args.out_md, "w", encoding="utf-8") as out:
+            write_markdown(rows, out)
     else:
-        if args.out_md:
-            with open(args.out_md, "w", encoding="utf-8") as out:
-                write_markdown(rows, out)
-        if args.out_csv:
-            with open(args.out_csv, "w", encoding="utf-8", newline="") as out:
-                write_csv(rows, out)
+        write_markdown(rows, sys.stdout)
 
 if __name__ == "__main__":
     main()
-

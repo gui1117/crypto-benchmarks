@@ -5,14 +5,10 @@ edition = "2024"
 
 [dependencies]
 sp-core = "*"
-verifiable = { version = "0.2.0" }
-ark-vrf = "*"
+verifiable = { git = "https://github.com/paritytech/verifiable.git" }
 
 [dev-dependencies]
 criterion = "0.5"
-
-[features]
-small-ring = ["verifiable/small-ring"]
 
 [[bench]]
 name = "ed25519_verify"
