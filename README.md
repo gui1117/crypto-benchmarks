@@ -1,65 +1,50 @@
-Current difference between small and big rings:
+Benchmark results across ring domains:
 
-| Function | Small (median) | Big (median) | big/small | % change | Trend |
-|---|---:|---:|---:|---:|---|
-| create_at_fill_level/000_nearly_empty | 99.736 ms | 1.486 s | 14.90 | 1390.1% | regressed |
-| create_at_fill_level/025_quarter | 106.670 ms | 1.887 s | 17.69 | 1669.4% | regressed |
-| create_at_fill_level/050_half | 115.290 ms | 2.280 s | 19.78 | 1878.1% | regressed |
-| create_at_fill_level/075_three_quarters | 121.210 ms | 2.676 s | 22.08 | 2107.8% | regressed |
-| create_at_fill_level/100_full | 128.010 ms | 3.072 s | 24.00 | 2299.5% | regressed |
-| ed25519_verify | 39.280 µs | 39.820 µs | 1.01 | 1.4% | same |
-| finish_members_at_fill_level/000_nearly_empty | 114.430 ns | 104.760 ns | 0.92 | -8.5% | improved |
-| finish_members_at_fill_level/025_quarter | 120.920 ns | 110.150 ns | 0.91 | -8.9% | improved |
-| finish_members_at_fill_level/050_half | 113.520 ns | 111.120 ns | 0.98 | -2.1% | improved |
-| finish_members_at_fill_level/075_three_quarters | 114.030 ns | 112.320 ns | 0.99 | -1.5% | same |
-| finish_members_at_fill_level/100_full | 114.760 ns | 111.920 ns | 0.98 | -2.5% | improved |
-| is_valid_at_fill_level/000_nearly_empty | 9.671 ms | 33.961 ms | 3.51 | 251.2% | regressed |
-| is_valid_at_fill_level/025_quarter | 9.719 ms | 33.770 ms | 3.47 | 247.5% | regressed |
-| is_valid_at_fill_level/050_half | 9.704 ms | 33.174 ms | 3.42 | 241.9% | regressed |
-| is_valid_at_fill_level/075_three_quarters | 9.938 ms | 33.860 ms | 3.41 | 240.7% | regressed |
-| is_valid_at_fill_level/100_full | 9.767 ms | 33.857 ms | 3.47 | 246.6% | regressed |
-| open_at_fill_level/000_nearly_empty | 21.921 ms | 312.770 ms | 14.27 | 1326.8% | regressed |
-| open_at_fill_level/025_quarter | 28.796 ms | 694.990 ms | 24.13 | 2313.5% | regressed |
-| open_at_fill_level/050_half | 35.338 ms | 1.149 s | 32.52 | 3152.0% | regressed |
-| open_at_fill_level/075_three_quarters | 48.669 ms | 1.486 s | 30.53 | 2952.7% | regressed |
-| open_at_fill_level/100_full | 47.976 ms | 1.906 s | 39.74 | 3873.7% | regressed |
-| push_one_member_at_fill_level/025_quarter | 1.286 ms | 1.294 ms | 1.01 | 0.6% | same |
-| push_one_member_at_fill_level/050_half | 1.306 ms | 1.271 ms | 0.97 | -2.6% | improved |
-| push_one_member_at_fill_level/075_three_quarters | 1.292 ms | 1.259 ms | 0.97 | -2.5% | improved |
-| push_one_member_at_fill_level/empty | 1.309 ms | 1.313 ms | 1.00 | 0.3% | same |
-| push_one_member_at_fill_level/full_minus_one | 1.289 ms | 1.279 ms | 0.99 | -0.8% | same |
-| validate_at_fill_level/000_nearly_empty | 9.364 ms | 34.095 ms | 3.64 | 264.1% | regressed |
-| validate_at_fill_level/025_quarter | 9.719 ms | 33.782 ms | 3.48 | 247.6% | regressed |
-| validate_at_fill_level/050_half | 9.838 ms | 33.530 ms | 3.41 | 240.8% | regressed |
-| validate_at_fill_level/075_three_quarters | 9.930 ms | 33.374 ms | 3.36 | 236.1% | regressed |
-| validate_at_fill_level/100_full | 9.820 ms | 33.340 ms | 3.39 | 239.5% | regressed |
-| verifiable_alias_in_contex_for_255_ring_sizet | 123.820 µs | 123.270 µs | 1.00 | -0.4% | same |
-| verifiable_alias_in_context | 123.130 µs | 117.850 µs | 0.96 | -4.3% | improved |
-| verifiable_create | 128.940 ms | 3.152 s | 24.44 | 2344.5% | regressed |
-| verifiable_create_for_255_ring_size | 128.180 ms | 1.497 s | 11.68 | 1068.0% | regressed |
-| verifiable_finish_members | 103.870 ns | 103.350 ns | 0.99 | -0.5% | same |
-| verifiable_finish_members_for_255_ring_size | 105.710 ns | 103.210 ns | 0.98 | -2.4% | improved |
-| verifiable_finish_members_full | 107.530 ns | 117.320 ns | 1.09 | 9.1% | regressed |
-| verifiable_finish_members_full_for_255_ring_size | 109.870 ns | 111.110 ns | 1.01 | 1.1% | same |
-| verifiable_is_member_valid | 77.826 µs | 75.232 µs | 0.97 | -3.3% | improved |
-| verifiable_is_member_valid_for_255_ring_size | 77.962 µs | 78.158 µs | 1.00 | 0.3% | same |
-| verifiable_is_valid | 9.559 ms | 34.201 ms | 3.58 | 257.8% | regressed |
-| verifiable_is_valid_for_255_ring_size | 9.817 ms | 33.512 ms | 3.41 | 241.4% | regressed |
-| verifiable_member_from_secret | 42.601 ns | 44.111 ns | 1.04 | 3.5% | regressed |
-| verifiable_member_from_secret_for_255_ring_size | 42.695 ns | 43.152 ns | 1.01 | 1.1% | same |
-| verifiable_new_secret | 85.173 µs | 112.160 µs | 1.32 | 31.7% | regressed |
-| verifiable_new_secret_for_255_ring_size | 85.520 µs | 85.517 µs | 1.00 | -0.0% | same |
-| verifiable_open | 47.597 ms | 1.902 s | 39.95 | 3895.2% | regressed |
-| verifiable_open_for_255_ring_size | 47.144 ms | 322.840 ms | 6.85 | 584.8% | regressed |
-| verifiable_push_all_members_in_one_time | 32.782 ms | 1.756 s | 53.55 | 5255.1% | regressed |
-| verifiable_push_members_for_255_ring_size | 32.447 ms | 40.317 ms | 1.24 | 24.3% | regressed |
-| verifiable_push_one_member_in_almost_full | 1.295 ms | 1.252 ms | 0.97 | -3.3% | improved |
-| verifiable_push_one_member_in_almost_full_for_255_ring_size | 1.283 ms | 1.285 ms | 1.00 | 0.2% | same |
-| verifiable_sign | 291.670 µs | 274.350 µs | 0.94 | -5.9% | improved |
-| verifiable_sign_for_255_ring_size | 292.390 µs | 289.740 µs | 0.99 | -0.9% | same |
-| verifiable_start_members | 1.215 µs | 1.251 µs | 1.03 | 3.0% | regressed |
-| verifiable_start_members_for_255_ring_size | 1.215 µs | 1.227 µs | 1.01 | 1.0% | same |
-| verifiable_validate | 9.648 ms | 33.992 ms | 3.52 | 252.3% | regressed |
-| verifiable_validate_for_255_ring_size | 9.639 ms | 33.963 ms | 3.52 | 252.4% | regressed |
-| verifiable_verify_signature | 572.450 µs | 546.260 µs | 0.95 | -4.6% | improved |
-| verifiable_verify_signature_for_255_ring_size | 573.830 µs | 564.260 µs | 0.98 | -1.7% | same |
+| Function | Domain11 (255) | Domain12 (767) | Domain16 (16127) |
+|---|---:|---:|---:|
+| alias_in_context | 163.230 µs | 152.630 µs | 146.330 µs |
+| create | 102.510 ms | 197.630 ms | 3.015 s |
+| create_at_fill_level/full | 106.010 ms | 204.670 ms | 2.985 s |
+| create_at_fill_level/half | 92.056 ms | 163.780 ms | 2.111 s |
+| create_at_fill_level/nearly_empty | 78.401 ms | 122.530 ms | 1.266 s |
+| create_at_fill_level/quarter | 85.362 ms | 142.490 ms | 1.683 s |
+| create_at_fill_level/three_quarters | 98.712 ms | 184.170 ms | 2.528 s |
+| ed25519_verify |  |  |  |
+| finish_members | 103.500 ns | 103.030 ns | 100.150 ns |
+| finish_members_at_fill_level/full | 96.565 ns | 97.595 ns | 98.811 ns |
+| finish_members_at_fill_level/half | 96.486 ns | 98.714 ns | 96.927 ns |
+| finish_members_at_fill_level/nearly_empty | 97.308 ns | 98.975 ns | 96.855 ns |
+| finish_members_at_fill_level/quarter | 97.568 ns | 98.408 ns | 96.588 ns |
+| finish_members_at_fill_level/three_quarters | 98.073 ns | 98.139 ns | 98.615 ns |
+| finish_members_full | 95.631 ns | 97.499 ns | 97.193 ns |
+| is_member_valid | 105.860 µs | 98.817 µs | 95.921 µs |
+| is_valid | 6.311 ms | 6.722 ms | 20.536 ms |
+| is_valid_at_fill_level/full | 6.206 ms | 6.769 ms | 20.318 ms |
+| is_valid_at_fill_level/half | 6.148 ms | 6.755 ms | 20.204 ms |
+| is_valid_at_fill_level/nearly_empty | 6.202 ms | 6.743 ms | 20.257 ms |
+| is_valid_at_fill_level/quarter | 6.187 ms | 6.779 ms | 20.301 ms |
+| is_valid_at_fill_level/three_quarters | 6.152 ms | 6.816 ms | 20.291 ms |
+| member_from_secret | 58.538 ns | 56.532 ns | 56.281 ns |
+| new_secret | 104.620 µs | 102.610 µs | 102.020 µs |
+| open | 46.405 ms | 111.870 ms | 2.087 s |
+| open_at_fill_level/full | 44.843 ms | 112.130 ms | 2.062 s |
+| open_at_fill_level/half | 31.443 ms | 68.168 ms | 1.160 s |
+| open_at_fill_level/nearly_empty | 17.539 ms | 25.112 ms | 277.530 ms |
+| open_at_fill_level/quarter | 24.617 ms | 47.586 ms | 698.910 ms |
+| open_at_fill_level/three_quarters | 37.942 ms | 89.625 ms | 1.614 s |
+| push_all_members_in_one_time | 35.793 ms | 100.050 ms | 1.993 s |
+| push_one_member_at_fill_level/empty | 723.000 µs | 717.070 µs | 705.490 µs |
+| push_one_member_at_fill_level/full_minus_one | 705.770 µs | 702.410 µs | 679.140 µs |
+| push_one_member_at_fill_level/half | 710.580 µs | 706.210 µs | 687.860 µs |
+| push_one_member_at_fill_level/quarter | 703.790 µs | 696.080 µs | 689.850 µs |
+| push_one_member_at_fill_level/three_quarters | 694.850 µs | 692.970 µs | 684.300 µs |
+| push_one_member_in_almost_full | 704.920 µs | 715.300 µs | 685.880 µs |
+| sign | 449.730 µs | 436.560 µs | 429.600 µs |
+| start_members | 1.379 µs | 1.338 µs | 1.364 µs |
+| validate | 6.386 ms | 6.756 ms | 19.162 ms |
+| validate_at_fill_level/full | 6.200 ms | 6.803 ms | 20.249 ms |
+| validate_at_fill_level/half | 6.145 ms | 6.753 ms | 20.314 ms |
+| validate_at_fill_level/nearly_empty | 6.156 ms | 6.820 ms | 20.322 ms |
+| validate_at_fill_level/quarter | 6.269 ms | 6.729 ms | 20.304 ms |
+| validate_at_fill_level/three_quarters | 6.151 ms | 6.752 ms | 20.247 ms |
+| verify_signature | 736.560 µs | 697.140 µs | 681.540 µs |
