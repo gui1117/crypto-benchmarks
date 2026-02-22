@@ -808,10 +808,15 @@ fn bench_domain11(c: &mut Criterion) {
     bench_ring_fill_levels(c, RingDomainSize::Domain11);
 }
 
+fn bench_domain12(c: &mut Criterion) {
+    bench_verifiable_methods(c, RingDomainSize::Domain12);
+    bench_ring_fill_levels(c, RingDomainSize::Domain12);
+}
+
 fn bench_domain16(c: &mut Criterion) {
     bench_verifiable_methods(c, RingDomainSize::Domain16);
     bench_ring_fill_levels(c, RingDomainSize::Domain16);
 }
 
-criterion_group!(benches, bench_domain11, bench_domain16);
+criterion_group!(benches, bench_domain11, bench_domain12, bench_domain16);
 criterion_main!(benches);
