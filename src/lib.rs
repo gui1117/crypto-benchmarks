@@ -7,14 +7,14 @@ mod tests {
         bandersnatch::BandersnatchVrfVerifiable, ring_verifier_builder_params, RingDomainSize,
         StaticChunk,
     };
-    use verifiable::{Capacity, GenerateVerifiable};
+    use verifiable::{Error, GenerateVerifiable};
 
     type Suite = BandersnatchSha512Ell2;
     type BuilderParams = ark_vrf::ring::RingBuilderPcsParams<Suite>;
     type VerifiableImpl = BandersnatchVrfVerifiable;
     type Intermediate = <VerifiableImpl as GenerateVerifiable>::Intermediate;
     type Member = <VerifiableImpl as GenerateVerifiable>::Member;
-    type Cap = <VerifiableImpl as GenerateVerifiable>::Capacity;
+    type Config = <VerifiableImpl as GenerateVerifiable>::Config;
 
     fn entropy_from_index(idx: usize) -> [u8; 32] {
         let mut entropy = [0u8; 32];
@@ -31,7 +31,7 @@ mod tests {
         intermediate: &mut Intermediate,
         members: impl Iterator<Item = Member>,
         params: &BuilderParams,
-    ) -> Result<(), ()> {
+    ) -> Result<(), Error> {
         VerifiableImpl::push_members(intermediate, members, |range| {
             params
                 .lookup(range)
@@ -46,12 +46,12 @@ mod tests {
     }
 
     fn test_push_limit(domain: RingDomainSize) {
-        let capacity: Cap = domain.into();
-        let ring_size = capacity.size();
+        let config: Config = domain;
+        let ring_size = domain.max_ring_size::<Suite>();
         let builder_params =
             ring_verifier_builder_params::<Suite>(domain);
 
-        let mut builder = VerifiableImpl::start_members(capacity);
+        let mut builder = VerifiableImpl::start_members(config);
         for idx in 0..ring_size {
             let result =
                 push_with_lookup(&mut builder, std::iter::once(member_at(idx)), &builder_params);
