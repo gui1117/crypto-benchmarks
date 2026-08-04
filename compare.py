@@ -116,11 +116,15 @@ def human_time(seconds: float) -> str:
         return f"{seconds*1e3:.3f} ms"
     return f"{seconds:.3f} s"
 
+def natural_key(name: str):
+    # Sort embedded integers numerically so batch_validate/8 precedes batch_validate/128.
+    return [int(p) if p.isdigit() else p for p in re.split(r"(\d+)", name)]
+
 def collect_rows(domain_maps: dict) -> list:
     all_names = set()
     for m in domain_maps.values():
         all_names |= set(m.keys())
-    names = sorted(all_names)
+    names = sorted(all_names, key=natural_key)
 
     rows = []
     for name in names:
