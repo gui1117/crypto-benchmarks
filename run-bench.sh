@@ -13,8 +13,6 @@ cpu_threads=$(nproc)
 cpu_max=$(lscpu | sed -n 's/^CPU max MHz:[[:space:]]*//p' | head -1 \
     | awk '{ printf "%.2f GHz", $1 / 1000 }')
 mem_total=$(free -h | awk '/^Mem:/ { print $2 }')
-os_name=$(. /etc/os-release && echo "$PRETTY_NAME")
-kernel=$(uname -r)
 rustc_ver=$(rustc -V)
 
 {
@@ -24,7 +22,6 @@ rustc_ver=$(rustc -V)
     echo ""
     echo "- CPU: $cpu_model ($cpu_cores cores / $cpu_threads threads, boost $cpu_max)"
     echo "- Memory: $mem_total"
-    echo "- OS: $os_name (kernel $kernel)"
     echo "- Toolchain: $rustc_ver"
     echo ""
     cat tmp323928421

@@ -4,7 +4,6 @@ Hardware:
 
 - CPU: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz (4 cores / 8 threads, boost 4.70 GHz)
 - Memory: 14Gi
-- OS: Ubuntu 25.10 (kernel 6.17.0-35-generic)
 - Toolchain: rustc 1.92.0 (ded5c06cf 2025-12-08)
 
 | Function | Domain11 (255) | Domain12 (767) | Domain16 (16127) |
