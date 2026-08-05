@@ -21,6 +21,18 @@ DOMAIN_LABELS = {
 
 DURATION_RE = re.compile(r"([0-9]*\.?[0-9]+)\s*(ns|us|µs|μs|ms|s)\b")
 
+# Benchmarks that are deliberately not run for some domains, and the domains they are
+# absent from. Without this, an intentional omission is indistinguishable from a run that
+# died partway through, and --strict refuses to publish a table that is in fact complete.
+#
+# Keep in sync with `batch_sizes_for` in `benches/verifiable_validate.rs`; an entry here
+# only says a gap is allowed, so a benchmark listed but still measured is not an error.
+EXPECTED_GAPS = {
+    # Every proof in the batch needs its own `open`, which is seconds at domain16, so
+    # 1024 of them is roughly 45 minutes of untimed setup. See LARGE_SINGLE_RING_BATCH.
+    "batch_validate/single_ring/1024": {"domain16"},
+}
+
 def extract_estimate_from_brackets(bracket_str: str) -> float:
     """Return the point estimate from a Criterion `time: [lower estimate upper]` bracket.
 
@@ -183,7 +195,8 @@ def main():
     covered = [d for d in DOMAINS if domain_maps.get(d)]
     incomplete = []
     for r in rows:
-        gaps = [d for d in covered if math.isnan(r[d])]
+        allowed = EXPECTED_GAPS.get(r["function"], frozenset())
+        gaps = [d for d in covered if math.isnan(r[d]) and d not in allowed]
         if gaps and len(gaps) < len(covered):
             incomplete.append((r["function"], gaps))
     for name, gaps in incomplete:
