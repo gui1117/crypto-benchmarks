@@ -1,1733 +1,1894 @@
-    Finished `bench` profile [optimized] target(s) in 0.08s
-     Running unittests src/lib.rs (target/release/deps/ressai-3c357573c917f725)
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling version_check v0.9.5
+   Compiling typenum v1.19.0
+   Compiling cfg-if v1.0.4
+   Compiling libc v0.2.177
+   Compiling generic-array v0.14.9
+   Compiling subtle v2.6.1
+   Compiling const-oid v0.9.6
+   Compiling zerocopy v0.8.27
+   Compiling autocfg v1.5.0
+   Compiling serde_core v1.0.228
+   Compiling syn v2.0.109
+   Compiling arrayvec v0.7.6
+   Compiling getrandom v0.2.16
+   Compiling num-traits v0.2.19
+   Compiling rand_core v0.6.4
+   Compiling serde v1.0.228
+   Compiling either v1.15.0
+   Compiling crossbeam-utils v0.8.21
+   Compiling crossbeam-epoch v0.9.18
+   Compiling rayon-core v1.13.0
+   Compiling equivalent v1.0.2
+   Compiling winnow v0.7.13
+   Compiling crossbeam-deque v0.8.6
+   Compiling hashbrown v0.16.0
+   Compiling rustversion v1.0.22
+   Compiling indexmap v2.12.0
+   Compiling toml_parser v1.0.4
+   Compiling unicode-xid v0.2.6
+   Compiling toml_datetime v0.7.3
+   Compiling rayon v1.11.0
+   Compiling toml_edit v0.23.7
+   Compiling proc-macro-crate v3.4.0
+   Compiling num-integer v0.1.46
+   Compiling paste v1.0.15
+   Compiling once_cell v1.21.3
+   Compiling zeroize_derive v1.4.2
+   Compiling zerocopy-derive v0.8.27
+   Compiling serde_derive v1.0.228
+   Compiling zeroize v1.8.2
+   Compiling byteorder v1.5.0
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.4
+   Compiling digest v0.10.7
+   Compiling enum-ordinalize-derive v4.3.2
+   Compiling ark-serialize-derive v0.5.0
+   Compiling num-bigint v0.4.6
+   Compiling ppv-lite86 v0.2.21
+   Compiling enum-ordinalize v4.3.2
+   Compiling rand_chacha v0.3.1
+   Compiling const_format_proc_macros v0.2.34
+   Compiling keccak v0.1.5
+   Compiling rand v0.8.5
+   Compiling cpufeatures v0.2.17
+   Compiling foldhash v0.1.5
+   Compiling allocator-api2 v0.2.21
+   Compiling educe v0.6.0
+   Compiling const_format v0.2.35
+   Compiling ark-std v0.5.0
+   Compiling hashbrown v0.15.5
+   Compiling ark-serialize v0.5.0
+   Compiling ark-ff-macros v0.5.0
+   Compiling impl-trait-for-tuples v0.2.3
+   Compiling ark-ff-asm v0.5.0
+   Compiling parity-scale-codec v3.7.5
+   Compiling itertools v0.13.0
+   Compiling ahash v0.8.12
+   Compiling byte-slice-cast v1.2.3
+   Compiling parity-scale-codec-derive v3.7.5
+   Compiling sha2 v0.10.9
+   Compiling merlin v3.0.0
+   Compiling ark-ff v0.5.0
+   Compiling crunchy v0.2.4
+   Compiling getrandom_or_panic v0.0.3
+   Compiling derive_more-impl v1.0.0
+   Compiling semver v1.0.27
+   Compiling rustc_version v0.4.1
+   Compiling digest v0.9.0
+   Compiling sha3 v0.10.8
+   Compiling derive_more v1.0.0
+   Compiling der v0.7.10
+   Compiling scale-info-derive v2.11.6
+   Compiling static_assertions v1.1.0
+   Compiling memchr v2.7.6
+   Compiling scale-info v2.11.6
+   Compiling libsecp256k1-core v0.3.0
+   Compiling curve25519-dalek v4.1.3
+   Compiling jam-codec v0.1.1
+   Compiling base16ct v0.2.0
+   Compiling find-msvc-tools v0.1.4
+   Compiling itoa v1.0.15
+   Compiling serde_json v1.0.145
+   Compiling arrayref v0.3.9
+   Compiling shlex v1.3.0
+   Compiling cc v1.2.44
+   Compiling serdect v0.2.0
+   Compiling spki v0.7.3
+   Compiling hmac v0.12.1
+   Compiling signature v2.2.0
+   Compiling curve25519-dalek-derive v0.1.1
+   Compiling jam-codec-derive v0.1.1
+   Compiling ff v0.13.1
+   Compiling bitcoin-internals v0.2.0
+   Compiling ryu v1.0.20
+   Compiling ref-cast v1.0.25
+   Compiling futures-sink v0.3.31
+   Compiling futures-core v0.3.31
+   Compiling pin-project-lite v0.2.16
+   Compiling smallvec v1.15.1
+   Compiling futures-channel v0.3.31
+   Compiling group v0.13.0
+   Compiling secp256k1-sys v0.9.2
+   Compiling pkcs8 v0.10.2
+   Compiling sec1 v0.7.3
+   Compiling libsecp256k1-gen-ecmult v0.3.0
+   Compiling libsecp256k1-gen-genmult v0.3.0
+   Compiling impl-serde v0.5.0
+   Compiling crypto-bigint v0.5.5
+   Compiling futures-macro v0.3.31
+   Compiling ref-cast-impl v1.0.25
+   Compiling futures-task v0.3.31
+   Compiling parking_lot_core v0.9.12
+   Compiling Inflector v0.11.4
+   Compiling base64ct v1.8.0
+   Compiling futures-io v0.3.31
+   Compiling hex v0.4.3
+   Compiling pin-utils v0.1.0
+   Compiling log v0.4.28
+   Compiling slab v0.4.11
+   Compiling tinyvec_macros v0.1.1
+   Compiling tinyvec v1.10.0
+   Compiling futures-util v0.3.31
+   Compiling elliptic-curve v0.13.8
+   Compiling uint v0.10.0
+   Compiling bounded-collections v0.3.2
+   Compiling password-hash v0.5.0
+   Compiling ss58-registry v1.51.0
+   Compiling libsecp256k1 v0.7.2
+   Compiling rfc6979 v0.4.0
+   Compiling half v2.7.1
+   Compiling block-buffer v0.9.0
+   Compiling sp-debug-derive v14.0.0
+   Compiling serde_bytes v0.11.19
+   Compiling integer-sqrt v0.1.5
+   Compiling num_cpus v1.17.0
+   Compiling plotters-backend v0.3.7
+   Compiling scopeguard v1.2.0
+   Compiling constant_time_eq v0.3.1
+   Compiling ciborium-io v0.2.2
+   Compiling regex-syntax v0.8.8
+   Compiling thiserror v1.0.69
+   Compiling clap_lex v0.7.6
+   Compiling opaque-debug v0.3.1
+   Compiling rustc-hex v2.1.0
+   Compiling anstyle v1.0.13
+   Compiling hex-conservative v0.1.2
+   Compiling ark-poly v0.5.0
+   Compiling ark-transcript v0.0.3
+   Compiling bitcoin_hashes v0.13.0
+   Compiling ark-ec v0.5.0
+   Compiling regex-automata v0.4.13
+   Compiling clap_builder v4.5.51
+   Compiling w3f-pcs v0.0.5
+   Compiling ark-bls12-381 v0.5.0
+   Compiling w3f-plonk-common v0.0.7
+   Compiling ark-ed-on-bls12-381-bandersnatch v0.5.0
+   Compiling fixed-hash v0.8.0
+   Compiling sha2 v0.9.9
+   Compiling w3f-ring-proof v0.0.8
+   Compiling ciborium-ll v0.2.2
+   Compiling blake2b_simd v1.0.3
+   Compiling lock_api v0.4.14
+   Compiling plotters-svg v0.3.7
+   Compiling ark-vrf v0.5.1
+   Compiling futures-executor v0.3.31
+   Compiling impl-num-traits v0.2.0
+   Compiling schnorrkel v0.11.5
+   Compiling sp-storage v22.0.0
+   Compiling ecdsa v0.16.9
+   Compiling pbkdf2 v0.12.2
+   Compiling unicode-normalization v0.1.22
+   Compiling ed25519 v2.2.3
+   Compiling num-format v0.4.4
+   Compiling ark-scale v0.0.13
+   Compiling twox-hash v1.6.3
+   Compiling impl-codec v0.7.1
+   Compiling tracing-core v0.1.34
+   Compiling thiserror-impl v1.0.69
+   Compiling tracing-attributes v0.1.30
+   Compiling itertools v0.10.5
+   Compiling spin v0.9.8
+   Compiling base64 v0.22.1
+   Compiling same-file v1.0.6
+   Compiling environmental v1.1.4
+   Compiling cast v0.3.0
+   Compiling sp-externalities v0.30.0
+   Compiling tracing v0.1.41
+   Compiling walkdir v2.5.0
+   Compiling verifiable v0.5.0 (https://github.com/paritytech/verifiable.git#1f9f6752)
+   Compiling primitive-types v0.13.1
+   Compiling criterion-plot v0.5.0
+   Compiling sp-crypto-hashing v0.1.0
+   Compiling parity-bip39 v2.0.1
+   Compiling ed25519-zebra v4.1.0
+   Compiling substrate-bip39 v0.6.0
+   Compiling k256 v0.13.4
+   Compiling parking_lot v0.12.5
+   Compiling tinytemplate v1.2.1
+   Compiling futures v0.3.31
+   Compiling plotters v0.3.7
+   Compiling ciborium v0.2.2
+   Compiling clap v4.5.51
+   Compiling secp256k1 v0.28.2
+   Compiling regex v1.12.2
+   Compiling hash256-std-hasher v0.15.2
+   Compiling blake2 v0.10.6
+   Compiling secrecy v0.8.0
+   Compiling itertools v0.11.0
+   Compiling is-terminal v0.4.17
+   Compiling hash-db v0.16.0
+   Compiling dyn-clone v1.0.20
+   Compiling oorandom v11.1.5
+   Compiling bitflags v1.3.2
+   Compiling sp-std v14.0.0
+   Compiling bs58 v0.5.1
+   Compiling anes v0.1.6
+   Compiling array-bytes v6.2.3
+   Compiling criterion v0.5.1
+   Compiling crypto-benchmarks v0.1.0 (/home/gui/crypto-benchmarks)
+   Compiling sp-core v38.1.0
+    Finished `bench` profile [optimized] target(s) in 1m 03s
+     Running unittests src/lib.rs (target/release/deps/crypto_benchmarks-7ca605806baf3f2d)
 
 running 1 test
 test tests::ring_size_is_the_push_limit_domain11 ... ignored
 
 test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running unittests src/main.rs (target/release/deps/ressai-48910c09d5f12146)
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
-
-     Running benches/ed25519_verify.rs (target/release/deps/ed25519_verify-efe82a6036faab99)
+     Running benches/ed25519_verify.rs (target/release/deps/ed25519_verify-847d7d60e3bcfb36)
 Gnuplot not found, using plotters backend
 Benchmarking ed25519_verify
 Benchmarking ed25519_verify: Warming up for 3.0000 s
-Benchmarking ed25519_verify: Collecting 100 samples in estimated 5.1276 s (157k iterations)
+Benchmarking ed25519_verify: Collecting 100 samples in estimated 5.0312 s (157k iterations)
 Benchmarking ed25519_verify: Analyzing
-ed25519_verify          time:   [33.256 µs 33.365 µs 33.483 µs]
-                        change: [+3.7568% +4.4702% +5.2202%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 5 outliers among 100 measurements (5.00%)
-  3 (3.00%) high mild
-  2 (2.00%) high severe
+ed25519_verify          time:   [30.877 µs 30.918 µs 30.965 µs]
+                        change: [-7.0234% -6.6100% -6.1973%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) low mild
+  5 (5.00%) high mild
 
-     Running benches/verifiable_validate.rs (target/release/deps/verifiable_validate-97b961b7bea87f0a)
+     Running benches/verifiable_validate.rs (target/release/deps/verifiable_validate-9a0bd6ab00e0758b)
 Gnuplot not found, using plotters backend
+benchmark rayon threads: 4
+Benchmarking domain11/canary_before
+Benchmarking domain11/canary_before: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.6s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/canary_before: Collecting 50 samples in estimated 6.6488 s (1275 iterations)
+Benchmarking domain11/canary_before: Analyzing
+domain11/canary_before  time:   [5.1829 ms 5.1984 ms 5.2162 ms]
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
+
 Benchmarking domain11/start_members
-Benchmarking domain11/start_members: Warming up for 3.0000 s
-Benchmarking domain11/start_members: Collecting 100 samples in estimated 5.0001 s (59M iterations)
+Benchmarking domain11/start_members: Warming up for 500.00 ms
+Benchmarking domain11/start_members: Collecting 100 samples in estimated 2.0000 s (29M iterations)
 Benchmarking domain11/start_members: Analyzing
-domain11/start_members  time:   [81.932 ns 82.481 ns 83.131 ns]
-                        change: [-94.008% -93.947% -93.877%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 8 outliers among 100 measurements (8.00%)
+domain11/start_members  time:   [71.100 ns 72.010 ns 73.269 ns]
+Found 15 outliers among 100 measurements (15.00%)
+  1 (1.00%) low mild
   6 (6.00%) high mild
-  2 (2.00%) high severe
-
-Benchmarking domain11/push_all_members_in_one_time
-Benchmarking domain11/push_all_members_in_one_time: Warming up for 3.0000 s
-Benchmarking domain11/push_all_members_in_one_time: Collecting 100 samples in estimated 8.0906 s (200 iterations)
-Benchmarking domain11/push_all_members_in_one_time: Analyzing
-domain11/push_all_members_in_one_time
-                        time:   [39.309 ms 39.485 ms 39.671 ms]
-                        change: [+8.9878% +10.316% +11.585%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 4 outliers among 100 measurements (4.00%)
-  4 (4.00%) high mild
-
-Benchmarking domain11/push_one_member_in_almost_full
-Benchmarking domain11/push_one_member_in_almost_full: Warming up for 3.0000 s
-Benchmarking domain11/push_one_member_in_almost_full: Collecting 100 samples in estimated 8.2311 s (10k iterations)
-Benchmarking domain11/push_one_member_in_almost_full: Analyzing
-domain11/push_one_member_in_almost_full
-                        time:   [783.35 µs 790.81 µs 798.82 µs]
-                        change: [+12.758% +14.819% +16.950%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  2 (2.00%) high mild
-  5 (5.00%) high severe
-
-Benchmarking domain11/finish_members
-Benchmarking domain11/finish_members: Warming up for 3.0000 s
-Benchmarking domain11/finish_members: Collecting 100 samples in estimated 5.0000 s (15M iterations)
-Benchmarking domain11/finish_members: Analyzing
-domain11/finish_members time:   [88.138 ns 89.285 ns 90.393 ns]
-                        change: [-16.336% -12.041% -7.7632%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
-Benchmarking domain11/finish_members_full
-Benchmarking domain11/finish_members_full: Warming up for 3.0000 s
-Benchmarking domain11/finish_members_full: Collecting 100 samples in estimated 5.0013 s (15M iterations)
-Benchmarking domain11/finish_members_full: Analyzing
-domain11/finish_members_full
-                        time:   [87.411 ns 88.562 ns 89.725 ns]
-                        change: [-13.956% -9.7790% -5.8788%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
+  8 (8.00%) high severe
 Benchmarking domain11/new_secret
-Benchmarking domain11/new_secret: Warming up for 3.0000 s
-Benchmarking domain11/new_secret: Collecting 100 samples in estimated 5.0401 s (45k iterations)
+Benchmarking domain11/new_secret: Warming up for 500.00 ms
+Benchmarking domain11/new_secret: Collecting 100 samples in estimated 2.2049 s (20k iterations)
 Benchmarking domain11/new_secret: Analyzing
-domain11/new_secret     time:   [107.29 µs 107.73 µs 108.21 µs]
-                        change: [+3.1058% +3.7507% +4.3765%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 3 outliers among 100 measurements (3.00%)
-  2 (2.00%) high mild
-  1 (1.00%) high severe
-
+domain11/new_secret     time:   [105.83 µs 106.12 µs 106.47 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
 Benchmarking domain11/member_from_secret
-Benchmarking domain11/member_from_secret: Warming up for 3.0000 s
-Benchmarking domain11/member_from_secret: Collecting 100 samples in estimated 5.0002 s (78M iterations)
+Benchmarking domain11/member_from_secret: Warming up for 500.00 ms
+Benchmarking domain11/member_from_secret: Collecting 100 samples in estimated 2.0001 s (36M iterations)
 Benchmarking domain11/member_from_secret: Analyzing
 domain11/member_from_secret
-                        time:   [62.215 ns 62.370 ns 62.526 ns]
-                        change: [+6.7007% +7.4843% +8.2378%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 25 outliers among 100 measurements (25.00%)
-  2 (2.00%) low severe
-  5 (5.00%) low mild
-  11 (11.00%) high mild
-  7 (7.00%) high severe
-
-Benchmarking domain11/open
-Benchmarking domain11/open: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.0s, or reduce sample count to 90.
-Benchmarking domain11/open: Collecting 100 samples in estimated 5.0030 s (100 iterations)
-Benchmarking domain11/open: Analyzing
-domain11/open           time:   [48.482 ms 48.732 ms 49.001 ms]
-                        change: [+3.5686% +5.0158% +6.4188%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 8 outliers among 100 measurements (8.00%)
-  7 (7.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain11/create
-Benchmarking domain11/create: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.3s, or reduce sample count to 40.
-Benchmarking domain11/create: Collecting 100 samples in estimated 12.267 s (100 iterations)
-Benchmarking domain11/create: Analyzing
-domain11/create         time:   [120.67 ms 121.16 ms 121.68 ms]
-                        change: [+16.363% +18.190% +20.064%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-
-Benchmarking domain11/sign
-Benchmarking domain11/sign: Warming up for 3.0000 s
-Benchmarking domain11/sign: Collecting 100 samples in estimated 5.4787 s (25k iterations)
-Benchmarking domain11/sign: Analyzing
-domain11/sign           time:   [211.43 µs 212.28 µs 213.16 µs]
-                        change: [-54.283% -53.418% -52.714%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 5 outliers among 100 measurements (5.00%)
+                        time:   [55.508 ns 55.768 ns 56.091 ns]
+Found 9 outliers among 100 measurements (9.00%)
+  1 (1.00%) low mild
   2 (2.00%) high mild
-  3 (3.00%) high severe
-
+  6 (6.00%) high severe
+Benchmarking domain11/sign
+Benchmarking domain11/sign: Warming up for 500.00 ms
+Benchmarking domain11/sign: Collecting 100 samples in estimated 2.1507 s (10k iterations)
+Benchmarking domain11/sign: Analyzing
+domain11/sign           time:   [209.05 µs 209.25 µs 209.51 µs]
+Found 15 outliers among 100 measurements (15.00%)
+  2 (2.00%) low mild
+  4 (4.00%) high mild
+  9 (9.00%) high severe
 Benchmarking domain11/alias_in_context
-Benchmarking domain11/alias_in_context: Warming up for 3.0000 s
-Benchmarking domain11/alias_in_context: Collecting 100 samples in estimated 5.9691 s (20k iterations)
+Benchmarking domain11/alias_in_context: Warming up for 500.00 ms
+Benchmarking domain11/alias_in_context: Collecting 100 samples in estimated 2.7921 s (10k iterations)
 Benchmarking domain11/alias_in_context: Analyzing
 domain11/alias_in_context
-                        time:   [284.27 µs 285.24 µs 286.35 µs]
-                        change: [+73.678% +75.084% +76.416%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 3 outliers among 100 measurements (3.00%)
+                        time:   [282.93 µs 284.03 µs 285.21 µs]
+Found 2 outliers among 100 measurements (2.00%)
   1 (1.00%) high mild
-  2 (2.00%) high severe
-
-Benchmarking domain11/validate
-Benchmarking domain11/validate: Warming up for 3.0000 s
-Benchmarking domain11/validate: Collecting 100 samples in estimated 5.0388 s (800 iterations)
-Benchmarking domain11/validate: Analyzing
-domain11/validate       time:   [6.0510 ms 6.0786 ms 6.1092 ms]
-                        change: [-6.4680% -4.8092% -3.2552%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 8 outliers among 100 measurements (8.00%)
-  6 (6.00%) high mild
-  2 (2.00%) high severe
-
-Benchmarking domain11/is_valid
-Benchmarking domain11/is_valid: Warming up for 3.0000 s
-Benchmarking domain11/is_valid: Collecting 100 samples in estimated 5.6154 s (900 iterations)
-Benchmarking domain11/is_valid: Analyzing
-domain11/is_valid       time:   [6.0538 ms 6.0776 ms 6.1033 ms]
-                        change: [-4.8957% -3.6972% -2.5482%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 9 outliers among 100 measurements (9.00%)
-  7 (7.00%) high mild
-  2 (2.00%) high severe
-
+  1 (1.00%) high severe
 Benchmarking domain11/verify_signature
-Benchmarking domain11/verify_signature: Warming up for 3.0000 s
-Benchmarking domain11/verify_signature: Collecting 100 samples in estimated 6.6269 s (15k iterations)
+Benchmarking domain11/verify_signature: Warming up for 500.00 ms
+Benchmarking domain11/verify_signature: Collecting 100 samples in estimated 3.7685 s (10k iterations)
 Benchmarking domain11/verify_signature: Analyzing
 domain11/verify_signature
-                        time:   [419.54 µs 421.26 µs 423.02 µs]
-                        change: [-42.914% -41.763% -40.666%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 4 outliers among 100 measurements (4.00%)
-  1 (1.00%) high mild
-  3 (3.00%) high severe
-
+                        time:   [371.43 µs 372.31 µs 373.27 µs]
 Benchmarking domain11/is_member_valid
-Benchmarking domain11/is_member_valid: Warming up for 3.0000 s
-Benchmarking domain11/is_member_valid: Collecting 100 samples in estimated 5.2464 s (50k iterations)
+Benchmarking domain11/is_member_valid: Warming up for 500.00 ms
+Benchmarking domain11/is_member_valid: Collecting 100 samples in estimated 2.0974 s (20k iterations)
 Benchmarking domain11/is_member_valid: Analyzing
 domain11/is_member_valid
-                        time:   [100.51 µs 100.93 µs 101.40 µs]
-                        change: [-5.1291% -4.0884% -3.1051%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 11 outliers among 100 measurements (11.00%)
-  5 (5.00%) high mild
-  6 (6.00%) high severe
+                        time:   [103.29 µs 103.51 µs 103.79 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  1 (1.00%) low mild
+  4 (4.00%) high mild
+  7 (7.00%) high severe
+
+Benchmarking domain11/push_all_members_in_one_time
+Benchmarking domain11/push_all_members_in_one_time: Warming up for 1.0000 s
+Benchmarking domain11/push_all_members_in_one_time: Collecting 20 samples in estimated 5.0068 s (140 iterations)
+Benchmarking domain11/push_all_members_in_one_time: Analyzing
+domain11/push_all_members_in_one_time
+                        time:   [35.557 ms 35.790 ms 36.026 ms]
 
 Benchmarking domain11/push_one_member_at_fill_level/empty
-Benchmarking domain11/push_one_member_at_fill_level/empty: Warming up for 3.0000 s
-Benchmarking domain11/push_one_member_at_fill_level/empty: Collecting 100 samples in estimated 7.6405 s (10k iterations)
+Benchmarking domain11/push_one_member_at_fill_level/empty: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain11/push_one_member_at_fill_level/empty: Collecting 100 samples in estimated 3.0451 s (5050 iterations)
 Benchmarking domain11/push_one_member_at_fill_level/empty: Analyzing
 domain11/push_one_member_at_fill_level/empty
-                        time:   [754.55 µs 758.28 µs 762.19 µs]
-                        change: [+3.8244% +5.5238% +7.6140%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 4 outliers among 100 measurements (4.00%)
-  2 (2.00%) high mild
-  2 (2.00%) high severe
+                        time:   [598.79 µs 600.28 µs 602.31 µs]
+                        change: [-22.465% -21.169% -20.324%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  2 (2.00%) low mild
+  1 (1.00%) high mild
+  3 (3.00%) high severe
 Benchmarking domain11/push_one_member_at_fill_level/quarter
-Benchmarking domain11/push_one_member_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain11/push_one_member_at_fill_level/quarter: Collecting 100 samples in estimated 7.7554 s (10k iterations)
+Benchmarking domain11/push_one_member_at_fill_level/quarter: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain11/push_one_member_at_fill_level/quarter: Collecting 100 samples in estimated 2.9626 s (5050 iterations)
 Benchmarking domain11/push_one_member_at_fill_level/quarter: Analyzing
 domain11/push_one_member_at_fill_level/quarter
-                        time:   [740.54 µs 744.74 µs 749.20 µs]
-                        change: [+5.1557% +6.4076% +7.6625%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 4 outliers among 100 measurements (4.00%)
-  3 (3.00%) high mild
+                        time:   [585.48 µs 586.63 µs 588.02 µs]
+                        change: [-21.579% -21.087% -20.603%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) low mild
+  4 (4.00%) high mild
   1 (1.00%) high severe
 Benchmarking domain11/push_one_member_at_fill_level/half
-Benchmarking domain11/push_one_member_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain11/push_one_member_at_fill_level/half: Collecting 100 samples in estimated 7.6815 s (10k iterations)
+Benchmarking domain11/push_one_member_at_fill_level/half: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 2.9s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain11/push_one_member_at_fill_level/half: Collecting 100 samples in estimated 2.9454 s (5050 iterations)
 Benchmarking domain11/push_one_member_at_fill_level/half: Analyzing
 domain11/push_one_member_at_fill_level/half
-                        time:   [735.43 µs 739.20 µs 743.27 µs]
-                        change: [+0.5997% +2.5890% +4.4359%] (p = 0.01 < 0.05)
-                        Change within noise threshold.
-Found 13 outliers among 100 measurements (13.00%)
-  1 (1.00%) low mild
-  5 (5.00%) high mild
-  7 (7.00%) high severe
+                        time:   [582.79 µs 583.73 µs 584.70 µs]
+                        change: [-22.038% -21.180% -20.554%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
 Benchmarking domain11/push_one_member_at_fill_level/three_quarters
-Benchmarking domain11/push_one_member_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain11/push_one_member_at_fill_level/three_quarters: Collecting 100 samples in estimated 7.8172 s (10k iterations)
+Benchmarking domain11/push_one_member_at_fill_level/three_quarters: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain11/push_one_member_at_fill_level/three_quarters: Collecting 100 samples in estimated 3.0389 s (5050 iterations)
 Benchmarking domain11/push_one_member_at_fill_level/three_quarters: Analyzing
 domain11/push_one_member_at_fill_level/three_quarters
-                        time:   [752.20 µs 756.38 µs 760.96 µs]
-                        change: [+6.8816% +8.2026% +9.5089%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 8 outliers among 100 measurements (8.00%)
-  6 (6.00%) high mild
+                        time:   [601.35 µs 603.24 µs 605.66 µs]
+                        change: [-20.774% -20.209% -19.661%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  2 (2.00%) low mild
+  3 (3.00%) high mild
   2 (2.00%) high severe
 Benchmarking domain11/push_one_member_at_fill_level/full_minus_one
-Benchmarking domain11/push_one_member_at_fill_level/full_minus_one: Warming up for 3.0000 s
-Benchmarking domain11/push_one_member_at_fill_level/full_minus_one: Collecting 100 samples in estimated 7.8057 s (10k iterations)
+Benchmarking domain11/push_one_member_at_fill_level/full_minus_one: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain11/push_one_member_at_fill_level/full_minus_one: Collecting 100 samples in estimated 3.0080 s (5050 iterations)
 Benchmarking domain11/push_one_member_at_fill_level/full_minus_one: Analyzing
 domain11/push_one_member_at_fill_level/full_minus_one
-                        time:   [751.18 µs 754.53 µs 758.02 µs]
-                        change: [+5.2067% +6.8760% +8.5570%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
+                        time:   [592.11 µs 593.05 µs 594.10 µs]
+                        change: [-21.776% -21.089% -20.504%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
   1 (1.00%) low mild
   3 (3.00%) high mild
-  3 (3.00%) high severe
+  4 (4.00%) high severe
 
 Benchmarking domain11/finish_members_at_fill_level/nearly_empty
-Benchmarking domain11/finish_members_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain11/finish_members_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.0002 s (15M iterations)
+Benchmarking domain11/finish_members_at_fill_level/nearly_empty: Warming up for 500.00 ms
+Benchmarking domain11/finish_members_at_fill_level/nearly_empty: Collecting 100 samples in estimated 2.0010 s (7.9M iterations)
 Benchmarking domain11/finish_members_at_fill_level/nearly_empty: Analyzing
 domain11/finish_members_at_fill_level/nearly_empty
-                        time:   [86.583 ns 87.672 ns 88.752 ns]
-                        change: [-15.893% -12.271% -8.3925%] (p = 0.00 < 0.05)
+                        time:   [58.025 ns 60.679 ns 62.993 ns]
+                        change: [-37.372% -34.392% -30.993%] (p = 0.00 < 0.05)
                         Performance has improved.
+Found 5 outliers among 100 measurements (5.00%)
+  5 (5.00%) high mild
 Benchmarking domain11/finish_members_at_fill_level/quarter
-Benchmarking domain11/finish_members_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain11/finish_members_at_fill_level/quarter: Collecting 100 samples in estimated 5.0009 s (15M iterations)
+Benchmarking domain11/finish_members_at_fill_level/quarter: Warming up for 500.00 ms
+Benchmarking domain11/finish_members_at_fill_level/quarter: Collecting 100 samples in estimated 2.0001 s (8.2M iterations)
 Benchmarking domain11/finish_members_at_fill_level/quarter: Analyzing
 domain11/finish_members_at_fill_level/quarter
-                        time:   [87.312 ns 88.446 ns 89.617 ns]
-                        change: [-14.655% -10.587% -6.6605%] (p = 0.00 < 0.05)
+                        time:   [58.167 ns 60.640 ns 62.776 ns]
+                        change: [-38.374% -35.354% -32.253%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain11/finish_members_at_fill_level/half
-Benchmarking domain11/finish_members_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain11/finish_members_at_fill_level/half: Collecting 100 samples in estimated 5.0014 s (15M iterations)
+Benchmarking domain11/finish_members_at_fill_level/half: Warming up for 500.00 ms
+Benchmarking domain11/finish_members_at_fill_level/half: Collecting 100 samples in estimated 2.0009 s (8.0M iterations)
 Benchmarking domain11/finish_members_at_fill_level/half: Analyzing
 domain11/finish_members_at_fill_level/half
-                        time:   [86.774 ns 87.883 ns 88.994 ns]
-                        change: [-13.043% -9.4464% -5.2210%] (p = 0.00 < 0.05)
+                        time:   [58.950 ns 61.448 ns 63.640 ns]
+                        change: [-36.484% -33.565% -30.383%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain11/finish_members_at_fill_level/three_quarters
-Benchmarking domain11/finish_members_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain11/finish_members_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.0000 s (15M iterations)
+Benchmarking domain11/finish_members_at_fill_level/three_quarters: Warming up for 500.00 ms
+Benchmarking domain11/finish_members_at_fill_level/three_quarters: Collecting 100 samples in estimated 2.0010 s (8.0M iterations)
 Benchmarking domain11/finish_members_at_fill_level/three_quarters: Analyzing
 domain11/finish_members_at_fill_level/three_quarters
-                        time:   [86.014 ns 87.094 ns 88.187 ns]
-                        change: [-16.313% -12.656% -8.4779%] (p = 0.00 < 0.05)
+                        time:   [58.858 ns 61.211 ns 63.272 ns]
+                        change: [-35.947% -32.818% -29.650%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain11/finish_members_at_fill_level/full
-Benchmarking domain11/finish_members_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain11/finish_members_at_fill_level/full: Collecting 100 samples in estimated 5.0009 s (15M iterations)
+Benchmarking domain11/finish_members_at_fill_level/full: Warming up for 500.00 ms
+Benchmarking domain11/finish_members_at_fill_level/full: Collecting 100 samples in estimated 2.0009 s (8.1M iterations)
 Benchmarking domain11/finish_members_at_fill_level/full: Analyzing
 domain11/finish_members_at_fill_level/full
-                        time:   [86.431 ns 87.461 ns 88.494 ns]
-                        change: [-14.606% -10.419% -6.2931%] (p = 0.00 < 0.05)
+                        time:   [58.790 ns 61.488 ns 63.838 ns]
+                        change: [-37.148% -33.985% -30.604%] (p = 0.00 < 0.05)
                         Performance has improved.
-
-Benchmarking domain11/open_at_fill_level/nearly_empty
-Benchmarking domain11/open_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain11/open_at_fill_level/nearly_empty: Collecting 100 samples in estimated 6.4316 s (300 iterations)
-Benchmarking domain11/open_at_fill_level/nearly_empty: Analyzing
-domain11/open_at_fill_level/nearly_empty
-                        time:   [21.089 ms 21.258 ms 21.440 ms]
-                        change: [+18.881% +21.207% +23.556%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 9 outliers among 100 measurements (9.00%)
-  8 (8.00%) high mild
-  1 (1.00%) high severe
-Benchmarking domain11/open_at_fill_level/quarter
-Benchmarking domain11/open_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain11/open_at_fill_level/quarter: Collecting 100 samples in estimated 5.6694 s (200 iterations)
-Benchmarking domain11/open_at_fill_level/quarter: Analyzing
-domain11/open_at_fill_level/quarter
-                        time:   [27.841 ms 28.019 ms 28.216 ms]
-                        change: [+11.871% +13.819% +15.776%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 12 outliers among 100 measurements (12.00%)
-  3 (3.00%) high mild
-  9 (9.00%) high severe
-Benchmarking domain11/open_at_fill_level/half
-Benchmarking domain11/open_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain11/open_at_fill_level/half: Collecting 100 samples in estimated 6.9834 s (200 iterations)
-Benchmarking domain11/open_at_fill_level/half: Analyzing
-domain11/open_at_fill_level/half
-                        time:   [34.099 ms 34.246 ms 34.410 ms]
-                        change: [+7.1987% +8.9163% +10.615%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
+Found 1 outliers among 100 measurements (1.00%)
   1 (1.00%) high mild
-  6 (6.00%) high severe
-Benchmarking domain11/open_at_fill_level/three_quarters
-Benchmarking domain11/open_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain11/open_at_fill_level/three_quarters: Collecting 100 samples in estimated 8.3877 s (200 iterations)
-Benchmarking domain11/open_at_fill_level/three_quarters: Analyzing
-domain11/open_at_fill_level/three_quarters
-                        time:   [41.011 ms 41.174 ms 41.346 ms]
-                        change: [+6.9837% +8.5183% +10.003%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 8 outliers among 100 measurements (8.00%)
-  8 (8.00%) high mild
-Benchmarking domain11/open_at_fill_level/full
-Benchmarking domain11/open_at_fill_level/full: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.0s, or reduce sample count to 90.
-Benchmarking domain11/open_at_fill_level/full: Collecting 100 samples in estimated 5.0054 s (100 iterations)
-Benchmarking domain11/open_at_fill_level/full: Analyzing
-domain11/open_at_fill_level/full
-                        time:   [48.374 ms 48.647 ms 48.954 ms]
-                        change: [+7.3350% +8.4829% +9.6596%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 10 outliers among 100 measurements (10.00%)
-  6 (6.00%) high mild
-  4 (4.00%) high severe
-
-Benchmarking domain11/create_at_fill_level/nearly_empty
-Benchmarking domain11/create_at_fill_level/nearly_empty: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 9.4s, or reduce sample count to 50.
-Benchmarking domain11/create_at_fill_level/nearly_empty: Collecting 100 samples in estimated 9.4445 s (100 iterations)
-Benchmarking domain11/create_at_fill_level/nearly_empty: Analyzing
-domain11/create_at_fill_level/nearly_empty
-                        time:   [93.605 ms 94.170 ms 94.778 ms]
-                        change: [+18.174% +20.113% +22.073%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 18 outliers among 100 measurements (18.00%)
-  14 (14.00%) high mild
-  4 (4.00%) high severe
-Benchmarking domain11/create_at_fill_level/quarter
-Benchmarking domain11/create_at_fill_level/quarter: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 10.2s, or reduce sample count to 40.
-Benchmarking domain11/create_at_fill_level/quarter: Collecting 100 samples in estimated 10.168 s (100 iterations)
-Benchmarking domain11/create_at_fill_level/quarter: Analyzing
-domain11/create_at_fill_level/quarter
-                        time:   [99.834 ms 100.35 ms 100.91 ms]
-                        change: [+15.821% +17.564% +19.400%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 11 outliers among 100 measurements (11.00%)
-  11 (11.00%) high mild
-Benchmarking domain11/create_at_fill_level/half
-Benchmarking domain11/create_at_fill_level/half: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 10.7s, or reduce sample count to 40.
-Benchmarking domain11/create_at_fill_level/half: Collecting 100 samples in estimated 10.730 s (100 iterations)
-Benchmarking domain11/create_at_fill_level/half: Analyzing
-domain11/create_at_fill_level/half
-                        time:   [105.38 ms 105.86 ms 106.37 ms]
-                        change: [+13.234% +14.998% +16.825%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 12 outliers among 100 measurements (12.00%)
-  12 (12.00%) high mild
-Benchmarking domain11/create_at_fill_level/three_quarters
-Benchmarking domain11/create_at_fill_level/three_quarters: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 11.6s, or reduce sample count to 40.
-Benchmarking domain11/create_at_fill_level/three_quarters: Collecting 100 samples in estimated 11.555 s (100 iterations)
-Benchmarking domain11/create_at_fill_level/three_quarters: Analyzing
-domain11/create_at_fill_level/three_quarters
-                        time:   [112.67 ms 113.11 ms 113.57 ms]
-                        change: [+12.862% +14.583% +16.305%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high mild
-Benchmarking domain11/create_at_fill_level/full
-Benchmarking domain11/create_at_fill_level/full: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.2s, or reduce sample count to 40.
-Benchmarking domain11/create_at_fill_level/full: Collecting 100 samples in estimated 12.205 s (100 iterations)
-Benchmarking domain11/create_at_fill_level/full: Analyzing
-domain11/create_at_fill_level/full
-                        time:   [120.05 ms 120.57 ms 121.12 ms]
-                        change: [+12.071% +13.730% +15.372%] (p = 0.00 < 0.05)
-                        Performance has regressed.
 
 Benchmarking domain11/validate_at_fill_level/nearly_empty
-Benchmarking domain11/validate_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain11/validate_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.5719 s (900 iterations)
+Benchmarking domain11/validate_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/validate_at_fill_level/nearly_empty: Collecting 50 samples in estimated 6.4780 s (1275 iterations)
 Benchmarking domain11/validate_at_fill_level/nearly_empty: Analyzing
 domain11/validate_at_fill_level/nearly_empty
-                        time:   [6.0034 ms 6.0260 ms 6.0508 ms]
-                        change: [-3.2399% -2.1074% -1.0444%] (p = 0.00 < 0.05)
+                        time:   [5.0529 ms 5.0658 ms 5.0800 ms]
+                        change: [-16.450% -16.005% -15.539%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 11 outliers among 100 measurements (11.00%)
-  7 (7.00%) high mild
-  4 (4.00%) high severe
+Found 5 outliers among 50 measurements (10.00%)
+  1 (2.00%) low severe
+  2 (4.00%) low mild
+  1 (2.00%) high mild
+  1 (2.00%) high severe
 Benchmarking domain11/validate_at_fill_level/quarter
-Benchmarking domain11/validate_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain11/validate_at_fill_level/quarter: Collecting 100 samples in estimated 5.5696 s (900 iterations)
+Benchmarking domain11/validate_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.6s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/validate_at_fill_level/quarter: Collecting 50 samples in estimated 6.5749 s (1275 iterations)
 Benchmarking domain11/validate_at_fill_level/quarter: Analyzing
 domain11/validate_at_fill_level/quarter
-                        time:   [6.0156 ms 6.0358 ms 6.0582 ms]
-                        change: [-5.2634% -3.7235% -2.4082%] (p = 0.00 < 0.05)
+                        time:   [5.1074 ms 5.1207 ms 5.1340 ms]
+                        change: [-15.631% -15.247% -14.873%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 7 outliers among 100 measurements (7.00%)
-  3 (3.00%) high mild
-  4 (4.00%) high severe
 Benchmarking domain11/validate_at_fill_level/half
-Benchmarking domain11/validate_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain11/validate_at_fill_level/half: Collecting 100 samples in estimated 5.5798 s (900 iterations)
+Benchmarking domain11/validate_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/validate_at_fill_level/half: Collecting 50 samples in estimated 6.4895 s (1275 iterations)
 Benchmarking domain11/validate_at_fill_level/half: Analyzing
 domain11/validate_at_fill_level/half
-                        time:   [6.0333 ms 6.0573 ms 6.0839 ms]
-                        change: [-2.4157% -1.4325% -0.4895%] (p = 0.00 < 0.05)
-                        Change within noise threshold.
-Found 14 outliers among 100 measurements (14.00%)
-  6 (6.00%) high mild
-  8 (8.00%) high severe
+                        time:   [5.0516 ms 5.0650 ms 5.0826 ms]
+                        change: [-16.726% -16.307% -15.908%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) high mild
+  1 (2.00%) high severe
 Benchmarking domain11/validate_at_fill_level/three_quarters
-Benchmarking domain11/validate_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain11/validate_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.5898 s (900 iterations)
+Benchmarking domain11/validate_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.6s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/validate_at_fill_level/three_quarters: Collecting 50 samples in estimated 6.5566 s (1275 iterations)
 Benchmarking domain11/validate_at_fill_level/three_quarters: Analyzing
 domain11/validate_at_fill_level/three_quarters
-                        time:   [6.0399 ms 6.0618 ms 6.0856 ms]
-                        change: [-2.3701% -1.4484% -0.5553%] (p = 0.00 < 0.05)
-                        Change within noise threshold.
-Found 10 outliers among 100 measurements (10.00%)
-  7 (7.00%) high mild
-  3 (3.00%) high severe
+                        time:   [5.0786 ms 5.0971 ms 5.1193 ms]
+                        change: [-16.597% -16.177% -15.778%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 3 outliers among 50 measurements (6.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high mild
+  1 (2.00%) high severe
 Benchmarking domain11/validate_at_fill_level/full
-Benchmarking domain11/validate_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain11/validate_at_fill_level/full: Collecting 100 samples in estimated 5.5947 s (900 iterations)
+Benchmarking domain11/validate_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/validate_at_fill_level/full: Collecting 50 samples in estimated 6.4577 s (1275 iterations)
 Benchmarking domain11/validate_at_fill_level/full: Analyzing
 domain11/validate_at_fill_level/full
-                        time:   [6.0293 ms 6.0482 ms 6.0684 ms]
-                        change: [-3.7242% -2.4498% -1.3079%] (p = 0.00 < 0.05)
+                        time:   [5.0544 ms 5.0752 ms 5.0997 ms]
+                        change: [-16.336% -15.612% -14.807%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 12 outliers among 100 measurements (12.00%)
-  6 (6.00%) high mild
-  6 (6.00%) high severe
+Found 5 outliers among 50 measurements (10.00%)
+  3 (6.00%) high mild
+  2 (4.00%) high severe
 
 Benchmarking domain11/is_valid_at_fill_level/nearly_empty
-Benchmarking domain11/is_valid_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain11/is_valid_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.5689 s (900 iterations)
+Benchmarking domain11/is_valid_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.4s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/is_valid_at_fill_level/nearly_empty: Collecting 50 samples in estimated 6.4397 s (1275 iterations)
 Benchmarking domain11/is_valid_at_fill_level/nearly_empty: Analyzing
 domain11/is_valid_at_fill_level/nearly_empty
-                        time:   [6.0183 ms 6.0378 ms 6.0594 ms]
-                        change: [-4.0601% -2.6506% -1.3413%] (p = 0.00 < 0.05)
+                        time:   [5.0438 ms 5.0538 ms 5.0644 ms]
+                        change: [-16.777% -16.420% -16.082%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 10 outliers among 100 measurements (10.00%)
-  5 (5.00%) high mild
-  5 (5.00%) high severe
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) low mild
 Benchmarking domain11/is_valid_at_fill_level/quarter
-Benchmarking domain11/is_valid_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain11/is_valid_at_fill_level/quarter: Collecting 100 samples in estimated 5.5799 s (900 iterations)
+Benchmarking domain11/is_valid_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/is_valid_at_fill_level/quarter: Collecting 50 samples in estimated 6.5122 s (1275 iterations)
 Benchmarking domain11/is_valid_at_fill_level/quarter: Analyzing
 domain11/is_valid_at_fill_level/quarter
-                        time:   [6.0102 ms 6.0312 ms 6.0540 ms]
-                        change: [-3.3992% -2.5111% -1.6711%] (p = 0.00 < 0.05)
+                        time:   [5.0902 ms 5.1010 ms 5.1125 ms]
+                        change: [-15.735% -15.308% -14.858%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 15 outliers among 100 measurements (15.00%)
-  3 (3.00%) low mild
-  6 (6.00%) high mild
-  6 (6.00%) high severe
+Found 5 outliers among 50 measurements (10.00%)
+  1 (2.00%) low mild
+  2 (4.00%) high mild
+  2 (4.00%) high severe
 Benchmarking domain11/is_valid_at_fill_level/half
-Benchmarking domain11/is_valid_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain11/is_valid_at_fill_level/half: Collecting 100 samples in estimated 5.5910 s (900 iterations)
+Benchmarking domain11/is_valid_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/is_valid_at_fill_level/half: Collecting 50 samples in estimated 6.4730 s (1275 iterations)
 Benchmarking domain11/is_valid_at_fill_level/half: Analyzing
 domain11/is_valid_at_fill_level/half
-                        time:   [6.0179 ms 6.0389 ms 6.0616 ms]
-                        change: [-2.7842% -1.7762% -0.7984%] (p = 0.00 < 0.05)
-                        Change within noise threshold.
-Found 9 outliers among 100 measurements (9.00%)
-  1 (1.00%) low mild
-  3 (3.00%) high mild
-  5 (5.00%) high severe
+                        time:   [5.0428 ms 5.0536 ms 5.0650 ms]
+                        change: [-16.540% -16.093% -15.587%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high severe
 Benchmarking domain11/is_valid_at_fill_level/three_quarters
-Benchmarking domain11/is_valid_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain11/is_valid_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.5859 s (900 iterations)
+Benchmarking domain11/is_valid_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/is_valid_at_fill_level/three_quarters: Collecting 50 samples in estimated 6.5011 s (1275 iterations)
 Benchmarking domain11/is_valid_at_fill_level/three_quarters: Analyzing
 domain11/is_valid_at_fill_level/three_quarters
-                        time:   [6.0187 ms 6.0408 ms 6.0652 ms]
-                        change: [-2.8390% -1.8134% -0.8029%] (p = 0.00 < 0.05)
-                        Change within noise threshold.
-Found 11 outliers among 100 measurements (11.00%)
-  1 (1.00%) low mild
-  4 (4.00%) high mild
-  6 (6.00%) high severe
+                        time:   [5.0807 ms 5.0939 ms 5.1081 ms]
+                        change: [-16.301% -15.859% -15.447%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 50 measurements (4.00%)
+  2 (4.00%) low mild
 Benchmarking domain11/is_valid_at_fill_level/full
-Benchmarking domain11/is_valid_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain11/is_valid_at_fill_level/full: Collecting 100 samples in estimated 5.0103 s (800 iterations)
+Benchmarking domain11/is_valid_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/is_valid_at_fill_level/full: Collecting 50 samples in estimated 6.4735 s (1275 iterations)
 Benchmarking domain11/is_valid_at_fill_level/full: Analyzing
 domain11/is_valid_at_fill_level/full
-                        time:   [6.0223 ms 6.0449 ms 6.0695 ms]
-                        change: [-3.9215% -2.5999% -1.3566%] (p = 0.00 < 0.05)
+                        time:   [5.0711 ms 5.0863 ms 5.1005 ms]
+                        change: [-16.556% -16.122% -15.642%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 15 outliers among 100 measurements (15.00%)
-  1 (1.00%) low mild
-  2 (2.00%) high mild
-  12 (12.00%) high severe
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high severe
 
-Benchmarking domain11/batch_validate/1
-Benchmarking domain11/batch_validate/1: Warming up for 3.0000 s
-Benchmarking domain11/batch_validate/1: Collecting 100 samples in estimated 5.1694 s (1000 iterations)
-Benchmarking domain11/batch_validate/1: Analyzing
-domain11/batch_validate/1
-                        time:   [5.1282 ms 5.1533 ms 5.1812 ms]
-Found 10 outliers among 100 measurements (10.00%)
-  4 (4.00%) high mild
-  6 (6.00%) high severe
-Benchmarking domain11/batch_validate/2
-Benchmarking domain11/batch_validate/2: Warming up for 3.0000 s
-Benchmarking domain11/batch_validate/2: Collecting 100 samples in estimated 5.0724 s (700 iterations)
-Benchmarking domain11/batch_validate/2: Analyzing
-domain11/batch_validate/2
-                        time:   [7.0820 ms 7.1227 ms 7.1674 ms]
-Found 12 outliers among 100 measurements (12.00%)
-  6 (6.00%) high mild
-  6 (6.00%) high severe
-Benchmarking domain11/batch_validate/4
-Benchmarking domain11/batch_validate/4: Warming up for 3.0000 s
-Benchmarking domain11/batch_validate/4: Collecting 100 samples in estimated 5.5847 s (500 iterations)
-Benchmarking domain11/batch_validate/4: Analyzing
-domain11/batch_validate/4
-                        time:   [10.944 ms 10.994 ms 11.048 ms]
-Found 10 outliers among 100 measurements (10.00%)
-  7 (7.00%) high mild
-  3 (3.00%) high severe
-Benchmarking domain11/batch_validate/8
-Benchmarking domain11/batch_validate/8: Warming up for 3.0000 s
-Benchmarking domain11/batch_validate/8: Collecting 100 samples in estimated 5.6628 s (300 iterations)
-Benchmarking domain11/batch_validate/8: Analyzing
-domain11/batch_validate/8
-                        time:   [18.510 ms 18.597 ms 18.690 ms]
-Found 11 outliers among 100 measurements (11.00%)
-  8 (8.00%) high mild
-  3 (3.00%) high severe
-Benchmarking domain11/batch_validate/16
-Benchmarking domain11/batch_validate/16: Warming up for 3.0000 s
-Benchmarking domain11/batch_validate/16: Collecting 100 samples in estimated 6.7704 s (200 iterations)
-Benchmarking domain11/batch_validate/16: Analyzing
-domain11/batch_validate/16
-                        time:   [32.841 ms 32.963 ms 33.094 ms]
-Found 8 outliers among 100 measurements (8.00%)
-  6 (6.00%) high mild
-  2 (2.00%) high severe
-Benchmarking domain11/batch_validate/32
-Benchmarking domain11/batch_validate/32: Warming up for 3.0000 s
+Benchmarking domain11/open_at_fill_level/nearly_empty
+Benchmarking domain11/open_at_fill_level/nearly_empty: Warming up for 1.0000 s
+Benchmarking domain11/open_at_fill_level/nearly_empty: Collecting 20 samples in estimated 5.1246 s (360 iterations)
+Benchmarking domain11/open_at_fill_level/nearly_empty: Analyzing
+domain11/open_at_fill_level/nearly_empty
+                        time:   [14.220 ms 14.244 ms 14.266 ms]
+                        change: [-33.581% -32.997% -32.455%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) low mild
+Benchmarking domain11/open_at_fill_level/quarter
+Benchmarking domain11/open_at_fill_level/quarter: Warming up for 1.0000 s
+Benchmarking domain11/open_at_fill_level/quarter: Collecting 20 samples in estimated 5.1147 s (240 iterations)
+Benchmarking domain11/open_at_fill_level/quarter: Analyzing
+domain11/open_at_fill_level/quarter
+                        time:   [21.266 ms 21.295 ms 21.323 ms]
+                        change: [-24.537% -23.996% -23.495%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain11/open_at_fill_level/half
+Benchmarking domain11/open_at_fill_level/half: Warming up for 1.0000 s
+Benchmarking domain11/open_at_fill_level/half: Collecting 20 samples in estimated 5.1632 s (180 iterations)
+Benchmarking domain11/open_at_fill_level/half: Analyzing
+domain11/open_at_fill_level/half
+                        time:   [28.656 ms 28.710 ms 28.770 ms]
+                        change: [-16.593% -16.166% -15.764%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
+Benchmarking domain11/open_at_fill_level/three_quarters
+Benchmarking domain11/open_at_fill_level/three_quarters: Warming up for 1.0000 s
+Benchmarking domain11/open_at_fill_level/three_quarters: Collecting 20 samples in estimated 5.0543 s (140 iterations)
+Benchmarking domain11/open_at_fill_level/three_quarters: Analyzing
+domain11/open_at_fill_level/three_quarters
+                        time:   [36.101 ms 36.203 ms 36.310 ms]
+                        change: [-12.526% -12.074% -11.623%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain11/open_at_fill_level/full
+Benchmarking domain11/open_at_fill_level/full: Warming up for 1.0000 s
+Benchmarking domain11/open_at_fill_level/full: Collecting 20 samples in estimated 5.2371 s (120 iterations)
+Benchmarking domain11/open_at_fill_level/full: Analyzing
+domain11/open_at_fill_level/full
+                        time:   [43.415 ms 43.517 ms 43.623 ms]
+                        change: [-11.148% -10.546% -10.001%] (p = 0.00 < 0.05)
+                        Performance has improved.
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 6.3s, or reduce sample count to 70.
-Benchmarking domain11/batch_validate/32: Collecting 100 samples in estimated 6.2744 s (100 iterations)
-Benchmarking domain11/batch_validate/32: Analyzing
-domain11/batch_validate/32
-                        time:   [62.274 ms 62.771 ms 63.352 ms]
-Found 6 outliers among 100 measurements (6.00%)
-  3 (3.00%) high mild
-  3 (3.00%) high severe
-Benchmarking domain11/batch_validate/64
-Benchmarking domain11/batch_validate/64: Warming up for 3.0000 s
+Benchmarking domain11/open_and_create_at_fill_level/nearly_empty
+Benchmarking domain11/open_and_create_at_fill_level/nearly_empty: Warming up for 1.0000 s
+Benchmarking domain11/open_and_create_at_fill_level/nearly_empty: Collecting 20 samples in estimated 5.0357 s (80 iterations)
+Benchmarking domain11/open_and_create_at_fill_level/nearly_empty: Analyzing
+domain11/open_and_create_at_fill_level/nearly_empty
+                        time:   [62.788 ms 62.860 ms 62.931 ms]
+Benchmarking domain11/open_and_create_at_fill_level/quarter
+Benchmarking domain11/open_and_create_at_fill_level/quarter: Warming up for 1.0000 s
+Benchmarking domain11/open_and_create_at_fill_level/quarter: Collecting 20 samples in estimated 5.6220 s (80 iterations)
+Benchmarking domain11/open_and_create_at_fill_level/quarter: Analyzing
+domain11/open_and_create_at_fill_level/quarter
+                        time:   [70.072 ms 70.164 ms 70.270 ms]
+Found 3 outliers among 20 measurements (15.00%)
+  1 (5.00%) low mild
+  1 (5.00%) high mild
+  1 (5.00%) high severe
+Benchmarking domain11/open_and_create_at_fill_level/half
+Benchmarking domain11/open_and_create_at_fill_level/half: Warming up for 1.0000 s
+Benchmarking domain11/open_and_create_at_fill_level/half: Collecting 20 samples in estimated 6.2271 s (80 iterations)
+Benchmarking domain11/open_and_create_at_fill_level/half: Analyzing
+domain11/open_and_create_at_fill_level/half
+                        time:   [77.636 ms 77.803 ms 78.000 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
+Benchmarking domain11/open_and_create_at_fill_level/three_quarters
+Benchmarking domain11/open_and_create_at_fill_level/three_quarters: Warming up for 1.0000 s
+Benchmarking domain11/open_and_create_at_fill_level/three_quarters: Collecting 20 samples in estimated 5.1305 s (60 iterations)
+Benchmarking domain11/open_and_create_at_fill_level/three_quarters: Analyzing
+domain11/open_and_create_at_fill_level/three_quarters
+                        time:   [85.364 ms 85.539 ms 85.726 ms]
+Found 4 outliers among 20 measurements (20.00%)
+  1 (5.00%) low mild
+  3 (15.00%) high mild
+Benchmarking domain11/open_and_create_at_fill_level/full
+Benchmarking domain11/open_and_create_at_fill_level/full: Warming up for 1.0000 s
+Benchmarking domain11/open_and_create_at_fill_level/full: Collecting 20 samples in estimated 5.6045 s (60 iterations)
+Benchmarking domain11/open_and_create_at_fill_level/full: Analyzing
+domain11/open_and_create_at_fill_level/full
+                        time:   [93.137 ms 93.370 ms 93.628 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.0s, or reduce sample count to 40.
-Benchmarking domain11/batch_validate/64: Collecting 100 samples in estimated 11.998 s (100 iterations)
-Benchmarking domain11/batch_validate/64: Analyzing
-domain11/batch_validate/64
-                        time:   [116.29 ms 116.67 ms 117.07 ms]
-Found 6 outliers among 100 measurements (6.00%)
-  6 (6.00%) high mild
-Benchmarking domain11/batch_validate/128
-Benchmarking domain11/batch_validate/128: Warming up for 3.0000 s
+Benchmarking domain11/batch_validate/single_ring/1
+Benchmarking domain11/batch_validate/single_ring/1: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/1: Collecting 20 samples in estimated 5.0527 s (1160 iterations)
+Benchmarking domain11/batch_validate/single_ring/1: Analyzing
+domain11/batch_validate/single_ring/1
+                        time:   [4.3264 ms 4.3344 ms 4.3440 ms]
+Found 3 outliers among 20 measurements (15.00%)
+  1 (5.00%) high mild
+  2 (10.00%) high severe
+Benchmarking domain11/batch_validate/single_ring/2
+Benchmarking domain11/batch_validate/single_ring/2: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/2: Collecting 20 samples in estimated 5.0674 s (840 iterations)
+Benchmarking domain11/batch_validate/single_ring/2: Analyzing
+domain11/batch_validate/single_ring/2
+                        time:   [6.0130 ms 6.0253 ms 6.0396 ms]
+Found 2 outliers among 20 measurements (10.00%)
+  2 (10.00%) high mild
+Benchmarking domain11/batch_validate/single_ring/4
+Benchmarking domain11/batch_validate/single_ring/4: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/4: Collecting 20 samples in estimated 5.0156 s (540 iterations)
+Benchmarking domain11/batch_validate/single_ring/4: Analyzing
+domain11/batch_validate/single_ring/4
+                        time:   [9.2274 ms 9.2509 ms 9.2750 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
+Benchmarking domain11/batch_validate/single_ring/8
+Benchmarking domain11/batch_validate/single_ring/8: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/8: Collecting 20 samples in estimated 5.0140 s (320 iterations)
+Benchmarking domain11/batch_validate/single_ring/8: Analyzing
+domain11/batch_validate/single_ring/8
+                        time:   [15.665 ms 15.692 ms 15.721 ms]
+Benchmarking domain11/batch_validate/single_ring/16
+Benchmarking domain11/batch_validate/single_ring/16: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/16: Collecting 20 samples in estimated 5.0164 s (180 iterations)
+Benchmarking domain11/batch_validate/single_ring/16: Analyzing
+domain11/batch_validate/single_ring/16
+                        time:   [27.846 ms 27.879 ms 27.915 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
+Benchmarking domain11/batch_validate/single_ring/32
+Benchmarking domain11/batch_validate/single_ring/32: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/32: Collecting 20 samples in estimated 5.2155 s (100 iterations)
+Benchmarking domain11/batch_validate/single_ring/32: Analyzing
+domain11/batch_validate/single_ring/32
+                        time:   [51.953 ms 52.009 ms 52.074 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high severe
+Benchmarking domain11/batch_validate/single_ring/64
+Benchmarking domain11/batch_validate/single_ring/64: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/64: Collecting 20 samples in estimated 5.9964 s (60 iterations)
+Benchmarking domain11/batch_validate/single_ring/64: Analyzing
+domain11/batch_validate/single_ring/64
+                        time:   [99.712 ms 99.822 ms 99.956 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
+Benchmarking domain11/batch_validate/single_ring/128
+Benchmarking domain11/batch_validate/single_ring/128: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/single_ring/128: Collecting 20 samples in estimated 7.8010 s (40 iterations)
+Benchmarking domain11/batch_validate/single_ring/128: Analyzing
+domain11/batch_validate/single_ring/128
+                        time:   [194.86 ms 194.98 ms 195.09 ms]
+Benchmarking domain11/batch_validate/single_ring/1024
+Benchmarking domain11/batch_validate/single_ring/1024: Warming up for 1.0000 s
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 23.2s, or reduce sample count to 20.
-Benchmarking domain11/batch_validate/128: Collecting 100 samples in estimated 23.245 s (100 iterations)
-Benchmarking domain11/batch_validate/128: Analyzing
-domain11/batch_validate/128
-                        time:   [225.90 ms 226.43 ms 226.97 ms]
+Warning: Unable to complete 20 samples in 5.0s. You may wish to increase target time to 30.0s, or reduce sample count to 10.
+Benchmarking domain11/batch_validate/single_ring/1024: Collecting 20 samples in estimated 30.028 s (20 iterations)
+Benchmarking domain11/batch_validate/single_ring/1024: Analyzing
+domain11/batch_validate/single_ring/1024
+                        time:   [1.4998 s 1.5009 s 1.5021 s]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) high mild
+
+Benchmarking domain11/batch_validate/multi_ring/1
+Benchmarking domain11/batch_validate/multi_ring/1: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/1: Collecting 20 samples in estimated 5.0688 s (1160 iterations)
+Benchmarking domain11/batch_validate/multi_ring/1: Analyzing
+domain11/batch_validate/multi_ring/1
+                        time:   [4.3593 ms 4.3680 ms 4.3771 ms]
+Benchmarking domain11/batch_validate/multi_ring/2
+Benchmarking domain11/batch_validate/multi_ring/2: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/2: Collecting 20 samples in estimated 5.0566 s (800 iterations)
+Benchmarking domain11/batch_validate/multi_ring/2: Analyzing
+domain11/batch_validate/multi_ring/2
+                        time:   [6.2882 ms 6.2982 ms 6.3076 ms]
+Benchmarking domain11/batch_validate/multi_ring/4
+Benchmarking domain11/batch_validate/multi_ring/4: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/4: Collecting 20 samples in estimated 5.0746 s (500 iterations)
+Benchmarking domain11/batch_validate/multi_ring/4: Analyzing
+domain11/batch_validate/multi_ring/4
+                        time:   [10.125 ms 10.142 ms 10.158 ms]
+Benchmarking domain11/batch_validate/multi_ring/8
+Benchmarking domain11/batch_validate/multi_ring/8: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/8: Collecting 20 samples in estimated 5.3152 s (300 iterations)
+Benchmarking domain11/batch_validate/multi_ring/8: Analyzing
+domain11/batch_validate/multi_ring/8
+                        time:   [17.709 ms 17.737 ms 17.764 ms]
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) low mild
+Benchmarking domain11/batch_validate/multi_ring/16
+Benchmarking domain11/batch_validate/multi_ring/16: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/16: Collecting 20 samples in estimated 5.1754 s (160 iterations)
+Benchmarking domain11/batch_validate/multi_ring/16: Analyzing
+domain11/batch_validate/multi_ring/16
+                        time:   [32.155 ms 32.239 ms 32.319 ms]
+Benchmarking domain11/batch_validate/multi_ring/32
+Benchmarking domain11/batch_validate/multi_ring/32: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/32: Collecting 20 samples in estimated 6.1274 s (100 iterations)
+Benchmarking domain11/batch_validate/multi_ring/32: Analyzing
+domain11/batch_validate/multi_ring/32
+                        time:   [61.143 ms 61.296 ms 61.443 ms]
+Benchmarking domain11/batch_validate/multi_ring/64
+Benchmarking domain11/batch_validate/multi_ring/64: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/64: Collecting 20 samples in estimated 7.1462 s (60 iterations)
+Benchmarking domain11/batch_validate/multi_ring/64: Analyzing
+domain11/batch_validate/multi_ring/64
+                        time:   [118.67 ms 119.01 ms 119.41 ms]
+Found 3 outliers among 20 measurements (15.00%)
+  1 (5.00%) low mild
+  1 (5.00%) high mild
+  1 (5.00%) high severe
+Benchmarking domain11/batch_validate/multi_ring/128
+Benchmarking domain11/batch_validate/multi_ring/128: Warming up for 1.0000 s
+Benchmarking domain11/batch_validate/multi_ring/128: Collecting 20 samples in estimated 9.3538 s (40 iterations)
+Benchmarking domain11/batch_validate/multi_ring/128: Analyzing
+domain11/batch_validate/multi_ring/128
+                        time:   [232.50 ms 232.97 ms 233.43 ms]
+
+Benchmarking domain11/canary_after
+Benchmarking domain11/canary_after: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain11/canary_after: Collecting 50 samples in estimated 6.4608 s (1275 iterations)
+Benchmarking domain11/canary_after: Analyzing
+domain11/canary_after   time:   [5.0380 ms 5.0474 ms 5.0564 ms]
+Found 4 outliers among 50 measurements (8.00%)
+  2 (4.00%) low mild
+  2 (4.00%) high mild
+
+Benchmarking domain12/canary_before
+Benchmarking domain12/canary_before: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.6s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/canary_before: Collecting 50 samples in estimated 6.6048 s (1275 iterations)
+Benchmarking domain12/canary_before: Analyzing
+domain12/canary_before  time:   [5.1248 ms 5.1389 ms 5.1534 ms]
+Found 3 outliers among 50 measurements (6.00%)
+  2 (4.00%) high mild
+  1 (2.00%) high severe
 
 Benchmarking domain12/start_members
-Benchmarking domain12/start_members: Warming up for 3.0000 s
-Benchmarking domain12/start_members: Collecting 100 samples in estimated 5.0001 s (63M iterations)
+Benchmarking domain12/start_members: Warming up for 500.00 ms
+Benchmarking domain12/start_members: Collecting 100 samples in estimated 2.0003 s (30M iterations)
 Benchmarking domain12/start_members: Analyzing
-domain12/start_members  time:   [77.780 ns 78.102 ns 78.426 ns]
-                        change: [-94.277% -94.222% -94.174%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 5 outliers among 100 measurements (5.00%)
+domain12/start_members  time:   [66.350 ns 66.395 ns 66.449 ns]
+Found 22 outliers among 100 measurements (22.00%)
+  3 (3.00%) low severe
+  2 (2.00%) low mild
   5 (5.00%) high mild
-
-Benchmarking domain12/push_all_members_in_one_time
-Benchmarking domain12/push_all_members_in_one_time: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 11.2s, or reduce sample count to 40.
-Benchmarking domain12/push_all_members_in_one_time: Collecting 100 samples in estimated 11.196 s (100 iterations)
-Benchmarking domain12/push_all_members_in_one_time: Analyzing
-domain12/push_all_members_in_one_time
-                        time:   [109.84 ms 110.13 ms 110.44 ms]
-                        change: [+9.2009% +10.078% +10.899%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 4 outliers among 100 measurements (4.00%)
-  4 (4.00%) high mild
-
-Benchmarking domain12/push_one_member_in_almost_full
-Benchmarking domain12/push_one_member_in_almost_full: Warming up for 3.0000 s
-Benchmarking domain12/push_one_member_in_almost_full: Collecting 100 samples in estimated 7.6398 s (10k iterations)
-Benchmarking domain12/push_one_member_in_almost_full: Analyzing
-domain12/push_one_member_in_almost_full
-                        time:   [742.25 µs 746.51 µs 750.97 µs]
-                        change: [+3.2619% +4.8788% +6.3915%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high severe
-
-Benchmarking domain12/finish_members
-Benchmarking domain12/finish_members: Warming up for 3.0000 s
-Benchmarking domain12/finish_members: Collecting 100 samples in estimated 5.0016 s (15M iterations)
-Benchmarking domain12/finish_members: Analyzing
-domain12/finish_members time:   [83.919 ns 84.960 ns 85.968 ns]
-                        change: [-23.394% -19.646% -15.760%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
-Benchmarking domain12/finish_members_full
-Benchmarking domain12/finish_members_full: Warming up for 3.0000 s
-Benchmarking domain12/finish_members_full: Collecting 100 samples in estimated 5.0001 s (15M iterations)
-Benchmarking domain12/finish_members_full: Analyzing
-domain12/finish_members_full
-                        time:   [85.137 ns 86.120 ns 87.058 ns]
-                        change: [-17.255% -13.564% -9.8458%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
+  12 (12.00%) high severe
 Benchmarking domain12/new_secret
-Benchmarking domain12/new_secret: Warming up for 3.0000 s
-Benchmarking domain12/new_secret: Collecting 100 samples in estimated 5.0528 s (45k iterations)
+Benchmarking domain12/new_secret: Warming up for 500.00 ms
+Benchmarking domain12/new_secret: Collecting 100 samples in estimated 2.0652 s (20k iterations)
 Benchmarking domain12/new_secret: Analyzing
-domain12/new_secret     time:   [107.66 µs 108.06 µs 108.48 µs]
-                        change: [+4.8322% +5.7382% +6.6125%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 10 outliers among 100 measurements (10.00%)
-  7 (7.00%) high mild
-  3 (3.00%) high severe
-
+domain12/new_secret     time:   [101.84 µs 101.92 µs 102.02 µs]
+Found 17 outliers among 100 measurements (17.00%)
+  5 (5.00%) low severe
+  6 (6.00%) low mild
+  2 (2.00%) high mild
+  4 (4.00%) high severe
 Benchmarking domain12/member_from_secret
-Benchmarking domain12/member_from_secret: Warming up for 3.0000 s
-Benchmarking domain12/member_from_secret: Collecting 100 samples in estimated 5.0002 s (79M iterations)
+Benchmarking domain12/member_from_secret: Warming up for 500.00 ms
+Benchmarking domain12/member_from_secret: Collecting 100 samples in estimated 2.0001 s (36M iterations)
 Benchmarking domain12/member_from_secret: Analyzing
 domain12/member_from_secret
-                        time:   [62.065 ns 62.327 ns 62.591 ns]
-                        change: [+7.6887% +8.9211% +10.078%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 3 outliers among 100 measurements (3.00%)
+                        time:   [54.830 ns 54.882 ns 54.945 ns]
+Found 12 outliers among 100 measurements (12.00%)
+  1 (1.00%) low severe
+  3 (3.00%) low mild
   3 (3.00%) high mild
-
-Benchmarking domain12/open
-Benchmarking domain12/open: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.7s, or reduce sample count to 30.
-Benchmarking domain12/open: Collecting 100 samples in estimated 12.695 s (100 iterations)
-Benchmarking domain12/open: Analyzing
-domain12/open           time:   [123.48 ms 123.85 ms 124.23 ms]
-                        change: [+10.065% +10.708% +11.359%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 3 outliers among 100 measurements (3.00%)
-  3 (3.00%) high mild
-
-Benchmarking domain12/create
-Benchmarking domain12/create: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 24.0s, or reduce sample count to 20.
-Benchmarking domain12/create: Collecting 100 samples in estimated 23.980 s (100 iterations)
-Benchmarking domain12/create: Analyzing
-domain12/create         time:   [234.37 ms 234.96 ms 235.55 ms]
-                        change: [+18.376% +18.890% +19.366%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-
+  5 (5.00%) high severe
 Benchmarking domain12/sign
-Benchmarking domain12/sign: Warming up for 3.0000 s
-Benchmarking domain12/sign: Collecting 100 samples in estimated 5.4670 s (25k iterations)
+Benchmarking domain12/sign: Warming up for 500.00 ms
+Benchmarking domain12/sign: Collecting 100 samples in estimated 2.0249 s (10k iterations)
 Benchmarking domain12/sign: Analyzing
-domain12/sign           time:   [209.76 µs 210.57 µs 211.39 µs]
-                        change: [-51.956% -51.639% -51.316%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 3 outliers among 100 measurements (3.00%)
-  3 (3.00%) high mild
-
+domain12/sign           time:   [199.93 µs 200.11 µs 200.32 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  2 (2.00%) low mild
+  4 (4.00%) high mild
+  3 (3.00%) high severe
 Benchmarking domain12/alias_in_context
-Benchmarking domain12/alias_in_context: Warming up for 3.0000 s
-Benchmarking domain12/alias_in_context: Collecting 100 samples in estimated 5.9192 s (20k iterations)
+Benchmarking domain12/alias_in_context: Warming up for 500.00 ms
+Benchmarking domain12/alias_in_context: Collecting 100 samples in estimated 2.8005 s (10k iterations)
 Benchmarking domain12/alias_in_context: Analyzing
 domain12/alias_in_context
-                        time:   [285.98 µs 287.11 µs 288.29 µs]
-                        change: [+83.322% +86.697% +89.414%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 3 outliers among 100 measurements (3.00%)
-  3 (3.00%) high mild
-
-Benchmarking domain12/validate
-Benchmarking domain12/validate: Warming up for 3.0000 s
-Benchmarking domain12/validate: Collecting 100 samples in estimated 5.6230 s (900 iterations)
-Benchmarking domain12/validate: Analyzing
-domain12/validate       time:   [6.0684 ms 6.0908 ms 6.1155 ms]
-                        change: [-10.390% -9.8419% -9.2901%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 15 outliers among 100 measurements (15.00%)
+                        time:   [275.48 µs 275.66 µs 275.84 µs]
+Found 8 outliers among 100 measurements (8.00%)
   3 (3.00%) low mild
-  4 (4.00%) high mild
-  8 (8.00%) high severe
-
-Benchmarking domain12/is_valid
-Benchmarking domain12/is_valid: Warming up for 3.0000 s
-Benchmarking domain12/is_valid: Collecting 100 samples in estimated 5.6153 s (900 iterations)
-Benchmarking domain12/is_valid: Analyzing
-domain12/is_valid       time:   [6.0646 ms 6.0846 ms 6.1060 ms]
-                        change: [-10.037% -9.4858% -8.9448%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 10 outliers among 100 measurements (10.00%)
-  8 (8.00%) high mild
-  2 (2.00%) high severe
-
+  2 (2.00%) high mild
+  3 (3.00%) high severe
 Benchmarking domain12/verify_signature
-Benchmarking domain12/verify_signature: Warming up for 3.0000 s
-Benchmarking domain12/verify_signature: Collecting 100 samples in estimated 6.6076 s (15k iterations)
+Benchmarking domain12/verify_signature: Warming up for 500.00 ms
+Benchmarking domain12/verify_signature: Collecting 100 samples in estimated 3.8654 s (10k iterations)
 Benchmarking domain12/verify_signature: Analyzing
 domain12/verify_signature
-                        time:   [420.82 µs 422.83 µs 424.94 µs]
-                        change: [-39.618% -38.996% -38.311%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 7 outliers among 100 measurements (7.00%)
-  5 (5.00%) high mild
-  2 (2.00%) high severe
-
+                        time:   [376.10 µs 377.27 µs 378.46 µs]
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
 Benchmarking domain12/is_member_valid
-Benchmarking domain12/is_member_valid: Warming up for 3.0000 s
-Benchmarking domain12/is_member_valid: Collecting 100 samples in estimated 5.2482 s (50k iterations)
+Benchmarking domain12/is_member_valid: Warming up for 500.00 ms
+Benchmarking domain12/is_member_valid: Collecting 100 samples in estimated 2.0413 s (20k iterations)
 Benchmarking domain12/is_member_valid: Analyzing
 domain12/is_member_valid
-                        time:   [100.47 µs 100.99 µs 101.57 µs]
-                        change: [+2.3153% +3.2344% +4.1256%] (p = 0.00 < 0.05)
-                        Performance has regressed.
+                        time:   [100.64 µs 100.76 µs 100.93 µs]
+Found 15 outliers among 100 measurements (15.00%)
+  2 (2.00%) low severe
+  4 (4.00%) low mild
+  3 (3.00%) high mild
+  6 (6.00%) high severe
+
+Benchmarking domain12/push_all_members_in_one_time
+Benchmarking domain12/push_all_members_in_one_time: Warming up for 1.0000 s
+Benchmarking domain12/push_all_members_in_one_time: Collecting 15 samples in estimated 5.9716 s (60 iterations)
+Benchmarking domain12/push_all_members_in_one_time: Analyzing
+domain12/push_all_members_in_one_time
+                        time:   [98.400 ms 99.181 ms 100.02 ms]
+
+Benchmarking domain12/push_one_member_at_fill_level/empty
+Benchmarking domain12/push_one_member_at_fill_level/empty: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain12/push_one_member_at_fill_level/empty: Collecting 100 samples in estimated 3.0488 s (5050 iterations)
+Benchmarking domain12/push_one_member_at_fill_level/empty: Analyzing
+domain12/push_one_member_at_fill_level/empty
+                        time:   [599.68 µs 600.40 µs 601.17 µs]
+                        change: [-20.941% -20.379% -19.872%] (p = 0.00 < 0.05)
+                        Performance has improved.
 Found 6 outliers among 100 measurements (6.00%)
   5 (5.00%) high mild
   1 (1.00%) high severe
-
-Benchmarking domain12/push_one_member_at_fill_level/empty
-Benchmarking domain12/push_one_member_at_fill_level/empty: Warming up for 3.0000 s
-Benchmarking domain12/push_one_member_at_fill_level/empty: Collecting 100 samples in estimated 7.6075 s (10k iterations)
-Benchmarking domain12/push_one_member_at_fill_level/empty: Analyzing
-domain12/push_one_member_at_fill_level/empty
-                        time:   [752.29 µs 756.50 µs 760.75 µs]
-                        change: [+3.9475% +5.0169% +6.0934%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  5 (5.00%) high mild
-  2 (2.00%) high severe
 Benchmarking domain12/push_one_member_at_fill_level/quarter
-Benchmarking domain12/push_one_member_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain12/push_one_member_at_fill_level/quarter: Collecting 100 samples in estimated 7.8049 s (10k iterations)
+Benchmarking domain12/push_one_member_at_fill_level/quarter: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.1s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain12/push_one_member_at_fill_level/quarter: Collecting 100 samples in estimated 3.0574 s (5050 iterations)
 Benchmarking domain12/push_one_member_at_fill_level/quarter: Analyzing
 domain12/push_one_member_at_fill_level/quarter
-                        time:   [750.31 µs 754.75 µs 759.29 µs]
-                        change: [+6.4792% +7.7844% +9.0393%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  4 (4.00%) high mild
-  3 (3.00%) high severe
-Benchmarking domain12/push_one_member_at_fill_level/half
-Benchmarking domain12/push_one_member_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain12/push_one_member_at_fill_level/half: Collecting 100 samples in estimated 7.6353 s (10k iterations)
-Benchmarking domain12/push_one_member_at_fill_level/half: Analyzing
-domain12/push_one_member_at_fill_level/half
-                        time:   [738.46 µs 742.96 µs 747.70 µs]
-                        change: [+4.4788% +6.4499% +9.0835%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  3 (3.00%) high mild
-  4 (4.00%) high severe
-Benchmarking domain12/push_one_member_at_fill_level/three_quarters
-Benchmarking domain12/push_one_member_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain12/push_one_member_at_fill_level/three_quarters: Collecting 100 samples in estimated 7.5815 s (10k iterations)
-Benchmarking domain12/push_one_member_at_fill_level/three_quarters: Analyzing
-domain12/push_one_member_at_fill_level/three_quarters
-                        time:   [735.19 µs 739.38 µs 743.86 µs]
-                        change: [+5.0037% +6.4600% +7.7086%] (p = 0.00 < 0.05)
-                        Performance has regressed.
+                        time:   [603.22 µs 604.22 µs 605.27 µs]
+                        change: [-20.232% -19.599% -19.017%] (p = 0.00 < 0.05)
+                        Performance has improved.
 Found 1 outliers among 100 measurements (1.00%)
   1 (1.00%) high mild
+Benchmarking domain12/push_one_member_at_fill_level/half
+Benchmarking domain12/push_one_member_at_fill_level/half: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain12/push_one_member_at_fill_level/half: Collecting 100 samples in estimated 2.9644 s (5050 iterations)
+Benchmarking domain12/push_one_member_at_fill_level/half: Analyzing
+domain12/push_one_member_at_fill_level/half
+                        time:   [584.79 µs 585.68 µs 586.61 µs]
+                        change: [-23.837% -22.108% -20.948%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 4 outliers among 100 measurements (4.00%)
+  2 (2.00%) low mild
+  1 (1.00%) high mild
+  1 (1.00%) high severe
+Benchmarking domain12/push_one_member_at_fill_level/three_quarters
+Benchmarking domain12/push_one_member_at_fill_level/three_quarters: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain12/push_one_member_at_fill_level/three_quarters: Collecting 100 samples in estimated 2.9697 s (5050 iterations)
+Benchmarking domain12/push_one_member_at_fill_level/three_quarters: Analyzing
+domain12/push_one_member_at_fill_level/three_quarters
+                        time:   [585.52 µs 586.45 µs 587.42 µs]
+                        change: [-21.130% -20.660% -20.193%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 6 outliers among 100 measurements (6.00%)
+  1 (1.00%) high mild
+  5 (5.00%) high severe
 Benchmarking domain12/push_one_member_at_fill_level/full_minus_one
-Benchmarking domain12/push_one_member_at_fill_level/full_minus_one: Warming up for 3.0000 s
-Benchmarking domain12/push_one_member_at_fill_level/full_minus_one: Collecting 100 samples in estimated 7.5951 s (10k iterations)
+Benchmarking domain12/push_one_member_at_fill_level/full_minus_one: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain12/push_one_member_at_fill_level/full_minus_one: Collecting 100 samples in estimated 2.9769 s (5050 iterations)
 Benchmarking domain12/push_one_member_at_fill_level/full_minus_one: Analyzing
 domain12/push_one_member_at_fill_level/full_minus_one
-                        time:   [742.06 µs 746.33 µs 750.74 µs]
-                        change: [+5.1468% +6.0762% +6.9268%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  6 (6.00%) high mild
-  1 (1.00%) high severe
+                        time:   [586.34 µs 587.21 µs 588.08 µs]
+                        change: [-21.573% -21.095% -20.652%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 3 outliers among 100 measurements (3.00%)
+  3 (3.00%) high mild
 
 Benchmarking domain12/finish_members_at_fill_level/nearly_empty
-Benchmarking domain12/finish_members_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain12/finish_members_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.0014 s (15M iterations)
+Benchmarking domain12/finish_members_at_fill_level/nearly_empty: Warming up for 500.00 ms
+Benchmarking domain12/finish_members_at_fill_level/nearly_empty: Collecting 100 samples in estimated 2.0008 s (8.2M iterations)
 Benchmarking domain12/finish_members_at_fill_level/nearly_empty: Analyzing
 domain12/finish_members_at_fill_level/nearly_empty
-                        time:   [85.819 ns 86.935 ns 88.007 ns]
-                        change: [-17.419% -13.953% -10.097%] (p = 0.00 < 0.05)
+                        time:   [56.768 ns 59.615 ns 62.046 ns]
+                        change: [-39.128% -35.771% -32.295%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain12/finish_members_at_fill_level/quarter
-Benchmarking domain12/finish_members_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain12/finish_members_at_fill_level/quarter: Collecting 100 samples in estimated 5.0003 s (15M iterations)
+Benchmarking domain12/finish_members_at_fill_level/quarter: Warming up for 500.00 ms
+Benchmarking domain12/finish_members_at_fill_level/quarter: Collecting 100 samples in estimated 2.0004 s (8.3M iterations)
 Benchmarking domain12/finish_members_at_fill_level/quarter: Analyzing
 domain12/finish_members_at_fill_level/quarter
-                        time:   [84.746 ns 85.801 ns 86.820 ns]
-                        change: [-18.013% -13.853% -10.216%] (p = 0.00 < 0.05)
+                        time:   [57.419 ns 60.192 ns 62.599 ns]
+                        change: [-38.071% -34.608% -31.181%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain12/finish_members_at_fill_level/half
-Benchmarking domain12/finish_members_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain12/finish_members_at_fill_level/half: Collecting 100 samples in estimated 5.0000 s (15M iterations)
+Benchmarking domain12/finish_members_at_fill_level/half: Warming up for 500.00 ms
+Benchmarking domain12/finish_members_at_fill_level/half: Collecting 100 samples in estimated 2.0003 s (7.7M iterations)
 Benchmarking domain12/finish_members_at_fill_level/half: Analyzing
 domain12/finish_members_at_fill_level/half
-                        time:   [85.290 ns 86.321 ns 87.295 ns]
-                        change: [-16.226% -12.567% -8.7912%] (p = 0.00 < 0.05)
+                        time:   [53.616 ns 56.033 ns 58.165 ns]
+                        change: [-41.832% -38.937% -36.094%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain12/finish_members_at_fill_level/three_quarters
-Benchmarking domain12/finish_members_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain12/finish_members_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.0014 s (15M iterations)
+Benchmarking domain12/finish_members_at_fill_level/three_quarters: Warming up for 500.00 ms
+Benchmarking domain12/finish_members_at_fill_level/three_quarters: Collecting 100 samples in estimated 2.0002 s (8.3M iterations)
 Benchmarking domain12/finish_members_at_fill_level/three_quarters: Analyzing
 domain12/finish_members_at_fill_level/three_quarters
-                        time:   [84.975 ns 86.038 ns 87.043 ns]
-                        change: [-16.604% -13.070% -8.7822%] (p = 0.00 < 0.05)
+                        time:   [56.875 ns 59.504 ns 61.745 ns]
+                        change: [-38.265% -35.061% -31.839%] (p = 0.00 < 0.05)
                         Performance has improved.
 Benchmarking domain12/finish_members_at_fill_level/full
-Benchmarking domain12/finish_members_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain12/finish_members_at_fill_level/full: Collecting 100 samples in estimated 5.0014 s (15M iterations)
+Benchmarking domain12/finish_members_at_fill_level/full: Warming up for 500.00 ms
+Benchmarking domain12/finish_members_at_fill_level/full: Collecting 100 samples in estimated 2.0002 s (8.2M iterations)
 Benchmarking domain12/finish_members_at_fill_level/full: Analyzing
 domain12/finish_members_at_fill_level/full
-                        time:   [85.060 ns 86.131 ns 87.191 ns]
-                        change: [-16.125% -12.468% -8.4983%] (p = 0.00 < 0.05)
+                        time:   [57.126 ns 59.838 ns 62.138 ns]
+                        change: [-38.176% -34.758% -31.432%] (p = 0.00 < 0.05)
                         Performance has improved.
-
-Benchmarking domain12/open_at_fill_level/nearly_empty
-Benchmarking domain12/open_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain12/open_at_fill_level/nearly_empty: Collecting 100 samples in estimated 7.0859 s (200 iterations)
-Benchmarking domain12/open_at_fill_level/nearly_empty: Analyzing
-domain12/open_at_fill_level/nearly_empty
-                        time:   [34.911 ms 35.155 ms 35.416 ms]
-                        change: [+38.320% +39.993% +41.563%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 13 outliers among 100 measurements (13.00%)
-  6 (6.00%) high mild
-  7 (7.00%) high severe
-Benchmarking domain12/open_at_fill_level/quarter
-Benchmarking domain12/open_at_fill_level/quarter: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 5.5s, or reduce sample count to 90.
-Benchmarking domain12/open_at_fill_level/quarter: Collecting 100 samples in estimated 5.5269 s (100 iterations)
-Benchmarking domain12/open_at_fill_level/quarter: Analyzing
-domain12/open_at_fill_level/quarter
-                        time:   [53.533 ms 53.807 ms 54.110 ms]
-                        change: [+12.389% +13.075% +13.892%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  3 (3.00%) high mild
-  4 (4.00%) high severe
-Benchmarking domain12/open_at_fill_level/half
-Benchmarking domain12/open_at_fill_level/half: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 7.7s, or reduce sample count to 60.
-Benchmarking domain12/open_at_fill_level/half: Collecting 100 samples in estimated 7.6785 s (100 iterations)
-Benchmarking domain12/open_at_fill_level/half: Analyzing
-domain12/open_at_fill_level/half
-                        time:   [74.983 ms 75.329 ms 75.708 ms]
-                        change: [+9.6355% +10.505% +11.326%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 9 outliers among 100 measurements (9.00%)
-  7 (7.00%) high mild
-  2 (2.00%) high severe
-Benchmarking domain12/open_at_fill_level/three_quarters
-Benchmarking domain12/open_at_fill_level/three_quarters: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 10.2s, or reduce sample count to 40.
-Benchmarking domain12/open_at_fill_level/three_quarters: Collecting 100 samples in estimated 10.198 s (100 iterations)
-Benchmarking domain12/open_at_fill_level/three_quarters: Analyzing
-domain12/open_at_fill_level/three_quarters
-                        time:   [99.124 ms 99.473 ms 99.845 ms]
-                        change: [+10.436% +10.988% +11.531%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  7 (7.00%) high mild
-Benchmarking domain12/open_at_fill_level/full
-Benchmarking domain12/open_at_fill_level/full: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.6s, or reduce sample count to 30.
-Benchmarking domain12/open_at_fill_level/full: Collecting 100 samples in estimated 12.619 s (100 iterations)
-Benchmarking domain12/open_at_fill_level/full: Analyzing
-domain12/open_at_fill_level/full
-                        time:   [123.09 ms 123.41 ms 123.75 ms]
-                        change: [+9.4794% +10.055% +10.664%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high mild
-
-Benchmarking domain12/create_at_fill_level/nearly_empty
-Benchmarking domain12/create_at_fill_level/nearly_empty: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 15.9s, or reduce sample count to 30.
-Benchmarking domain12/create_at_fill_level/nearly_empty: Collecting 100 samples in estimated 15.902 s (100 iterations)
-Benchmarking domain12/create_at_fill_level/nearly_empty: Analyzing
-domain12/create_at_fill_level/nearly_empty
-                        time:   [156.99 ms 157.63 ms 158.29 ms]
-                        change: [+27.832% +28.649% +29.542%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain12/create_at_fill_level/quarter
-Benchmarking domain12/create_at_fill_level/quarter: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 17.6s, or reduce sample count to 20.
-Benchmarking domain12/create_at_fill_level/quarter: Collecting 100 samples in estimated 17.646 s (100 iterations)
-Benchmarking domain12/create_at_fill_level/quarter: Analyzing
-domain12/create_at_fill_level/quarter
-                        time:   [174.38 ms 175.00 ms 175.61 ms]
-                        change: [+22.221% +22.808% +23.372%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain12/create_at_fill_level/half
-Benchmarking domain12/create_at_fill_level/half: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 19.7s, or reduce sample count to 20.
-Benchmarking domain12/create_at_fill_level/half: Collecting 100 samples in estimated 19.684 s (100 iterations)
-Benchmarking domain12/create_at_fill_level/half: Analyzing
-domain12/create_at_fill_level/half
-                        time:   [194.94 ms 195.50 ms 196.08 ms]
-                        change: [+18.827% +19.370% +19.866%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain12/create_at_fill_level/three_quarters
-Benchmarking domain12/create_at_fill_level/three_quarters: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 21.9s, or reduce sample count to 20.
-Benchmarking domain12/create_at_fill_level/three_quarters: Collecting 100 samples in estimated 21.899 s (100 iterations)
-Benchmarking domain12/create_at_fill_level/three_quarters: Analyzing
-domain12/create_at_fill_level/three_quarters
-                        time:   [214.69 ms 215.34 ms 216.01 ms]
-                        change: [+16.481% +16.924% +17.399%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain12/create_at_fill_level/full
-Benchmarking domain12/create_at_fill_level/full: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 23.9s, or reduce sample count to 20.
-Benchmarking domain12/create_at_fill_level/full: Collecting 100 samples in estimated 23.932 s (100 iterations)
-Benchmarking domain12/create_at_fill_level/full: Analyzing
-domain12/create_at_fill_level/full
-                        time:   [233.98 ms 234.62 ms 235.27 ms]
-                        change: [+14.124% +14.634% +15.134%] (p = 0.00 < 0.05)
-                        Performance has regressed.
 
 Benchmarking domain12/validate_at_fill_level/nearly_empty
-Benchmarking domain12/validate_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain12/validate_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.5710 s (900 iterations)
+Benchmarking domain12/validate_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/validate_at_fill_level/nearly_empty: Collecting 50 samples in estimated 6.4922 s (1275 iterations)
 Benchmarking domain12/validate_at_fill_level/nearly_empty: Analyzing
 domain12/validate_at_fill_level/nearly_empty
-                        time:   [6.0037 ms 6.0225 ms 6.0428 ms]
-                        change: [-12.749% -11.698% -10.773%] (p = 0.00 < 0.05)
+                        time:   [5.0676 ms 5.0811 ms 5.0966 ms]
+                        change: [-16.045% -15.626% -15.184%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 13 outliers among 100 measurements (13.00%)
-  2 (2.00%) low mild
-  8 (8.00%) high mild
-  3 (3.00%) high severe
+Found 4 outliers among 50 measurements (8.00%)
+  1 (2.00%) low mild
+  2 (4.00%) high mild
+  1 (2.00%) high severe
 Benchmarking domain12/validate_at_fill_level/quarter
-Benchmarking domain12/validate_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain12/validate_at_fill_level/quarter: Collecting 100 samples in estimated 5.5787 s (900 iterations)
+Benchmarking domain12/validate_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.4s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/validate_at_fill_level/quarter: Collecting 50 samples in estimated 6.4265 s (1275 iterations)
 Benchmarking domain12/validate_at_fill_level/quarter: Analyzing
 domain12/validate_at_fill_level/quarter
-                        time:   [6.0316 ms 6.0554 ms 6.0814 ms]
-                        change: [-10.605% -10.014% -9.4432%] (p = 0.00 < 0.05)
+                        time:   [5.0542 ms 5.0674 ms 5.0811 ms]
+                        change: [-16.994% -16.578% -16.171%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 10 outliers among 100 measurements (10.00%)
-  1 (1.00%) low mild
-  6 (6.00%) high mild
-  3 (3.00%) high severe
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
 Benchmarking domain12/validate_at_fill_level/half
-Benchmarking domain12/validate_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain12/validate_at_fill_level/half: Collecting 100 samples in estimated 5.5854 s (900 iterations)
+Benchmarking domain12/validate_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.6s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/validate_at_fill_level/half: Collecting 50 samples in estimated 6.5554 s (1275 iterations)
 Benchmarking domain12/validate_at_fill_level/half: Analyzing
 domain12/validate_at_fill_level/half
-                        time:   [6.0291 ms 6.0507 ms 6.0736 ms]
-                        change: [-11.126% -10.406% -9.7671%] (p = 0.00 < 0.05)
+                        time:   [5.1010 ms 5.1130 ms 5.1247 ms]
+                        change: [-15.847% -15.407% -14.962%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 13 outliers among 100 measurements (13.00%)
-  2 (2.00%) low mild
-  9 (9.00%) high mild
-  2 (2.00%) high severe
+Found 3 outliers among 50 measurements (6.00%)
+  2 (4.00%) low mild
+  1 (2.00%) high severe
 Benchmarking domain12/validate_at_fill_level/three_quarters
-Benchmarking domain12/validate_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain12/validate_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.5798 s (900 iterations)
+Benchmarking domain12/validate_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/validate_at_fill_level/three_quarters: Collecting 50 samples in estimated 6.5026 s (1275 iterations)
 Benchmarking domain12/validate_at_fill_level/three_quarters: Analyzing
 domain12/validate_at_fill_level/three_quarters
-                        time:   [6.0165 ms 6.0366 ms 6.0585 ms]
-                        change: [-11.060% -10.598% -10.089%] (p = 0.00 < 0.05)
+                        time:   [5.0741 ms 5.0824 ms 5.0908 ms]
+                        change: [-16.018% -15.633% -15.246%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 17 outliers among 100 measurements (17.00%)
-  3 (3.00%) low mild
-  7 (7.00%) high mild
-  7 (7.00%) high severe
+Found 6 outliers among 50 measurements (12.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high mild
+  4 (8.00%) high severe
 Benchmarking domain12/validate_at_fill_level/full
-Benchmarking domain12/validate_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain12/validate_at_fill_level/full: Collecting 100 samples in estimated 5.5519 s (900 iterations)
+Benchmarking domain12/validate_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/validate_at_fill_level/full: Collecting 50 samples in estimated 6.4756 s (1275 iterations)
 Benchmarking domain12/validate_at_fill_level/full: Analyzing
 domain12/validate_at_fill_level/full
-                        time:   [6.0837 ms 6.1220 ms 6.1637 ms]
-                        change: [-11.017% -10.017% -9.1112%] (p = 0.00 < 0.05)
+                        time:   [5.0344 ms 5.0465 ms 5.0590 ms]
+                        change: [-18.204% -17.632% -17.088%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 7 outliers among 100 measurements (7.00%)
-  5 (5.00%) high mild
-  2 (2.00%) high severe
 
 Benchmarking domain12/is_valid_at_fill_level/nearly_empty
-Benchmarking domain12/is_valid_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain12/is_valid_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.5785 s (900 iterations)
+Benchmarking domain12/is_valid_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/is_valid_at_fill_level/nearly_empty: Collecting 50 samples in estimated 6.5195 s (1275 iterations)
 Benchmarking domain12/is_valid_at_fill_level/nearly_empty: Analyzing
 domain12/is_valid_at_fill_level/nearly_empty
-                        time:   [6.0223 ms 6.0455 ms 6.0709 ms]
-                        change: [-10.902% -10.340% -9.7591%] (p = 0.00 < 0.05)
+                        time:   [5.0763 ms 5.0885 ms 5.1009 ms]
+                        change: [-16.230% -15.831% -15.425%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 9 outliers among 100 measurements (9.00%)
-  6 (6.00%) high mild
-  3 (3.00%) high severe
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
 Benchmarking domain12/is_valid_at_fill_level/quarter
-Benchmarking domain12/is_valid_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain12/is_valid_at_fill_level/quarter: Collecting 100 samples in estimated 5.6068 s (900 iterations)
+Benchmarking domain12/is_valid_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/is_valid_at_fill_level/quarter: Collecting 50 samples in estimated 6.4625 s (1275 iterations)
 Benchmarking domain12/is_valid_at_fill_level/quarter: Analyzing
 domain12/is_valid_at_fill_level/quarter
-                        time:   [6.0343 ms 6.0564 ms 6.0815 ms]
-                        change: [-11.443% -10.661% -9.9074%] (p = 0.00 < 0.05)
+                        time:   [5.0490 ms 5.0590 ms 5.0689 ms]
+                        change: [-17.061% -16.632% -16.193%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 13 outliers among 100 measurements (13.00%)
-  9 (9.00%) high mild
-  4 (4.00%) high severe
+Found 4 outliers among 50 measurements (8.00%)
+  1 (2.00%) low severe
+  1 (2.00%) low mild
+  2 (4.00%) high severe
 Benchmarking domain12/is_valid_at_fill_level/half
-Benchmarking domain12/is_valid_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain12/is_valid_at_fill_level/half: Collecting 100 samples in estimated 5.5892 s (900 iterations)
+Benchmarking domain12/is_valid_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/is_valid_at_fill_level/half: Collecting 50 samples in estimated 6.5230 s (1275 iterations)
 Benchmarking domain12/is_valid_at_fill_level/half: Analyzing
 domain12/is_valid_at_fill_level/half
-                        time:   [6.0407 ms 6.0588 ms 6.0783 ms]
-                        change: [-10.765% -10.302% -9.8123%] (p = 0.00 < 0.05)
+                        time:   [5.1095 ms 5.1175 ms 5.1254 ms]
+                        change: [-15.907% -15.567% -15.220%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 10 outliers among 100 measurements (10.00%)
-  7 (7.00%) high mild
-  3 (3.00%) high severe
+Found 4 outliers among 50 measurements (8.00%)
+  3 (6.00%) high mild
+  1 (2.00%) high severe
 Benchmarking domain12/is_valid_at_fill_level/three_quarters
-Benchmarking domain12/is_valid_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain12/is_valid_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.5718 s (900 iterations)
+Benchmarking domain12/is_valid_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/is_valid_at_fill_level/three_quarters: Collecting 50 samples in estimated 6.4840 s (1275 iterations)
 Benchmarking domain12/is_valid_at_fill_level/three_quarters: Analyzing
 domain12/is_valid_at_fill_level/three_quarters
-                        time:   [6.0267 ms 6.0459 ms 6.0659 ms]
-                        change: [-12.020% -11.305% -10.647%] (p = 0.00 < 0.05)
+                        time:   [5.0724 ms 5.0837 ms 5.0950 ms]
+                        change: [-16.233% -15.890% -15.576%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 12 outliers among 100 measurements (12.00%)
-  2 (2.00%) low mild
-  8 (8.00%) high mild
-  2 (2.00%) high severe
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
 Benchmarking domain12/is_valid_at_fill_level/full
-Benchmarking domain12/is_valid_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain12/is_valid_at_fill_level/full: Collecting 100 samples in estimated 5.5730 s (900 iterations)
+Benchmarking domain12/is_valid_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/is_valid_at_fill_level/full: Collecting 50 samples in estimated 6.4520 s (1275 iterations)
 Benchmarking domain12/is_valid_at_fill_level/full: Analyzing
 domain12/is_valid_at_fill_level/full
-                        time:   [5.9961 ms 6.0175 ms 6.0411 ms]
-                        change: [-11.707% -11.103% -10.502%] (p = 0.00 < 0.05)
+                        time:   [5.0436 ms 5.0570 ms 5.0723 ms]
+                        change: [-16.424% -16.032% -15.659%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 13 outliers among 100 measurements (13.00%)
-  2 (2.00%) low mild
-  4 (4.00%) high mild
-  7 (7.00%) high severe
+Found 5 outliers among 50 measurements (10.00%)
+  5 (10.00%) high mild
 
-Benchmarking domain12/batch_validate/1
-Benchmarking domain12/batch_validate/1: Warming up for 3.0000 s
-Benchmarking domain12/batch_validate/1: Collecting 100 samples in estimated 5.1829 s (1000 iterations)
-Benchmarking domain12/batch_validate/1: Analyzing
-domain12/batch_validate/1
-                        time:   [5.1419 ms 5.1718 ms 5.2054 ms]
-Found 10 outliers among 100 measurements (10.00%)
-  3 (3.00%) high mild
+Benchmarking domain12/open_at_fill_level/nearly_empty
+Benchmarking domain12/open_at_fill_level/nearly_empty: Warming up for 1.0000 s
+Benchmarking domain12/open_at_fill_level/nearly_empty: Collecting 15 samples in estimated 5.0132 s (210 iterations)
+Benchmarking domain12/open_at_fill_level/nearly_empty: Analyzing
+domain12/open_at_fill_level/nearly_empty
+                        time:   [23.791 ms 23.832 ms 23.875 ms]
+                        change: [-32.732% -32.209% -31.725%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 15 measurements (13.33%)
+  1 (6.67%) low mild
+  1 (6.67%) high mild
+Benchmarking domain12/open_at_fill_level/quarter
+Benchmarking domain12/open_at_fill_level/quarter: Warming up for 1.0000 s
+Benchmarking domain12/open_at_fill_level/quarter: Collecting 15 samples in estimated 5.4050 s (120 iterations)
+Benchmarking domain12/open_at_fill_level/quarter: Analyzing
+domain12/open_at_fill_level/quarter
+                        time:   [44.806 ms 44.916 ms 45.046 ms]
+                        change: [-17.040% -16.525% -16.027%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high severe
+Benchmarking domain12/open_at_fill_level/half
+Benchmarking domain12/open_at_fill_level/half: Warming up for 1.0000 s
+Benchmarking domain12/open_at_fill_level/half: Collecting 15 samples in estimated 5.0796 s (75 iterations)
+Benchmarking domain12/open_at_fill_level/half: Analyzing
+domain12/open_at_fill_level/half
+                        time:   [66.950 ms 67.135 ms 67.301 ms]
+                        change: [-11.378% -10.877% -10.406%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain12/open_at_fill_level/three_quarters
+Benchmarking domain12/open_at_fill_level/three_quarters: Warming up for 1.0000 s
+Benchmarking domain12/open_at_fill_level/three_quarters: Collecting 15 samples in estimated 5.3842 s (60 iterations)
+Benchmarking domain12/open_at_fill_level/three_quarters: Analyzing
+domain12/open_at_fill_level/three_quarters
+                        time:   [89.412 ms 89.808 ms 90.297 ms]
+                        change: [-10.273% -9.7160% -9.0922%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 15 measurements (13.33%)
+  2 (13.33%) high severe
+Benchmarking domain12/open_at_fill_level/full
+Benchmarking domain12/open_at_fill_level/full: Warming up for 1.0000 s
+Benchmarking domain12/open_at_fill_level/full: Collecting 15 samples in estimated 5.0458 s (45 iterations)
+Benchmarking domain12/open_at_fill_level/full: Analyzing
+domain12/open_at_fill_level/full
+                        time:   [111.25 ms 111.86 ms 112.50 ms]
+                        change: [-9.8521% -9.3557% -8.8200%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+Benchmarking domain12/open_and_create_at_fill_level/nearly_empty
+Benchmarking domain12/open_and_create_at_fill_level/nearly_empty: Warming up for 1.0000 s
+Benchmarking domain12/open_and_create_at_fill_level/nearly_empty: Collecting 15 samples in estimated 6.3607 s (60 iterations)
+Benchmarking domain12/open_and_create_at_fill_level/nearly_empty: Analyzing
+domain12/open_and_create_at_fill_level/nearly_empty
+                        time:   [105.82 ms 105.89 ms 105.97 ms]
+Benchmarking domain12/open_and_create_at_fill_level/quarter
+Benchmarking domain12/open_and_create_at_fill_level/quarter: Warming up for 1.0000 s
+Benchmarking domain12/open_and_create_at_fill_level/quarter: Collecting 15 samples in estimated 5.7614 s (45 iterations)
+Benchmarking domain12/open_and_create_at_fill_level/quarter: Analyzing
+domain12/open_and_create_at_fill_level/quarter
+                        time:   [127.53 ms 127.71 ms 127.91 ms]
+Benchmarking domain12/open_and_create_at_fill_level/half
+Benchmarking domain12/open_and_create_at_fill_level/half: Warming up for 1.0000 s
+Benchmarking domain12/open_and_create_at_fill_level/half: Collecting 15 samples in estimated 6.8201 s (45 iterations)
+Benchmarking domain12/open_and_create_at_fill_level/half: Analyzing
+domain12/open_and_create_at_fill_level/half
+                        time:   [150.09 ms 150.44 ms 150.82 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+Benchmarking domain12/open_and_create_at_fill_level/three_quarters
+Benchmarking domain12/open_and_create_at_fill_level/three_quarters: Warming up for 1.0000 s
+Benchmarking domain12/open_and_create_at_fill_level/three_quarters: Collecting 15 samples in estimated 5.2351 s (30 iterations)
+Benchmarking domain12/open_and_create_at_fill_level/three_quarters: Analyzing
+domain12/open_and_create_at_fill_level/three_quarters
+                        time:   [173.13 ms 173.67 ms 174.26 ms]
+Benchmarking domain12/open_and_create_at_fill_level/full
+Benchmarking domain12/open_and_create_at_fill_level/full: Warming up for 1.0000 s
+Benchmarking domain12/open_and_create_at_fill_level/full: Collecting 15 samples in estimated 5.8697 s (30 iterations)
+Benchmarking domain12/open_and_create_at_fill_level/full: Analyzing
+domain12/open_and_create_at_fill_level/full
+                        time:   [195.31 ms 195.92 ms 196.58 ms]
+
+Benchmarking domain12/batch_validate/single_ring/1
+Benchmarking domain12/batch_validate/single_ring/1: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/1: Collecting 15 samples in estimated 5.0490 s (1155 iterations)
+Benchmarking domain12/batch_validate/single_ring/1: Analyzing
+domain12/batch_validate/single_ring/1
+                        time:   [4.3596 ms 4.3669 ms 4.3764 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high severe
+Benchmarking domain12/batch_validate/single_ring/2
+Benchmarking domain12/batch_validate/single_ring/2: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/2: Collecting 15 samples in estimated 5.0882 s (840 iterations)
+Benchmarking domain12/batch_validate/single_ring/2: Analyzing
+domain12/batch_validate/single_ring/2
+                        time:   [6.0229 ms 6.0388 ms 6.0541 ms]
+Benchmarking domain12/batch_validate/single_ring/4
+Benchmarking domain12/batch_validate/single_ring/4: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/4: Collecting 15 samples in estimated 5.0153 s (540 iterations)
+Benchmarking domain12/batch_validate/single_ring/4: Analyzing
+domain12/batch_validate/single_ring/4
+                        time:   [9.2214 ms 9.2495 ms 9.2826 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+Benchmarking domain12/batch_validate/single_ring/8
+Benchmarking domain12/batch_validate/single_ring/8: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/8: Collecting 15 samples in estimated 5.1650 s (330 iterations)
+Benchmarking domain12/batch_validate/single_ring/8: Analyzing
+domain12/batch_validate/single_ring/8
+                        time:   [15.663 ms 15.697 ms 15.729 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) low mild
+Benchmarking domain12/batch_validate/single_ring/16
+Benchmarking domain12/batch_validate/single_ring/16: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/16: Collecting 15 samples in estimated 5.0079 s (180 iterations)
+Benchmarking domain12/batch_validate/single_ring/16: Analyzing
+domain12/batch_validate/single_ring/16
+                        time:   [27.862 ms 27.905 ms 27.951 ms]
+Found 2 outliers among 15 measurements (13.33%)
+  2 (13.33%) high mild
+Benchmarking domain12/batch_validate/single_ring/32
+Benchmarking domain12/batch_validate/single_ring/32: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/32: Collecting 15 samples in estimated 5.4651 s (105 iterations)
+Benchmarking domain12/batch_validate/single_ring/32: Analyzing
+domain12/batch_validate/single_ring/32
+                        time:   [51.960 ms 52.008 ms 52.057 ms]
+Benchmarking domain12/batch_validate/single_ring/64
+Benchmarking domain12/batch_validate/single_ring/64: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/64: Collecting 15 samples in estimated 5.9862 s (60 iterations)
+Benchmarking domain12/batch_validate/single_ring/64: Analyzing
+domain12/batch_validate/single_ring/64
+                        time:   [99.739 ms 99.804 ms 99.875 ms]
+Benchmarking domain12/batch_validate/single_ring/128
+Benchmarking domain12/batch_validate/single_ring/128: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/single_ring/128: Collecting 15 samples in estimated 5.8480 s (30 iterations)
+Benchmarking domain12/batch_validate/single_ring/128: Analyzing
+domain12/batch_validate/single_ring/128
+                        time:   [194.88 ms 195.01 ms 195.14 ms]
+Benchmarking domain12/batch_validate/single_ring/1024
+Benchmarking domain12/batch_validate/single_ring/1024: Warming up for 1.0000 s
+
+Warning: Unable to complete 15 samples in 5.0s. You may wish to increase target time to 22.5s, or reduce sample count to 10.
+Benchmarking domain12/batch_validate/single_ring/1024: Collecting 15 samples in estimated 22.529 s (15 iterations)
+Benchmarking domain12/batch_validate/single_ring/1024: Analyzing
+domain12/batch_validate/single_ring/1024
+                        time:   [1.5003 s 1.5013 s 1.5025 s]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+
+Benchmarking domain12/batch_validate/multi_ring/1
+Benchmarking domain12/batch_validate/multi_ring/1: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/1: Collecting 15 samples in estimated 5.0417 s (1155 iterations)
+Benchmarking domain12/batch_validate/multi_ring/1: Analyzing
+domain12/batch_validate/multi_ring/1
+                        time:   [4.3535 ms 4.3649 ms 4.3806 ms]
+Found 2 outliers among 15 measurements (13.33%)
+  1 (6.67%) high mild
+  1 (6.67%) high severe
+Benchmarking domain12/batch_validate/multi_ring/2
+Benchmarking domain12/batch_validate/multi_ring/2: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/2: Collecting 15 samples in estimated 5.0085 s (795 iterations)
+Benchmarking domain12/batch_validate/multi_ring/2: Analyzing
+domain12/batch_validate/multi_ring/2
+                        time:   [6.3039 ms 6.3198 ms 6.3364 ms]
+Benchmarking domain12/batch_validate/multi_ring/4
+Benchmarking domain12/batch_validate/multi_ring/4: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/4: Collecting 15 samples in estimated 5.0241 s (495 iterations)
+Benchmarking domain12/batch_validate/multi_ring/4: Analyzing
+domain12/batch_validate/multi_ring/4
+                        time:   [10.142 ms 10.166 ms 10.193 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+Benchmarking domain12/batch_validate/multi_ring/8
+Benchmarking domain12/batch_validate/multi_ring/8: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/8: Collecting 15 samples in estimated 5.0936 s (285 iterations)
+Benchmarking domain12/batch_validate/multi_ring/8: Analyzing
+domain12/batch_validate/multi_ring/8
+                        time:   [17.827 ms 17.862 ms 17.898 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+Benchmarking domain12/batch_validate/multi_ring/16
+Benchmarking domain12/batch_validate/multi_ring/16: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/16: Collecting 15 samples in estimated 5.3867 s (165 iterations)
+Benchmarking domain12/batch_validate/multi_ring/16: Analyzing
+domain12/batch_validate/multi_ring/16
+                        time:   [32.496 ms 32.565 ms 32.639 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+Benchmarking domain12/batch_validate/multi_ring/32
+Benchmarking domain12/batch_validate/multi_ring/32: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/32: Collecting 15 samples in estimated 5.5835 s (90 iterations)
+Benchmarking domain12/batch_validate/multi_ring/32: Analyzing
+domain12/batch_validate/multi_ring/32
+                        time:   [61.572 ms 61.711 ms 61.863 ms]
+Found 1 outliers among 15 measurements (6.67%)
+  1 (6.67%) high mild
+Benchmarking domain12/batch_validate/multi_ring/64
+Benchmarking domain12/batch_validate/multi_ring/64: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/64: Collecting 15 samples in estimated 5.3950 s (45 iterations)
+Benchmarking domain12/batch_validate/multi_ring/64: Analyzing
+domain12/batch_validate/multi_ring/64
+                        time:   [119.14 ms 119.45 ms 119.74 ms]
+Benchmarking domain12/batch_validate/multi_ring/128
+Benchmarking domain12/batch_validate/multi_ring/128: Warming up for 1.0000 s
+Benchmarking domain12/batch_validate/multi_ring/128: Collecting 15 samples in estimated 7.0289 s (30 iterations)
+Benchmarking domain12/batch_validate/multi_ring/128: Analyzing
+domain12/batch_validate/multi_ring/128
+                        time:   [234.10 ms 234.74 ms 235.42 ms]
+
+Benchmarking domain12/canary_after
+Benchmarking domain12/canary_after: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain12/canary_after: Collecting 50 samples in estimated 6.4866 s (1275 iterations)
+Benchmarking domain12/canary_after: Analyzing
+domain12/canary_after   time:   [5.0492 ms 5.0605 ms 5.0723 ms]
+
+Benchmarking domain16/canary_before
+Benchmarking domain16/canary_before: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.5s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain16/canary_before: Collecting 50 samples in estimated 6.5461 s (1275 iterations)
+Benchmarking domain16/canary_before: Analyzing
+domain16/canary_before  time:   [5.1435 ms 5.1753 ms 5.2049 ms]
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
+
+Benchmarking domain16/start_members
+Benchmarking domain16/start_members: Warming up for 500.00 ms
+Benchmarking domain16/start_members: Collecting 100 samples in estimated 2.0001 s (30M iterations)
+Benchmarking domain16/start_members: Analyzing
+domain16/start_members  time:   [66.524 ns 66.562 ns 66.606 ns]
+Found 12 outliers among 100 measurements (12.00%)
+  1 (1.00%) low severe
+  2 (2.00%) low mild
+  2 (2.00%) high mild
   7 (7.00%) high severe
-Benchmarking domain12/batch_validate/2
-Benchmarking domain12/batch_validate/2: Warming up for 3.0000 s
-Benchmarking domain12/batch_validate/2: Collecting 100 samples in estimated 5.0863 s (700 iterations)
-Benchmarking domain12/batch_validate/2: Analyzing
-domain12/batch_validate/2
-                        time:   [7.0671 ms 7.1037 ms 7.1445 ms]
+Benchmarking domain16/new_secret
+Benchmarking domain16/new_secret: Warming up for 500.00 ms
+Benchmarking domain16/new_secret: Collecting 100 samples in estimated 2.0641 s (20k iterations)
+Benchmarking domain16/new_secret: Analyzing
+domain16/new_secret     time:   [101.58 µs 101.69 µs 101.84 µs]
+Found 15 outliers among 100 measurements (15.00%)
+  3 (3.00%) low severe
+  5 (5.00%) low mild
+  3 (3.00%) high mild
+  4 (4.00%) high severe
+Benchmarking domain16/member_from_secret
+Benchmarking domain16/member_from_secret: Warming up for 500.00 ms
+Benchmarking domain16/member_from_secret: Collecting 100 samples in estimated 2.0002 s (37M iterations)
+Benchmarking domain16/member_from_secret: Analyzing
+domain16/member_from_secret
+                        time:   [54.614 ns 54.707 ns 54.796 ns]
+Benchmarking domain16/sign
+Benchmarking domain16/sign: Warming up for 500.00 ms
+Benchmarking domain16/sign: Collecting 100 samples in estimated 2.9753 s (15k iterations)
+Benchmarking domain16/sign: Analyzing
+domain16/sign           time:   [195.65 µs 195.94 µs 196.31 µs]
+Found 12 outliers among 100 measurements (12.00%)
+  9 (9.00%) high mild
+  3 (3.00%) high severe
+Benchmarking domain16/alias_in_context
+Benchmarking domain16/alias_in_context: Warming up for 500.00 ms
+Benchmarking domain16/alias_in_context: Collecting 100 samples in estimated 2.7423 s (10k iterations)
+Benchmarking domain16/alias_in_context: Analyzing
+domain16/alias_in_context
+                        time:   [269.78 µs 270.04 µs 270.33 µs]
+Found 8 outliers among 100 measurements (8.00%)
+  1 (1.00%) low mild
+  5 (5.00%) high mild
+  2 (2.00%) high severe
+Benchmarking domain16/verify_signature
+Benchmarking domain16/verify_signature: Warming up for 500.00 ms
+Benchmarking domain16/verify_signature: Collecting 100 samples in estimated 3.7678 s (10k iterations)
+Benchmarking domain16/verify_signature: Analyzing
+domain16/verify_signature
+                        time:   [368.61 µs 369.61 µs 370.68 µs]
+Found 3 outliers among 100 measurements (3.00%)
+  1 (1.00%) high mild
+  2 (2.00%) high severe
+Benchmarking domain16/is_member_valid
+Benchmarking domain16/is_member_valid: Warming up for 500.00 ms
+Benchmarking domain16/is_member_valid: Collecting 100 samples in estimated 2.4627 s (25k iterations)
+Benchmarking domain16/is_member_valid: Analyzing
+domain16/is_member_valid
+                        time:   [96.892 µs 96.942 µs 96.993 µs]
+Found 9 outliers among 100 measurements (9.00%)
+  2 (2.00%) low mild
+  3 (3.00%) high mild
+  4 (4.00%) high severe
+
+Benchmarking domain16/push_all_members_in_one_time
+Benchmarking domain16/push_all_members_in_one_time: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 20.4s.
+Benchmarking domain16/push_all_members_in_one_time: Collecting 10 samples in estimated 20.367 s (10 iterations)
+Benchmarking domain16/push_all_members_in_one_time: Analyzing
+domain16/push_all_members_in_one_time
+                        time:   [1.9776 s 1.9913 s 2.0058 s]
+Found 3 outliers among 10 measurements (30.00%)
+  1 (10.00%) low severe
+  2 (20.00%) high severe
+
+Benchmarking domain16/push_one_member_at_fill_level/empty
+Benchmarking domain16/push_one_member_at_fill_level/empty: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain16/push_one_member_at_fill_level/empty: Collecting 100 samples in estimated 3.0360 s (5050 iterations)
+Benchmarking domain16/push_one_member_at_fill_level/empty: Analyzing
+domain16/push_one_member_at_fill_level/empty
+                        time:   [596.86 µs 597.94 µs 599.06 µs]
+                        change: [-21.559% -20.921% -20.337%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain16/push_one_member_at_fill_level/quarter
+Benchmarking domain16/push_one_member_at_fill_level/quarter: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 2.9s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain16/push_one_member_at_fill_level/quarter: Collecting 100 samples in estimated 2.9432 s (5050 iterations)
+Benchmarking domain16/push_one_member_at_fill_level/quarter: Analyzing
+domain16/push_one_member_at_fill_level/quarter
+                        time:   [580.98 µs 582.17 µs 583.44 µs]
+                        change: [-22.704% -21.916% -21.154%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 7 outliers among 100 measurements (7.00%)
+  3 (3.00%) high mild
+  4 (4.00%) high severe
+Benchmarking domain16/push_one_member_at_fill_level/half
+Benchmarking domain16/push_one_member_at_fill_level/half: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 2.9s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain16/push_one_member_at_fill_level/half: Collecting 100 samples in estimated 2.9278 s (5050 iterations)
+Benchmarking domain16/push_one_member_at_fill_level/half: Analyzing
+domain16/push_one_member_at_fill_level/half
+                        time:   [578.87 µs 580.25 µs 581.72 µs]
+                        change: [-21.770% -21.133% -20.500%] (p = 0.00 < 0.05)
+                        Performance has improved.
 Found 8 outliers among 100 measurements (8.00%)
   5 (5.00%) high mild
   3 (3.00%) high severe
-Benchmarking domain12/batch_validate/4
-Benchmarking domain12/batch_validate/4: Warming up for 3.0000 s
-Benchmarking domain12/batch_validate/4: Collecting 100 samples in estimated 5.5789 s (500 iterations)
-Benchmarking domain12/batch_validate/4: Analyzing
-domain12/batch_validate/4
-                        time:   [10.924 ms 10.977 ms 11.034 ms]
-Found 10 outliers among 100 measurements (10.00%)
-  3 (3.00%) high mild
-  7 (7.00%) high severe
-Benchmarking domain12/batch_validate/8
-Benchmarking domain12/batch_validate/8: Warming up for 3.0000 s
-Benchmarking domain12/batch_validate/8: Collecting 100 samples in estimated 5.6812 s (300 iterations)
-Benchmarking domain12/batch_validate/8: Analyzing
-domain12/batch_validate/8
-                        time:   [18.500 ms 18.584 ms 18.675 ms]
-Found 12 outliers among 100 measurements (12.00%)
-  9 (9.00%) high mild
-  3 (3.00%) high severe
-Benchmarking domain12/batch_validate/16
-Benchmarking domain12/batch_validate/16: Warming up for 3.0000 s
-Benchmarking domain12/batch_validate/16: Collecting 100 samples in estimated 6.7585 s (200 iterations)
-Benchmarking domain12/batch_validate/16: Analyzing
-domain12/batch_validate/16
-                        time:   [33.008 ms 33.156 ms 33.317 ms]
-Found 2 outliers among 100 measurements (2.00%)
-  1 (1.00%) high mild
-  1 (1.00%) high severe
-Benchmarking domain12/batch_validate/32
-Benchmarking domain12/batch_validate/32: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 6.3s, or reduce sample count to 70.
-Benchmarking domain12/batch_validate/32: Collecting 100 samples in estimated 6.2803 s (100 iterations)
-Benchmarking domain12/batch_validate/32: Analyzing
-domain12/batch_validate/32
-                        time:   [61.024 ms 61.269 ms 61.533 ms]
-Found 10 outliers among 100 measurements (10.00%)
-  8 (8.00%) high mild
-  2 (2.00%) high severe
-Benchmarking domain12/batch_validate/64
-Benchmarking domain12/batch_validate/64: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.0s, or reduce sample count to 40.
-Benchmarking domain12/batch_validate/64: Collecting 100 samples in estimated 11.965 s (100 iterations)
-Benchmarking domain12/batch_validate/64: Analyzing
-domain12/batch_validate/64
-                        time:   [115.95 ms 116.32 ms 116.69 ms]
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high mild
-Benchmarking domain12/batch_validate/128
-Benchmarking domain12/batch_validate/128: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 23.4s, or reduce sample count to 20.
-Benchmarking domain12/batch_validate/128: Collecting 100 samples in estimated 23.353 s (100 iterations)
-Benchmarking domain12/batch_validate/128: Analyzing
-domain12/batch_validate/128
-                        time:   [225.72 ms 226.27 ms 226.82 ms]
-
-Benchmarking domain16/start_members
-Benchmarking domain16/start_members: Warming up for 3.0000 s
-Benchmarking domain16/start_members: Collecting 100 samples in estimated 5.0000 s (60M iterations)
-Benchmarking domain16/start_members: Analyzing
-domain16/start_members  time:   [81.233 ns 81.539 ns 81.843 ns]
-                        change: [-94.086% -94.039% -93.989%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 3 outliers among 100 measurements (3.00%)
-  2 (2.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain16/push_all_members_in_one_time
-Benchmarking domain16/push_all_members_in_one_time: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 215.9s, or reduce sample count to 10.
-Benchmarking domain16/push_all_members_in_one_time: Collecting 100 samples in estimated 215.87 s (100 iterations)
-Benchmarking domain16/push_all_members_in_one_time: Analyzing
-domain16/push_all_members_in_one_time
-                        time:   [2.1343 s 2.1366 s 2.1390 s]
-                        change: [+6.9718% +7.2284% +7.4712%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-
-Benchmarking domain16/push_one_member_in_almost_full
-Benchmarking domain16/push_one_member_in_almost_full: Warming up for 3.0000 s
-Benchmarking domain16/push_one_member_in_almost_full: Collecting 100 samples in estimated 7.6289 s (10k iterations)
-Benchmarking domain16/push_one_member_in_almost_full: Analyzing
-domain16/push_one_member_in_almost_full
-                        time:   [742.60 µs 747.08 µs 751.44 µs]
-                        change: [+7.1624% +8.4626% +9.7865%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 3 outliers among 100 measurements (3.00%)
-  1 (1.00%) low mild
-  1 (1.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain16/finish_members
-Benchmarking domain16/finish_members: Warming up for 3.0000 s
-Benchmarking domain16/finish_members: Collecting 100 samples in estimated 5.0004 s (15M iterations)
-Benchmarking domain16/finish_members: Analyzing
-domain16/finish_members time:   [84.611 ns 85.722 ns 86.894 ns]
-                        change: [-18.271% -14.388% -10.534%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
-Benchmarking domain16/finish_members_full
-Benchmarking domain16/finish_members_full: Warming up for 3.0000 s
-Benchmarking domain16/finish_members_full: Collecting 100 samples in estimated 5.0009 s (15M iterations)
-Benchmarking domain16/finish_members_full: Analyzing
-domain16/finish_members_full
-                        time:   [85.058 ns 86.188 ns 87.338 ns]
-                        change: [-19.230% -15.624% -11.924%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
-Benchmarking domain16/new_secret
-Benchmarking domain16/new_secret: Warming up for 3.0000 s
-Benchmarking domain16/new_secret: Collecting 100 samples in estimated 5.5404 s (50k iterations)
-Benchmarking domain16/new_secret: Analyzing
-domain16/new_secret     time:   [106.94 µs 107.36 µs 107.81 µs]
-                        change: [+4.9108% +5.7290% +6.5344%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high mild
-
-Benchmarking domain16/member_from_secret
-Benchmarking domain16/member_from_secret: Warming up for 3.0000 s
-Benchmarking domain16/member_from_secret: Collecting 100 samples in estimated 5.0000 s (79M iterations)
-Benchmarking domain16/member_from_secret: Analyzing
-domain16/member_from_secret
-                        time:   [61.504 ns 61.738 ns 61.976 ns]
-                        change: [+8.7285% +9.6827% +10.616%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 4 outliers among 100 measurements (4.00%)
-  3 (3.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain16/open
-Benchmarking domain16/open: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 228.2s, or reduce sample count to 10.
-Benchmarking domain16/open: Collecting 100 samples in estimated 228.23 s (100 iterations)
-Benchmarking domain16/open: Analyzing
-domain16/open           time:   [2.2709 s 2.2736 s 2.2765 s]
-                        change: [+8.6612% +8.9156% +9.1697%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high mild
-
-Benchmarking domain16/create
-Benchmarking domain16/create: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 358.7s, or reduce sample count to 10.
-Benchmarking domain16/create: Collecting 100 samples in estimated 358.67 s (100 iterations)
-Benchmarking domain16/create: Analyzing
-domain16/create         time:   [3.5578 s 3.5608 s 3.5638 s]
-                        change: [+17.862% +18.113% +18.362%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-
-Benchmarking domain16/sign
-Benchmarking domain16/sign: Warming up for 3.0000 s
-Benchmarking domain16/sign: Collecting 100 samples in estimated 5.4446 s (25k iterations)
-Benchmarking domain16/sign: Analyzing
-domain16/sign           time:   [209.21 µs 209.91 µs 210.66 µs]
-                        change: [-51.199% -50.791% -50.419%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 2 outliers among 100 measurements (2.00%)
-  1 (1.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain16/alias_in_context
-Benchmarking domain16/alias_in_context: Warming up for 3.0000 s
-Benchmarking domain16/alias_in_context: Collecting 100 samples in estimated 5.8418 s (20k iterations)
-Benchmarking domain16/alias_in_context: Analyzing
-domain16/alias_in_context
-                        time:   [281.70 µs 282.65 µs 283.64 µs]
-                        change: [+92.080% +93.275% +94.560%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 25 outliers among 100 measurements (25.00%)
-  12 (12.00%) low mild
-  4 (4.00%) high mild
-  9 (9.00%) high severe
-
-Benchmarking domain16/validate
-Benchmarking domain16/validate: Warming up for 3.0000 s
-Benchmarking domain16/validate: Collecting 100 samples in estimated 5.4510 s (800 iterations)
-Benchmarking domain16/validate: Analyzing
-domain16/validate       time:   [6.6616 ms 6.6903 ms 6.7206 ms]
-                        change: [-65.404% -65.085% -64.790%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 4 outliers among 100 measurements (4.00%)
-  4 (4.00%) high mild
-
-Benchmarking domain16/is_valid
-Benchmarking domain16/is_valid: Warming up for 3.0000 s
-Benchmarking domain16/is_valid: Collecting 100 samples in estimated 5.4587 s (800 iterations)
-Benchmarking domain16/is_valid: Analyzing
-domain16/is_valid       time:   [6.6538 ms 6.6833 ms 6.7145 ms]
-                        change: [-67.730% -67.456% -67.191%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 7 outliers among 100 measurements (7.00%)
-  7 (7.00%) high mild
-
-Benchmarking domain16/verify_signature
-Benchmarking domain16/verify_signature: Warming up for 3.0000 s
-Benchmarking domain16/verify_signature: Collecting 100 samples in estimated 6.5296 s (15k iterations)
-Benchmarking domain16/verify_signature: Analyzing
-domain16/verify_signature
-                        time:   [412.91 µs 415.04 µs 417.29 µs]
-                        change: [-39.701% -39.283% -38.844%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 7 outliers among 100 measurements (7.00%)
-  6 (6.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain16/is_member_valid
-Benchmarking domain16/is_member_valid: Warming up for 3.0000 s
-Benchmarking domain16/is_member_valid: Collecting 100 samples in estimated 5.1288 s (50k iterations)
-Benchmarking domain16/is_member_valid: Analyzing
-domain16/is_member_valid
-                        time:   [98.566 µs 98.892 µs 99.249 µs]
-                        change: [+3.1334% +3.6990% +4.3685%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 21 outliers among 100 measurements (21.00%)
-  1 (1.00%) low severe
-  3 (3.00%) low mild
-  4 (4.00%) high mild
-  13 (13.00%) high severe
-
-Benchmarking domain16/push_one_member_at_fill_level/empty
-Benchmarking domain16/push_one_member_at_fill_level/empty: Warming up for 3.0000 s
-Benchmarking domain16/push_one_member_at_fill_level/empty: Collecting 100 samples in estimated 7.5694 s (10k iterations)
-Benchmarking domain16/push_one_member_at_fill_level/empty: Analyzing
-domain16/push_one_member_at_fill_level/empty
-                        time:   [752.50 µs 756.78 µs 761.41 µs]
-                        change: [+6.3792% +7.3525% +8.3529%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 11 outliers among 100 measurements (11.00%)
-  7 (7.00%) high mild
-  4 (4.00%) high severe
-Benchmarking domain16/push_one_member_at_fill_level/quarter
-Benchmarking domain16/push_one_member_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain16/push_one_member_at_fill_level/quarter: Collecting 100 samples in estimated 7.6388 s (10k iterations)
-Benchmarking domain16/push_one_member_at_fill_level/quarter: Analyzing
-domain16/push_one_member_at_fill_level/quarter
-                        time:   [734.52 µs 738.32 µs 742.42 µs]
-                        change: [+7.6389% +8.7327% +9.8228%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 6 outliers among 100 measurements (6.00%)
-  4 (4.00%) high mild
-  2 (2.00%) high severe
-Benchmarking domain16/push_one_member_at_fill_level/half
-Benchmarking domain16/push_one_member_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain16/push_one_member_at_fill_level/half: Collecting 100 samples in estimated 7.4194 s (10k iterations)
-Benchmarking domain16/push_one_member_at_fill_level/half: Analyzing
-domain16/push_one_member_at_fill_level/half
-                        time:   [733.75 µs 737.87 µs 742.15 µs]
-                        change: [+6.8319% +7.6239% +8.4486%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 4 outliers among 100 measurements (4.00%)
-  1 (1.00%) high mild
-  3 (3.00%) high severe
 Benchmarking domain16/push_one_member_at_fill_level/three_quarters
-Benchmarking domain16/push_one_member_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain16/push_one_member_at_fill_level/three_quarters: Collecting 100 samples in estimated 7.4593 s (10k iterations)
+Benchmarking domain16/push_one_member_at_fill_level/three_quarters: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain16/push_one_member_at_fill_level/three_quarters: Collecting 100 samples in estimated 2.9501 s (5050 iterations)
 Benchmarking domain16/push_one_member_at_fill_level/three_quarters: Analyzing
 domain16/push_one_member_at_fill_level/three_quarters
-                        time:   [732.10 µs 736.69 µs 741.53 µs]
-                        change: [+5.7700% +6.9808% +8.0212%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 5 outliers among 100 measurements (5.00%)
-  4 (4.00%) high mild
-  1 (1.00%) high severe
-Benchmarking domain16/push_one_member_at_fill_level/full_minus_one
-Benchmarking domain16/push_one_member_at_fill_level/full_minus_one: Warming up for 3.0000 s
-Benchmarking domain16/push_one_member_at_fill_level/full_minus_one: Collecting 100 samples in estimated 7.5971 s (10k iterations)
-Benchmarking domain16/push_one_member_at_fill_level/full_minus_one: Analyzing
-domain16/push_one_member_at_fill_level/full_minus_one
-                        time:   [742.68 µs 746.69 µs 750.87 µs]
-                        change: [+8.7293% +9.9444% +11.101%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 7 outliers among 100 measurements (7.00%)
-  4 (4.00%) high mild
-  3 (3.00%) high severe
-
-Benchmarking domain16/finish_members_at_fill_level/nearly_empty
-Benchmarking domain16/finish_members_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain16/finish_members_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.0015 s (15M iterations)
-Benchmarking domain16/finish_members_at_fill_level/nearly_empty: Analyzing
-domain16/finish_members_at_fill_level/nearly_empty
-                        time:   [84.962 ns 85.964 ns 86.960 ns]
-                        change: [-16.106% -12.398% -8.3715%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Benchmarking domain16/finish_members_at_fill_level/quarter
-Benchmarking domain16/finish_members_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain16/finish_members_at_fill_level/quarter: Collecting 100 samples in estimated 5.0006 s (15M iterations)
-Benchmarking domain16/finish_members_at_fill_level/quarter: Analyzing
-domain16/finish_members_at_fill_level/quarter
-                        time:   [85.084 ns 86.207 ns 87.368 ns]
-                        change: [-14.703% -10.704% -6.6249%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Benchmarking domain16/finish_members_at_fill_level/half
-Benchmarking domain16/finish_members_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain16/finish_members_at_fill_level/half: Collecting 100 samples in estimated 5.0009 s (15M iterations)
-Benchmarking domain16/finish_members_at_fill_level/half: Analyzing
-domain16/finish_members_at_fill_level/half
-                        time:   [85.234 ns 86.282 ns 87.341 ns]
-                        change: [-15.298% -11.848% -7.9570%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high mild
-Benchmarking domain16/finish_members_at_fill_level/three_quarters
-Benchmarking domain16/finish_members_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain16/finish_members_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.0006 s (15M iterations)
-Benchmarking domain16/finish_members_at_fill_level/three_quarters: Analyzing
-domain16/finish_members_at_fill_level/three_quarters
-                        time:   [84.974 ns 86.057 ns 87.110 ns]
-                        change: [-17.876% -14.030% -9.8862%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Benchmarking domain16/finish_members_at_fill_level/full
-Benchmarking domain16/finish_members_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain16/finish_members_at_fill_level/full: Collecting 100 samples in estimated 5.0016 s (15M iterations)
-Benchmarking domain16/finish_members_at_fill_level/full: Analyzing
-domain16/finish_members_at_fill_level/full
-                        time:   [84.659 ns 85.738 ns 86.777 ns]
-                        change: [-19.950% -16.547% -12.989%] (p = 0.00 < 0.05)
-                        Performance has improved.
-
-Benchmarking domain16/open_at_fill_level/nearly_empty
-Benchmarking domain16/open_at_fill_level/nearly_empty: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 37.3s, or reduce sample count to 10.
-Benchmarking domain16/open_at_fill_level/nearly_empty: Collecting 100 samples in estimated 37.289 s (100 iterations)
-Benchmarking domain16/open_at_fill_level/nearly_empty: Analyzing
-domain16/open_at_fill_level/nearly_empty
-                        time:   [368.47 ms 369.38 ms 370.28 ms]
-                        change: [+31.779% +33.096% +34.524%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) low mild
-Benchmarking domain16/open_at_fill_level/quarter
-Benchmarking domain16/open_at_fill_level/quarter: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 82.5s, or reduce sample count to 10.
-Benchmarking domain16/open_at_fill_level/quarter: Collecting 100 samples in estimated 82.456 s (100 iterations)
-Benchmarking domain16/open_at_fill_level/quarter: Analyzing
-domain16/open_at_fill_level/quarter
-                        time:   [813.70 ms 814.70 ms 815.70 ms]
-                        change: [+16.325% +16.567% +16.818%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain16/open_at_fill_level/half
-Benchmarking domain16/open_at_fill_level/half: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 131.3s, or reduce sample count to 10.
-Benchmarking domain16/open_at_fill_level/half: Collecting 100 samples in estimated 131.33 s (100 iterations)
-Benchmarking domain16/open_at_fill_level/half: Analyzing
-domain16/open_at_fill_level/half
-                        time:   [1.3000 s 1.3016 s 1.3033 s]
-                        change: [+11.984% +12.242% +12.503%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain16/open_at_fill_level/three_quarters
-Benchmarking domain16/open_at_fill_level/three_quarters: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 180.7s, or reduce sample count to 10.
-Benchmarking domain16/open_at_fill_level/three_quarters: Collecting 100 samples in estimated 180.67 s (100 iterations)
-Benchmarking domain16/open_at_fill_level/three_quarters: Analyzing
-domain16/open_at_fill_level/three_quarters
-                        time:   [1.7850 s 1.7868 s 1.7886 s]
-                        change: [+10.499% +10.701% +10.908%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Benchmarking domain16/open_at_fill_level/full
-Benchmarking domain16/open_at_fill_level/full: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 229.4s, or reduce sample count to 10.
-Benchmarking domain16/open_at_fill_level/full: Collecting 100 samples in estimated 229.38 s (100 iterations)
-Benchmarking domain16/open_at_fill_level/full: Analyzing
-domain16/open_at_fill_level/full
-                        time:   [2.2717 s 2.2748 s 2.2782 s]
-                        change: [+10.115% +10.319% +10.539%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  1 (1.00%) high mild
-  1 (1.00%) high severe
-
-Benchmarking domain16/create_at_fill_level/nearly_empty
-Benchmarking domain16/create_at_fill_level/nearly_empty: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 167.3s, or reduce sample count to 10.
-Benchmarking domain16/create_at_fill_level/nearly_empty: Collecting 100 samples in estimated 167.28 s (100 iterations)
-Benchmarking domain16/create_at_fill_level/nearly_empty: Analyzing
-domain16/create_at_fill_level/nearly_empty
-                        time:   [1.6538 s 1.6563 s 1.6588 s]
-                        change: [+30.099% +30.858% +31.728%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high mild
-Benchmarking domain16/create_at_fill_level/quarter
-Benchmarking domain16/create_at_fill_level/quarter: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 210.1s, or reduce sample count to 10.
-Benchmarking domain16/create_at_fill_level/quarter: Collecting 100 samples in estimated 210.13 s (100 iterations)
-Benchmarking domain16/create_at_fill_level/quarter: Analyzing
-domain16/create_at_fill_level/quarter
-                        time:   [2.0999 s 2.1022 s 2.1046 s]
-                        change: [+24.695% +24.934% +25.175%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high mild
-Benchmarking domain16/create_at_fill_level/half
-Benchmarking domain16/create_at_fill_level/half: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 259.1s, or reduce sample count to 10.
-Benchmarking domain16/create_at_fill_level/half: Collecting 100 samples in estimated 259.10 s (100 iterations)
-Benchmarking domain16/create_at_fill_level/half: Analyzing
-domain16/create_at_fill_level/half
-                        time:   [2.5943 s 2.5985 s 2.6033 s]
-                        change: [+22.816% +23.124% +23.428%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 9 outliers among 100 measurements (9.00%)
-  2 (2.00%) low mild
-  2 (2.00%) high mild
-  5 (5.00%) high severe
-Benchmarking domain16/create_at_fill_level/three_quarters
-Benchmarking domain16/create_at_fill_level/three_quarters: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 309.6s, or reduce sample count to 10.
-Benchmarking domain16/create_at_fill_level/three_quarters: Collecting 100 samples in estimated 309.57 s (100 iterations)
-Benchmarking domain16/create_at_fill_level/three_quarters: Analyzing
-domain16/create_at_fill_level/three_quarters
-                        time:   [3.0725 s 3.0751 s 3.0776 s]
-                        change: [+21.420% +21.631% +21.848%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 1 outliers among 100 measurements (1.00%)
-  1 (1.00%) high mild
-Benchmarking domain16/create_at_fill_level/full
-Benchmarking domain16/create_at_fill_level/full: Warming up for 3.0000 s
-
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 358.3s, or reduce sample count to 10.
-Benchmarking domain16/create_at_fill_level/full: Collecting 100 samples in estimated 358.27 s (100 iterations)
-Benchmarking domain16/create_at_fill_level/full: Analyzing
-domain16/create_at_fill_level/full
-                        time:   [3.5602 s 3.5640 s 3.5684 s]
-                        change: [+19.142% +19.394% +19.640%] (p = 0.00 < 0.05)
-                        Performance has regressed.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high severe
-
-Benchmarking domain16/validate_at_fill_level/nearly_empty
-Benchmarking domain16/validate_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain16/validate_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.4805 s (800 iterations)
-Benchmarking domain16/validate_at_fill_level/nearly_empty: Analyzing
-domain16/validate_at_fill_level/nearly_empty
-                        time:   [6.6896 ms 6.7196 ms 6.7507 ms]
-                        change: [-67.136% -66.935% -66.718%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 3 outliers among 100 measurements (3.00%)
-  3 (3.00%) high mild
-Benchmarking domain16/validate_at_fill_level/quarter
-Benchmarking domain16/validate_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain16/validate_at_fill_level/quarter: Collecting 100 samples in estimated 5.5162 s (800 iterations)
-Benchmarking domain16/validate_at_fill_level/quarter: Analyzing
-domain16/validate_at_fill_level/quarter
-                        time:   [6.7336 ms 6.7634 ms 6.7947 ms]
-                        change: [-66.941% -66.690% -66.451%] (p = 0.00 < 0.05)
-                        Performance has improved.
-Found 5 outliers among 100 measurements (5.00%)
-  5 (5.00%) high mild
-Benchmarking domain16/validate_at_fill_level/half
-Benchmarking domain16/validate_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain16/validate_at_fill_level/half: Collecting 100 samples in estimated 5.4897 s (800 iterations)
-Benchmarking domain16/validate_at_fill_level/half: Analyzing
-domain16/validate_at_fill_level/half
-                        time:   [6.7264 ms 6.7555 ms 6.7861 ms]
-                        change: [-67.025% -66.745% -66.475%] (p = 0.00 < 0.05)
+                        time:   [579.67 µs 580.40 µs 581.17 µs]
+                        change: [-21.486% -21.036% -20.616%] (p = 0.00 < 0.05)
                         Performance has improved.
 Found 4 outliers among 100 measurements (4.00%)
-  4 (4.00%) high mild
+  1 (1.00%) low mild
+  2 (2.00%) high mild
+  1 (1.00%) high severe
+Benchmarking domain16/push_one_member_at_fill_level/full_minus_one
+Benchmarking domain16/push_one_member_at_fill_level/full_minus_one: Warming up for 500.00 ms
+
+Warning: Unable to complete 100 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 50.
+Benchmarking domain16/push_one_member_at_fill_level/full_minus_one: Collecting 100 samples in estimated 2.9696 s (5050 iterations)
+Benchmarking domain16/push_one_member_at_fill_level/full_minus_one: Analyzing
+domain16/push_one_member_at_fill_level/full_minus_one
+                        time:   [586.90 µs 588.07 µs 589.49 µs]
+                        change: [-21.833% -21.232% -20.691%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
+  2 (2.00%) low mild
+  5 (5.00%) high mild
+  1 (1.00%) high severe
+
+Benchmarking domain16/finish_members_at_fill_level/nearly_empty
+Benchmarking domain16/finish_members_at_fill_level/nearly_empty: Warming up for 500.00 ms
+Benchmarking domain16/finish_members_at_fill_level/nearly_empty: Collecting 100 samples in estimated 2.0005 s (8.3M iterations)
+Benchmarking domain16/finish_members_at_fill_level/nearly_empty: Analyzing
+domain16/finish_members_at_fill_level/nearly_empty
+                        time:   [57.215 ns 60.061 ns 62.578 ns]
+                        change: [-37.484% -34.494% -31.001%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 100 measurements (1.00%)
+  1 (1.00%) high mild
+Benchmarking domain16/finish_members_at_fill_level/quarter
+Benchmarking domain16/finish_members_at_fill_level/quarter: Warming up for 500.00 ms
+Benchmarking domain16/finish_members_at_fill_level/quarter: Collecting 100 samples in estimated 2.0007 s (7.8M iterations)
+Benchmarking domain16/finish_members_at_fill_level/quarter: Analyzing
+domain16/finish_members_at_fill_level/quarter
+                        time:   [54.521 ns 56.987 ns 59.117 ns]
+                        change: [-40.474% -37.609% -34.642%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 8 outliers among 100 measurements (8.00%)
+  8 (8.00%) high mild
+Benchmarking domain16/finish_members_at_fill_level/half
+Benchmarking domain16/finish_members_at_fill_level/half: Warming up for 500.00 ms
+Benchmarking domain16/finish_members_at_fill_level/half: Collecting 100 samples in estimated 2.0002 s (8.3M iterations)
+Benchmarking domain16/finish_members_at_fill_level/half: Analyzing
+domain16/finish_members_at_fill_level/half
+                        time:   [57.063 ns 59.753 ns 62.059 ns]
+                        change: [-39.275% -36.101% -32.945%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain16/finish_members_at_fill_level/three_quarters
+Benchmarking domain16/finish_members_at_fill_level/three_quarters: Warming up for 500.00 ms
+Benchmarking domain16/finish_members_at_fill_level/three_quarters: Collecting 100 samples in estimated 2.0001 s (8.3M iterations)
+Benchmarking domain16/finish_members_at_fill_level/three_quarters: Analyzing
+domain16/finish_members_at_fill_level/three_quarters
+                        time:   [57.382 ns 59.965 ns 62.181 ns]
+                        change: [-37.014% -33.896% -30.585%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain16/finish_members_at_fill_level/full
+Benchmarking domain16/finish_members_at_fill_level/full: Warming up for 500.00 ms
+Benchmarking domain16/finish_members_at_fill_level/full: Collecting 100 samples in estimated 2.0011 s (8.3M iterations)
+Benchmarking domain16/finish_members_at_fill_level/full: Analyzing
+domain16/finish_members_at_fill_level/full
+                        time:   [57.806 ns 60.604 ns 62.972 ns]
+                        change: [-36.733% -33.598% -30.101%] (p = 0.00 < 0.05)
+                        Performance has improved.
+
+Benchmarking domain16/validate_at_fill_level/nearly_empty
+Benchmarking domain16/validate_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/validate_at_fill_level/nearly_empty: Collecting 50 samples in estimated 7.0943 s (1275 iterations)
+Benchmarking domain16/validate_at_fill_level/nearly_empty: Analyzing
+domain16/validate_at_fill_level/nearly_empty
+                        time:   [5.5355 ms 5.5494 ms 5.5634 ms]
+                        change: [-17.907% -17.447% -16.983%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) high mild
+  1 (2.00%) high severe
+Benchmarking domain16/validate_at_fill_level/quarter
+Benchmarking domain16/validate_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/validate_at_fill_level/quarter: Collecting 50 samples in estimated 7.0565 s (1275 iterations)
+Benchmarking domain16/validate_at_fill_level/quarter: Analyzing
+domain16/validate_at_fill_level/quarter
+                        time:   [5.5133 ms 5.5257 ms 5.5399 ms]
+                        change: [-18.652% -18.241% -17.833%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Benchmarking domain16/validate_at_fill_level/half
+Benchmarking domain16/validate_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/validate_at_fill_level/half: Collecting 50 samples in estimated 7.1050 s (1275 iterations)
+Benchmarking domain16/validate_at_fill_level/half: Analyzing
+domain16/validate_at_fill_level/half
+                        time:   [5.5488 ms 5.5628 ms 5.5769 ms]
+                        change: [-18.198% -17.771% -17.338%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high severe
 Benchmarking domain16/validate_at_fill_level/three_quarters
-Benchmarking domain16/validate_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain16/validate_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.4883 s (800 iterations)
+Benchmarking domain16/validate_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/validate_at_fill_level/three_quarters: Collecting 50 samples in estimated 7.1492 s (1275 iterations)
 Benchmarking domain16/validate_at_fill_level/three_quarters: Analyzing
 domain16/validate_at_fill_level/three_quarters
-                        time:   [6.7091 ms 6.7362 ms 6.7644 ms]
-                        change: [-66.983% -66.730% -66.496%] (p = 0.00 < 0.05)
+                        time:   [5.5748 ms 5.5861 ms 5.5966 ms]
+                        change: [-17.450% -17.021% -16.592%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 3 outliers among 100 measurements (3.00%)
-  3 (3.00%) high mild
+Found 5 outliers among 50 measurements (10.00%)
+  1 (2.00%) low mild
+  2 (4.00%) high mild
+  2 (4.00%) high severe
 Benchmarking domain16/validate_at_fill_level/full
-Benchmarking domain16/validate_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain16/validate_at_fill_level/full: Collecting 100 samples in estimated 5.4740 s (800 iterations)
+Benchmarking domain16/validate_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/validate_at_fill_level/full: Collecting 50 samples in estimated 7.0834 s (1275 iterations)
 Benchmarking domain16/validate_at_fill_level/full: Analyzing
 domain16/validate_at_fill_level/full
-                        time:   [6.6948 ms 6.7287 ms 6.7662 ms]
-                        change: [-67.005% -66.770% -66.518%] (p = 0.00 < 0.05)
+                        time:   [5.5312 ms 5.5476 ms 5.5650 ms]
+                        change: [-18.296% -17.796% -17.329%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 5 outliers among 100 measurements (5.00%)
-  4 (4.00%) high mild
-  1 (1.00%) high severe
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
 
 Benchmarking domain16/is_valid_at_fill_level/nearly_empty
-Benchmarking domain16/is_valid_at_fill_level/nearly_empty: Warming up for 3.0000 s
-Benchmarking domain16/is_valid_at_fill_level/nearly_empty: Collecting 100 samples in estimated 5.4930 s (800 iterations)
+Benchmarking domain16/is_valid_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/is_valid_at_fill_level/nearly_empty: Collecting 50 samples in estimated 7.0683 s (1275 iterations)
 Benchmarking domain16/is_valid_at_fill_level/nearly_empty: Analyzing
 domain16/is_valid_at_fill_level/nearly_empty
-                        time:   [6.6988 ms 6.7288 ms 6.7604 ms]
-                        change: [-67.001% -66.783% -66.548%] (p = 0.00 < 0.05)
+                        time:   [5.5271 ms 5.5369 ms 5.5466 ms]
+                        change: [-18.220% -17.768% -17.347%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 6 outliers among 100 measurements (6.00%)
-  6 (6.00%) high mild
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high severe
 Benchmarking domain16/is_valid_at_fill_level/quarter
-Benchmarking domain16/is_valid_at_fill_level/quarter: Warming up for 3.0000 s
-Benchmarking domain16/is_valid_at_fill_level/quarter: Collecting 100 samples in estimated 5.5376 s (800 iterations)
+Benchmarking domain16/is_valid_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/is_valid_at_fill_level/quarter: Collecting 50 samples in estimated 7.0606 s (1275 iterations)
 Benchmarking domain16/is_valid_at_fill_level/quarter: Analyzing
 domain16/is_valid_at_fill_level/quarter
-                        time:   [6.7356 ms 6.7633 ms 6.7923 ms]
-                        change: [-66.925% -66.685% -66.447%] (p = 0.00 < 0.05)
+                        time:   [5.5008 ms 5.5119 ms 5.5243 ms]
+                        change: [-18.922% -18.523% -18.133%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 2 outliers among 100 measurements (2.00%)
-  2 (2.00%) high mild
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high mild
 Benchmarking domain16/is_valid_at_fill_level/half
-Benchmarking domain16/is_valid_at_fill_level/half: Warming up for 3.0000 s
-Benchmarking domain16/is_valid_at_fill_level/half: Collecting 100 samples in estimated 5.5105 s (800 iterations)
+Benchmarking domain16/is_valid_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/is_valid_at_fill_level/half: Collecting 50 samples in estimated 7.0674 s (1275 iterations)
 Benchmarking domain16/is_valid_at_fill_level/half: Analyzing
 domain16/is_valid_at_fill_level/half
-                        time:   [6.7125 ms 6.7428 ms 6.7750 ms]
-                        change: [-66.888% -66.626% -66.366%] (p = 0.00 < 0.05)
+                        time:   [5.5473 ms 5.5568 ms 5.5662 ms]
+                        change: [-18.151% -17.711% -17.303%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 6 outliers among 100 measurements (6.00%)
-  5 (5.00%) high mild
-  1 (1.00%) high severe
+Found 5 outliers among 50 measurements (10.00%)
+  1 (2.00%) low severe
+  2 (4.00%) low mild
+  2 (4.00%) high mild
 Benchmarking domain16/is_valid_at_fill_level/three_quarters
-Benchmarking domain16/is_valid_at_fill_level/three_quarters: Warming up for 3.0000 s
-Benchmarking domain16/is_valid_at_fill_level/three_quarters: Collecting 100 samples in estimated 5.5087 s (800 iterations)
+Benchmarking domain16/is_valid_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/is_valid_at_fill_level/three_quarters: Collecting 50 samples in estimated 7.1040 s (1275 iterations)
 Benchmarking domain16/is_valid_at_fill_level/three_quarters: Analyzing
 domain16/is_valid_at_fill_level/three_quarters
-                        time:   [6.6987 ms 6.7287 ms 6.7604 ms]
-                        change: [-67.042% -66.839% -66.631%] (p = 0.00 < 0.05)
+                        time:   [5.5692 ms 5.5808 ms 5.5917 ms]
+                        change: [-17.621% -17.187% -16.770%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 5 outliers among 100 measurements (5.00%)
-  5 (5.00%) high mild
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low severe
+  1 (2.00%) high mild
 Benchmarking domain16/is_valid_at_fill_level/full
-Benchmarking domain16/is_valid_at_fill_level/full: Warming up for 3.0000 s
-Benchmarking domain16/is_valid_at_fill_level/full: Collecting 100 samples in estimated 5.4960 s (800 iterations)
+Benchmarking domain16/is_valid_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 7.1s, enable flat sampling, or reduce sample count to 20.
+Benchmarking domain16/is_valid_at_fill_level/full: Collecting 50 samples in estimated 7.0809 s (1275 iterations)
 Benchmarking domain16/is_valid_at_fill_level/full: Analyzing
 domain16/is_valid_at_fill_level/full
-                        time:   [6.6970 ms 6.7262 ms 6.7563 ms]
-                        change: [-67.143% -66.895% -66.654%] (p = 0.00 < 0.05)
+                        time:   [5.5181 ms 5.5257 ms 5.5329 ms]
+                        change: [-18.284% -17.875% -17.452%] (p = 0.00 < 0.05)
                         Performance has improved.
-Found 6 outliers among 100 measurements (6.00%)
-  6 (6.00%) high mild
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high mild
 
-Benchmarking domain16/batch_validate/1
-Benchmarking domain16/batch_validate/1: Warming up for 3.0000 s
-Benchmarking domain16/batch_validate/1: Collecting 100 samples in estimated 5.1751 s (900 iterations)
-Benchmarking domain16/batch_validate/1: Analyzing
-domain16/batch_validate/1
-                        time:   [5.6709 ms 5.7005 ms 5.7332 ms]
-Found 11 outliers among 100 measurements (11.00%)
-  6 (6.00%) high mild
-  5 (5.00%) high severe
-Benchmarking domain16/batch_validate/2
-Benchmarking domain16/batch_validate/2: Warming up for 3.0000 s
-Benchmarking domain16/batch_validate/2: Collecting 100 samples in estimated 5.5062 s (700 iterations)
-Benchmarking domain16/batch_validate/2: Analyzing
-domain16/batch_validate/2
-                        time:   [7.6865 ms 7.7263 ms 7.7709 ms]
-Found 11 outliers among 100 measurements (11.00%)
-  7 (7.00%) high mild
-  4 (4.00%) high severe
-Benchmarking domain16/batch_validate/4
-Benchmarking domain16/batch_validate/4: Warming up for 3.0000 s
-Benchmarking domain16/batch_validate/4: Collecting 100 samples in estimated 5.9908 s (500 iterations)
-Benchmarking domain16/batch_validate/4: Analyzing
-domain16/batch_validate/4
-                        time:   [11.557 ms 11.607 ms 11.661 ms]
-Found 12 outliers among 100 measurements (12.00%)
-  9 (9.00%) high mild
-  3 (3.00%) high severe
-Benchmarking domain16/batch_validate/8
-Benchmarking domain16/batch_validate/8: Warming up for 3.0000 s
-Benchmarking domain16/batch_validate/8: Collecting 100 samples in estimated 5.8862 s (300 iterations)
-Benchmarking domain16/batch_validate/8: Analyzing
-domain16/batch_validate/8
-                        time:   [19.144 ms 19.219 ms 19.299 ms]
-Found 13 outliers among 100 measurements (13.00%)
-  9 (9.00%) high mild
-  4 (4.00%) high severe
-Benchmarking domain16/batch_validate/16
-Benchmarking domain16/batch_validate/16: Warming up for 3.0000 s
-Benchmarking domain16/batch_validate/16: Collecting 100 samples in estimated 6.8777 s (200 iterations)
-Benchmarking domain16/batch_validate/16: Analyzing
-domain16/batch_validate/16
-                        time:   [33.504 ms 33.637 ms 33.786 ms]
-Found 7 outliers among 100 measurements (7.00%)
-  5 (5.00%) high mild
-  2 (2.00%) high severe
-Benchmarking domain16/batch_validate/32
-Benchmarking domain16/batch_validate/32: Warming up for 3.0000 s
+Benchmarking domain16/open_at_fill_level/nearly_empty
+Benchmarking domain16/open_at_fill_level/nearly_empty: Warming up for 1.0000 s
+Benchmarking domain16/open_at_fill_level/nearly_empty: Collecting 10 samples in estimated 5.1435 s (20 iterations)
+Benchmarking domain16/open_at_fill_level/nearly_empty: Analyzing
+domain16/open_at_fill_level/nearly_empty
+                        time:   [257.84 ms 258.20 ms 258.62 ms]
+                        change: [-30.297% -30.101% -29.894%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high mild
+Benchmarking domain16/open_at_fill_level/quarter
+Benchmarking domain16/open_at_fill_level/quarter: Warming up for 1.0000 s
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 6.3s, or reduce sample count to 70.
-Benchmarking domain16/batch_validate/32: Collecting 100 samples in estimated 6.3277 s (100 iterations)
-Benchmarking domain16/batch_validate/32: Analyzing
-domain16/batch_validate/32
-                        time:   [61.665 ms 61.929 ms 62.212 ms]
-Found 6 outliers among 100 measurements (6.00%)
-  5 (5.00%) high mild
-  1 (1.00%) high severe
-Benchmarking domain16/batch_validate/64
-Benchmarking domain16/batch_validate/64: Warming up for 3.0000 s
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 7.1s.
+Benchmarking domain16/open_at_fill_level/quarter: Collecting 10 samples in estimated 7.1298 s (10 iterations)
+Benchmarking domain16/open_at_fill_level/quarter: Analyzing
+domain16/open_at_fill_level/quarter
+                        time:   [703.61 ms 706.78 ms 709.82 ms]
+                        change: [-13.592% -13.247% -12.867%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 10 measurements (20.00%)
+  1 (10.00%) low mild
+  1 (10.00%) high mild
+Benchmarking domain16/open_at_fill_level/half
+Benchmarking domain16/open_at_fill_level/half: Warming up for 1.0000 s
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 12.1s, or reduce sample count to 40.
-Benchmarking domain16/batch_validate/64: Collecting 100 samples in estimated 12.057 s (100 iterations)
-Benchmarking domain16/batch_validate/64: Analyzing
-domain16/batch_validate/64
-                        time:   [116.57 ms 116.98 ms 117.42 ms]
-Found 3 outliers among 100 measurements (3.00%)
-  2 (2.00%) high mild
-  1 (1.00%) high severe
-Benchmarking domain16/batch_validate/128
-Benchmarking domain16/batch_validate/128: Warming up for 3.0000 s
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 11.7s.
+Benchmarking domain16/open_at_fill_level/half: Collecting 10 samples in estimated 11.706 s (10 iterations)
+Benchmarking domain16/open_at_fill_level/half: Analyzing
+domain16/open_at_fill_level/half
+                        time:   [1.1715 s 1.1742 s 1.1788 s]
+                        change: [-10.051% -9.7902% -9.4430%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 10 measurements (20.00%)
+  1 (10.00%) low mild
+  1 (10.00%) high severe
+Benchmarking domain16/open_at_fill_level/three_quarters
+Benchmarking domain16/open_at_fill_level/three_quarters: Warming up for 1.0000 s
 
-Warning: Unable to complete 100 samples in 5.0s. You may wish to increase target time to 23.4s, or reduce sample count to 20.
-Benchmarking domain16/batch_validate/128: Collecting 100 samples in estimated 23.422 s (100 iterations)
-Benchmarking domain16/batch_validate/128: Analyzing
-domain16/batch_validate/128
-                        time:   [226.77 ms 227.36 ms 227.94 ms]
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 16.3s.
+Benchmarking domain16/open_at_fill_level/three_quarters: Collecting 10 samples in estimated 16.342 s (10 iterations)
+Benchmarking domain16/open_at_fill_level/three_quarters: Analyzing
+domain16/open_at_fill_level/three_quarters
+                        time:   [1.6249 s 1.6357 s 1.6469 s]
+                        change: [-9.0718% -8.4581% -7.8307%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 3 outliers among 10 measurements (30.00%)
+  1 (10.00%) low mild
+  2 (20.00%) high mild
+Benchmarking domain16/open_at_fill_level/full
+Benchmarking domain16/open_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 21.4s.
+Benchmarking domain16/open_at_fill_level/full: Collecting 10 samples in estimated 21.441 s (10 iterations)
+Benchmarking domain16/open_at_fill_level/full: Analyzing
+domain16/open_at_fill_level/full
+                        time:   [2.0623 s 2.0780 s 2.0975 s]
+                        change: [-9.3856% -8.6523% -7.8876%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high mild
+
+Benchmarking domain16/open_and_create_at_fill_level/nearly_empty
+Benchmarking domain16/open_and_create_at_fill_level/nearly_empty: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 11.5s.
+Benchmarking domain16/open_and_create_at_fill_level/nearly_empty: Collecting 10 samples in estimated 11.510 s (10 iterations)
+Benchmarking domain16/open_and_create_at_fill_level/nearly_empty: Analyzing
+domain16/open_and_create_at_fill_level/nearly_empty
+                        time:   [1.1476 s 1.1490 s 1.1508 s]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high severe
+Benchmarking domain16/open_and_create_at_fill_level/quarter
+Benchmarking domain16/open_and_create_at_fill_level/quarter: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 16.0s.
+Benchmarking domain16/open_and_create_at_fill_level/quarter: Collecting 10 samples in estimated 15.964 s (10 iterations)
+Benchmarking domain16/open_and_create_at_fill_level/quarter: Analyzing
+domain16/open_and_create_at_fill_level/quarter
+                        time:   [1.5935 s 1.5982 s 1.6029 s]
+Benchmarking domain16/open_and_create_at_fill_level/half
+Benchmarking domain16/open_and_create_at_fill_level/half: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 20.7s.
+Benchmarking domain16/open_and_create_at_fill_level/half: Collecting 10 samples in estimated 20.668 s (10 iterations)
+Benchmarking domain16/open_and_create_at_fill_level/half: Analyzing
+domain16/open_and_create_at_fill_level/half
+                        time:   [2.0573 s 2.0681 s 2.0788 s]
+Benchmarking domain16/open_and_create_at_fill_level/three_quarters
+Benchmarking domain16/open_and_create_at_fill_level/three_quarters: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 25.7s.
+Benchmarking domain16/open_and_create_at_fill_level/three_quarters: Collecting 10 samples in estimated 25.677 s (10 iterations)
+Benchmarking domain16/open_and_create_at_fill_level/three_quarters: Analyzing
+domain16/open_and_create_at_fill_level/three_quarters
+                        time:   [2.5210 s 2.5306 s 2.5409 s]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high mild
+Benchmarking domain16/open_and_create_at_fill_level/full
+Benchmarking domain16/open_and_create_at_fill_level/full: Warming up for 1.0000 s
+
+Warning: Unable to complete 10 samples in 5.0s. You may wish to increase target time to 29.6s.
+Benchmarking domain16/open_and_create_at_fill_level/full: Collecting 10 samples in estimated 29.638 s (10 iterations)
+Benchmarking domain16/open_and_create_at_fill_level/full: Analyzing
+domain16/open_and_create_at_fill_level/full
+                        time:   [2.9958 s 3.0086 s 3.0218 s]
+
+Benchmarking domain16/batch_validate/single_ring/1
+Benchmarking domain16/batch_validate/single_ring/1: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/1: Collecting 10 samples in estimated 5.0235 s (1050 iterations)
+Benchmarking domain16/batch_validate/single_ring/1: Analyzing
+domain16/batch_validate/single_ring/1
+                        time:   [4.7614 ms 4.7739 ms 4.7874 ms]
+Benchmarking domain16/batch_validate/single_ring/2
+Benchmarking domain16/batch_validate/single_ring/2: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/2: Collecting 10 samples in estimated 5.0502 s (770 iterations)
+Benchmarking domain16/batch_validate/single_ring/2: Analyzing
+domain16/batch_validate/single_ring/2
+                        time:   [6.5190 ms 6.5365 ms 6.5541 ms]
+Benchmarking domain16/batch_validate/single_ring/4
+Benchmarking domain16/batch_validate/single_ring/4: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/4: Collecting 10 samples in estimated 5.0015 s (510 iterations)
+Benchmarking domain16/batch_validate/single_ring/4: Analyzing
+domain16/batch_validate/single_ring/4
+                        time:   [9.7650 ms 9.7944 ms 9.8298 ms]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high severe
+Benchmarking domain16/batch_validate/single_ring/8
+Benchmarking domain16/batch_validate/single_ring/8: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/8: Collecting 10 samples in estimated 5.0497 s (310 iterations)
+Benchmarking domain16/batch_validate/single_ring/8: Analyzing
+domain16/batch_validate/single_ring/8
+                        time:   [16.168 ms 16.200 ms 16.234 ms]
+Benchmarking domain16/batch_validate/single_ring/16
+Benchmarking domain16/batch_validate/single_ring/16: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/16: Collecting 10 samples in estimated 5.1370 s (180 iterations)
+Benchmarking domain16/batch_validate/single_ring/16: Analyzing
+domain16/batch_validate/single_ring/16
+                        time:   [28.364 ms 28.402 ms 28.438 ms]
+Benchmarking domain16/batch_validate/single_ring/32
+Benchmarking domain16/batch_validate/single_ring/32: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/32: Collecting 10 samples in estimated 5.2755 s (100 iterations)
+Benchmarking domain16/batch_validate/single_ring/32: Analyzing
+domain16/batch_validate/single_ring/32
+                        time:   [52.617 ms 52.690 ms 52.762 ms]
+Benchmarking domain16/batch_validate/single_ring/64
+Benchmarking domain16/batch_validate/single_ring/64: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/64: Collecting 10 samples in estimated 5.0286 s (50 iterations)
+Benchmarking domain16/batch_validate/single_ring/64: Analyzing
+domain16/batch_validate/single_ring/64
+                        time:   [100.30 ms 100.40 ms 100.49 ms]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) low mild
+Benchmarking domain16/batch_validate/single_ring/128
+Benchmarking domain16/batch_validate/single_ring/128: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/single_ring/128: Collecting 10 samples in estimated 5.8841 s (30 iterations)
+Benchmarking domain16/batch_validate/single_ring/128: Analyzing
+domain16/batch_validate/single_ring/128
+                        time:   [195.56 ms 195.74 ms 195.90 ms]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) low mild
+
+Benchmarking domain16/batch_validate/multi_ring/1
+Benchmarking domain16/batch_validate/multi_ring/1: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/1: Collecting 10 samples in estimated 5.0094 s (1040 iterations)
+Benchmarking domain16/batch_validate/multi_ring/1: Analyzing
+domain16/batch_validate/multi_ring/1
+                        time:   [4.7987 ms 4.8080 ms 4.8159 ms]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) low mild
+Benchmarking domain16/batch_validate/multi_ring/2
+Benchmarking domain16/batch_validate/multi_ring/2: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/2: Collecting 10 samples in estimated 5.0231 s (700 iterations)
+Benchmarking domain16/batch_validate/multi_ring/2: Analyzing
+domain16/batch_validate/multi_ring/2
+                        time:   [7.1631 ms 7.1776 ms 7.1955 ms]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) high severe
+Benchmarking domain16/batch_validate/multi_ring/4
+Benchmarking domain16/batch_validate/multi_ring/4: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/4: Collecting 10 samples in estimated 5.1054 s (430 iterations)
+Benchmarking domain16/batch_validate/multi_ring/4: Analyzing
+domain16/batch_validate/multi_ring/4
+                        time:   [11.836 ms 11.856 ms 11.873 ms]
+Benchmarking domain16/batch_validate/multi_ring/8
+Benchmarking domain16/batch_validate/multi_ring/8: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/8: Collecting 10 samples in estimated 5.0781 s (240 iterations)
+Benchmarking domain16/batch_validate/multi_ring/8: Analyzing
+domain16/batch_validate/multi_ring/8
+                        time:   [21.092 ms 21.144 ms 21.191 ms]
+Benchmarking domain16/batch_validate/multi_ring/16
+Benchmarking domain16/batch_validate/multi_ring/16: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/16: Collecting 10 samples in estimated 5.0894 s (130 iterations)
+Benchmarking domain16/batch_validate/multi_ring/16: Analyzing
+domain16/batch_validate/multi_ring/16
+                        time:   [39.039 ms 39.080 ms 39.123 ms]
+Benchmarking domain16/batch_validate/multi_ring/32
+Benchmarking domain16/batch_validate/multi_ring/32: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/32: Collecting 10 samples in estimated 5.2169 s (70 iterations)
+Benchmarking domain16/batch_validate/multi_ring/32: Analyzing
+domain16/batch_validate/multi_ring/32
+                        time:   [74.456 ms 74.645 ms 74.844 ms]
+Benchmarking domain16/batch_validate/multi_ring/64
+Benchmarking domain16/batch_validate/multi_ring/64: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/64: Collecting 10 samples in estimated 5.7957 s (40 iterations)
+Benchmarking domain16/batch_validate/multi_ring/64: Analyzing
+domain16/batch_validate/multi_ring/64
+                        time:   [144.41 ms 144.70 ms 144.97 ms]
+Found 1 outliers among 10 measurements (10.00%)
+  1 (10.00%) low mild
+Benchmarking domain16/batch_validate/multi_ring/128
+Benchmarking domain16/batch_validate/multi_ring/128: Warming up for 1.0000 s
+Benchmarking domain16/batch_validate/multi_ring/128: Collecting 10 samples in estimated 5.6925 s (20 iterations)
+Benchmarking domain16/batch_validate/multi_ring/128: Analyzing
+domain16/batch_validate/multi_ring/128
+                        time:   [285.58 ms 288.21 ms 291.14 ms]
+
+Benchmarking domain16/canary_after
+Benchmarking domain16/canary_after: Warming up for 1.0000 s
+
+Warning: Unable to complete 50 samples in 5.0s. You may wish to increase target time to 6.6s, enable flat sampling, or reduce sample count to 30.
+Benchmarking domain16/canary_after: Collecting 50 samples in estimated 6.6085 s (1275 iterations)
+Benchmarking domain16/canary_after: Analyzing
+domain16/canary_after   time:   [5.1087 ms 5.1386 ms 5.1754 ms]
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high severe
 

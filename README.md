@@ -1,64 +1,97 @@
 Benchmark results across ring domains:
 
+Measured crate:
+
+- verifiable 0.5.0
+- https://github.com/paritytech/verifiable.git
+- revision `1f9f67524acce0d9c46dbbb566f84ce52757b114`
+
 Hardware:
 
 - CPU: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz (4 cores / 8 threads, boost 4.70 GHz)
 - Memory: 14Gi
 - Toolchain: rustc 1.92.0 (ded5c06cf 2025-12-08)
+- Benchmark CPUs: 0,1,2,3 (4 rayon threads)
+
+Notes on reading the table:
+
+- `canary_before` / `canary_after` are the same fixed benchmark run at the
+  start and end of each domain block. They measure nothing about the library;
+  they expose CPU thermal drift. If the two disagree by more than a few percent,
+  the rest of that column is not trustworthy.
+- `open_and_create*` times `open` **and** `create` together, which is the full
+  wallet-side cost of producing a proof. Subtract `open_at_fill_level` to get the
+  air-gapped `create` half on its own.
+- `batch_validate/single_ring` shares one ring across the whole batch, so the
+  backend builds one ring verifier for all of it. `multi_ring` gives each proof
+  its own ring, forcing a rebuild per item. The gap is how much of the batching
+  win comes from verifier reuse rather than the batched pairing check.
+- `batch_validate/single_ring/1024` has no domain16 figure on purpose. Every proof
+  in the batch needs its own `open`, which is seconds at that ring size, so the
+  fixture alone would be roughly 45 minutes of untimed setup. That blank cell is a
+  measurement not taken, not one that failed; `compare.py` knows about this single
+  exclusion and still rejects every other gap.
+- Rows that are flat across fill levels or across domain columns are deliberate
+  regression guards on operations that are O(1) in the ring; see the module docs
+  in `benches/verifiable_validate.rs`.
 
 | Function | Domain11 (255) | Domain12 (767) | Domain16 (16127) |
 |---|---:|---:|---:|
-| alias_in_context | 285.240 µs | 287.110 µs | 282.650 µs |
-| batch_validate/1 | 5.153 ms | 5.172 ms | 5.700 ms |
-| batch_validate/2 | 7.123 ms | 7.104 ms | 7.726 ms |
-| batch_validate/4 | 10.994 ms | 10.977 ms | 11.607 ms |
-| batch_validate/8 | 18.597 ms | 18.584 ms | 19.219 ms |
-| batch_validate/16 | 32.963 ms | 33.156 ms | 33.637 ms |
-| batch_validate/32 | 62.771 ms | 61.269 ms | 61.929 ms |
-| batch_validate/64 | 116.670 ms | 116.320 ms | 116.980 ms |
-| batch_validate/128 | 226.430 ms | 226.270 ms | 227.360 ms |
-| create | 121.160 ms | 234.960 ms | 3.561 s |
-| create_at_fill_level/full | 120.570 ms | 234.620 ms | 3.564 s |
-| create_at_fill_level/half | 105.860 ms | 195.500 ms | 2.599 s |
-| create_at_fill_level/nearly_empty | 94.170 ms | 157.630 ms | 1.656 s |
-| create_at_fill_level/quarter | 100.350 ms | 175.000 ms | 2.102 s |
-| create_at_fill_level/three_quarters | 113.110 ms | 215.340 ms | 3.075 s |
+| alias_in_context | 284.030 µs | 275.660 µs | 270.040 µs |
+| batch_validate/multi_ring/1 | 4.368 ms | 4.365 ms | 4.808 ms |
+| batch_validate/multi_ring/2 | 6.298 ms | 6.320 ms | 7.178 ms |
+| batch_validate/multi_ring/4 | 10.142 ms | 10.166 ms | 11.856 ms |
+| batch_validate/multi_ring/8 | 17.737 ms | 17.862 ms | 21.144 ms |
+| batch_validate/multi_ring/16 | 32.239 ms | 32.565 ms | 39.080 ms |
+| batch_validate/multi_ring/32 | 61.296 ms | 61.711 ms | 74.645 ms |
+| batch_validate/multi_ring/64 | 119.010 ms | 119.450 ms | 144.700 ms |
+| batch_validate/multi_ring/128 | 232.970 ms | 234.740 ms | 288.210 ms |
+| batch_validate/single_ring/1 | 4.334 ms | 4.367 ms | 4.774 ms |
+| batch_validate/single_ring/2 | 6.025 ms | 6.039 ms | 6.537 ms |
+| batch_validate/single_ring/4 | 9.251 ms | 9.249 ms | 9.794 ms |
+| batch_validate/single_ring/8 | 15.692 ms | 15.697 ms | 16.200 ms |
+| batch_validate/single_ring/16 | 27.879 ms | 27.905 ms | 28.402 ms |
+| batch_validate/single_ring/32 | 52.009 ms | 52.008 ms | 52.690 ms |
+| batch_validate/single_ring/64 | 99.822 ms | 99.804 ms | 100.400 ms |
+| batch_validate/single_ring/128 | 194.980 ms | 195.010 ms | 195.740 ms |
+| batch_validate/single_ring/1024 | 1.501 s | 1.501 s |  |
+| canary_after | 5.047 ms | 5.061 ms | 5.139 ms |
+| canary_before | 5.198 ms | 5.139 ms | 5.175 ms |
 | ed25519_verify |  |  |  |
-| finish_members | 89.285 ns | 84.960 ns | 85.722 ns |
-| finish_members_at_fill_level/full | 87.461 ns | 86.131 ns | 85.738 ns |
-| finish_members_at_fill_level/half | 87.883 ns | 86.321 ns | 86.282 ns |
-| finish_members_at_fill_level/nearly_empty | 87.672 ns | 86.935 ns | 85.964 ns |
-| finish_members_at_fill_level/quarter | 88.446 ns | 85.801 ns | 86.207 ns |
-| finish_members_at_fill_level/three_quarters | 87.094 ns | 86.038 ns | 86.057 ns |
-| finish_members_full | 88.562 ns | 86.120 ns | 86.188 ns |
-| is_member_valid | 100.930 µs | 100.990 µs | 98.892 µs |
-| is_valid | 6.078 ms | 6.085 ms | 6.683 ms |
-| is_valid_at_fill_level/full | 6.045 ms | 6.018 ms | 6.726 ms |
-| is_valid_at_fill_level/half | 6.039 ms | 6.059 ms | 6.743 ms |
-| is_valid_at_fill_level/nearly_empty | 6.038 ms | 6.045 ms | 6.729 ms |
-| is_valid_at_fill_level/quarter | 6.031 ms | 6.056 ms | 6.763 ms |
-| is_valid_at_fill_level/three_quarters | 6.041 ms | 6.046 ms | 6.729 ms |
-| member_from_secret | 62.370 ns | 62.327 ns | 61.738 ns |
-| new_secret | 107.730 µs | 108.060 µs | 107.360 µs |
-| open | 48.732 ms | 123.850 ms | 2.274 s |
-| open_at_fill_level/full | 48.647 ms | 123.410 ms | 2.275 s |
-| open_at_fill_level/half | 34.246 ms | 75.329 ms | 1.302 s |
-| open_at_fill_level/nearly_empty | 21.258 ms | 35.155 ms | 369.380 ms |
-| open_at_fill_level/quarter | 28.019 ms | 53.807 ms | 814.700 ms |
-| open_at_fill_level/three_quarters | 41.174 ms | 99.473 ms | 1.787 s |
-| push_all_members_in_one_time | 39.485 ms | 110.130 ms | 2.137 s |
-| push_one_member_at_fill_level/empty | 758.280 µs | 756.500 µs | 756.780 µs |
-| push_one_member_at_fill_level/full_minus_one | 754.530 µs | 746.330 µs | 746.690 µs |
-| push_one_member_at_fill_level/half | 739.200 µs | 742.960 µs | 737.870 µs |
-| push_one_member_at_fill_level/quarter | 744.740 µs | 754.750 µs | 738.320 µs |
-| push_one_member_at_fill_level/three_quarters | 756.380 µs | 739.380 µs | 736.690 µs |
-| push_one_member_in_almost_full | 790.810 µs | 746.510 µs | 747.080 µs |
-| sign | 212.280 µs | 210.570 µs | 209.910 µs |
-| start_members | 82.481 ns | 78.102 ns | 81.539 ns |
-| validate | 6.079 ms | 6.091 ms | 6.690 ms |
-| validate_at_fill_level/full | 6.048 ms | 6.122 ms | 6.729 ms |
-| validate_at_fill_level/half | 6.057 ms | 6.051 ms | 6.755 ms |
-| validate_at_fill_level/nearly_empty | 6.026 ms | 6.022 ms | 6.720 ms |
-| validate_at_fill_level/quarter | 6.036 ms | 6.055 ms | 6.763 ms |
-| validate_at_fill_level/three_quarters | 6.062 ms | 6.037 ms | 6.736 ms |
-| verify_signature | 421.260 µs | 422.830 µs | 415.040 µs |
+| finish_members_at_fill_level/full | 61.488 ns | 59.838 ns | 60.604 ns |
+| finish_members_at_fill_level/half | 61.448 ns | 56.033 ns | 59.753 ns |
+| finish_members_at_fill_level/nearly_empty | 60.679 ns | 59.615 ns | 60.061 ns |
+| finish_members_at_fill_level/quarter | 60.640 ns | 60.192 ns | 56.987 ns |
+| finish_members_at_fill_level/three_quarters | 61.211 ns | 59.504 ns | 59.965 ns |
+| is_member_valid | 103.510 µs | 100.760 µs | 96.942 µs |
+| is_valid_at_fill_level/full | 5.086 ms | 5.057 ms | 5.526 ms |
+| is_valid_at_fill_level/half | 5.054 ms | 5.117 ms | 5.557 ms |
+| is_valid_at_fill_level/nearly_empty | 5.054 ms | 5.088 ms | 5.537 ms |
+| is_valid_at_fill_level/quarter | 5.101 ms | 5.059 ms | 5.512 ms |
+| is_valid_at_fill_level/three_quarters | 5.094 ms | 5.084 ms | 5.581 ms |
+| member_from_secret | 55.768 ns | 54.882 ns | 54.707 ns |
+| new_secret | 106.120 µs | 101.920 µs | 101.690 µs |
+| open_and_create_at_fill_level/full | 93.370 ms | 195.920 ms | 3.009 s |
+| open_and_create_at_fill_level/half | 77.803 ms | 150.440 ms | 2.068 s |
+| open_and_create_at_fill_level/nearly_empty | 62.860 ms | 105.890 ms | 1.149 s |
+| open_and_create_at_fill_level/quarter | 70.164 ms | 127.710 ms | 1.598 s |
+| open_and_create_at_fill_level/three_quarters | 85.539 ms | 173.670 ms | 2.531 s |
+| open_at_fill_level/full | 43.517 ms | 111.860 ms | 2.078 s |
+| open_at_fill_level/half | 28.710 ms | 67.135 ms | 1.174 s |
+| open_at_fill_level/nearly_empty | 14.244 ms | 23.832 ms | 258.200 ms |
+| open_at_fill_level/quarter | 21.295 ms | 44.916 ms | 706.780 ms |
+| open_at_fill_level/three_quarters | 36.203 ms | 89.808 ms | 1.636 s |
+| push_all_members_in_one_time | 35.790 ms | 99.181 ms | 1.991 s |
+| push_one_member_at_fill_level/empty | 600.280 µs | 600.400 µs | 597.940 µs |
+| push_one_member_at_fill_level/full_minus_one | 593.050 µs | 587.210 µs | 588.070 µs |
+| push_one_member_at_fill_level/half | 583.730 µs | 585.680 µs | 580.250 µs |
+| push_one_member_at_fill_level/quarter | 586.630 µs | 604.220 µs | 582.170 µs |
+| push_one_member_at_fill_level/three_quarters | 603.240 µs | 586.450 µs | 580.400 µs |
+| sign | 209.250 µs | 200.110 µs | 195.940 µs |
+| start_members | 72.010 ns | 66.395 ns | 66.562 ns |
+| validate_at_fill_level/full | 5.075 ms | 5.046 ms | 5.548 ms |
+| validate_at_fill_level/half | 5.065 ms | 5.113 ms | 5.563 ms |
+| validate_at_fill_level/nearly_empty | 5.066 ms | 5.081 ms | 5.549 ms |
+| validate_at_fill_level/quarter | 5.121 ms | 5.067 ms | 5.526 ms |
+| validate_at_fill_level/three_quarters | 5.097 ms | 5.082 ms | 5.586 ms |
+| verify_signature | 372.310 µs | 377.270 µs | 369.610 µs |
