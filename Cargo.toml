@@ -9,6 +9,9 @@ verifiable = { git = "https://github.com/paritytech/verifiable.git" }
 
 [dev-dependencies]
 criterion = "0.5"
+# The ring operations are multi-threaded via `ark-vrf/parallel`; the benchmarks pin the
+# pool width so results are comparable between runs.
+rayon = "1"
 
 [[bench]]
 name = "ed25519_verify"

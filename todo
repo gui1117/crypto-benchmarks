@@ -1,2 +1,23 @@
 * benchmark native vs wasm
-* when implementation is done benchmark batch vs non-batch (also different ring, same ring)
+  The current numbers are native, multi-threaded (`ark-vrf/parallel`, pool pinned to the
+  physical core count). The on-chain verifier is the opposite: single-threaded, no_std,
+  `prover` off — which also changes where the verifier's `RingContext` comes from. So
+  nothing in the table can be used as a runtime weight as it stands.
+
+* batch vs non-batch
+  Done for both ring layouts: `batch_validate/single_ring` (one ring for the whole
+  batch, one verifier build) vs `batch_validate/multi_ring` (a ring per proof, one
+  verifier build per item). The non-batch baseline is `validate_at_fill_level/full`.
+
+* benchmark `create_multi_context` / `validate_multi_context` over N contexts
+  MAX_CONTEXTS is 255 and `ContextVec` is inline only up to 3, so there should be a
+  cost curve with a heap-spill knee. Currently unmeasured.
+
+* benchmark codec cost: `decode_unchecked` vs `Decode` for `Members` / `Proof` /
+  `Intermediate`. The crate documents the unchecked path as a deliberate optimisation
+  for values already validated at ingress, and decoding is on-chain cost.
+
+* benchmark `push_members` as a function of batch size
+  Only 1 and all-at-once are covered, and the gap is large: ~750 us for a single member
+  vs ~155 us/member in bulk. About 100 us of that is `decode_member` (compare
+  `is_member_valid`); the rest is per-call `append` overhead.

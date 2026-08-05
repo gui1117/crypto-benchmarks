@@ -1863,6 +1863,8 @@ name = "ressai"
 version = "0.1.0"
 dependencies = [
  "criterion",
+ "num_cpus",
+ "rayon",
  "sp-core",
  "verifiable",
 ]
