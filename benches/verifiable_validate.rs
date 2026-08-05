@@ -81,7 +81,34 @@ type BuilderParams = ark_vrf::ring::RingBuilderPcsParams<Suite>;
 
 const CONTEXT: &[u8] = b"verifiable-bench-context";
 const MESSAGE: &[u8] = b"benchmark message for verifiable trait";
+
+/// Batch sizes measured for both batch flavours, on every domain.
 const BATCH_SIZES: [usize; 8] = [1, 2, 4, 8, 16, 32, 64, 128];
+
+/// An extra large batch, measured for `single_ring` only and not at domain16.
+///
+/// `single_ring` is the layout to expect in practice — proofs in a block are made
+/// against the current ring root — so this is where a large-N throughput figure is
+/// worth having.
+///
+/// Excluded from `multi_ring` because that flavour *cannot represent* it: its distinct
+/// commitments come from distinct member counts, and domain11 and domain12 only have 253
+/// and 765 of those. The surplus items would repeat the previous ring, land adjacent, and
+/// hit `batch_validate`'s consecutive-same-ring verifier cache — silently measuring a
+/// partial `single_ring` under the `multi_ring` name. `multi_ring_items` asserts against
+/// this rather than trusting the constant.
+///
+/// Excluded from domain16 on cost: every proof needs its own `open`, which is seconds at
+/// that ring size, so 1024 of them is roughly 45 minutes of untimed setup.
+const LARGE_SINGLE_RING_BATCH: usize = 1024;
+
+fn batch_sizes_for(flavour: &str, domain: RingDomainSize) -> Vec<usize> {
+    let mut sizes = BATCH_SIZES.to_vec();
+    if flavour == "single_ring" && domain != RingDomainSize::Domain16 {
+        sizes.push(LARGE_SINGLE_RING_BATCH);
+    }
+    sizes
+}
 
 fn domain_label(domain: RingDomainSize) -> &'static str {
     match domain {
@@ -622,7 +649,9 @@ fn single_ring_items(fx: &DomainFixture, count: usize) -> Vec<BatchProofItemFor<
     (0..count)
         .map(|i| {
             // Spread the provers over the ring and give each proof its own message so
-            // no two items in the batch are identical.
+            // no two items in the batch are identical. Once `count` exceeds the ring
+            // size the provers necessarily repeat; the proofs still differ because the
+            // messages do, and repeated provers cost the verifier nothing.
             let member_idx = (i * ring_size / count) % ring_size;
             let message = format!("batch message {i}").into_bytes();
             let opened = VerifiableImpl::open(
@@ -657,6 +686,18 @@ fn multi_ring_items(fx: &DomainFixture, count: usize) -> Vec<BatchProofItemFor<V
     let counts: Vec<usize> = (0..count)
         .map(|i| 2 + (i * (ring_size - 2)) / count)
         .collect();
+
+    // The whole point of this flavour is that no two consecutive items share a ring, so
+    // that `batch_validate` has to rebuild its `RingVerifier` for every one. A repeat
+    // would be served from its cache and quietly turn this into a partial `single_ring`
+    // measurement, so refuse rather than report a number that is neither.
+    let distinct = counts.windows(2).all(|w| w[0] != w[1]);
+    assert!(
+        distinct,
+        "multi_ring cannot build {count} distinct rings from a {ring_size}-member ring \
+         (at most {} are available); reduce the batch size for this domain",
+        ring_size - 2
+    );
 
     let mut intermediate = VerifiableImpl::start_members(fx.config);
     let mut pushed = 0usize;
@@ -695,22 +736,23 @@ fn multi_ring_items(fx: &DomainFixture, count: usize) -> Vec<BatchProofItemFor<V
 type ItemsFn = fn(&DomainFixture, usize) -> Vec<BatchProofItemFor<VerifiableImpl>>;
 
 fn bench_batch_validate(c: &mut Criterion, fx: &DomainFixture) {
-    let max_batch = *BATCH_SIZES.last().expect("BATCH_SIZES is not empty");
-
     for (flavour, build_items) in [
         ("single_ring", single_ring_items as ItemsFn),
         ("multi_ring", multi_ring_items as ItemsFn),
     ] {
-        // Built one flavour at a time, and cooled down afterwards: generating 128
-        // proofs is itself minutes of full-load `open`/`create` at domain16, so doing
-        // both up front would leave the CPU hot for the measurements that follow.
+        let sizes = batch_sizes_for(flavour, fx.domain);
+        let max_batch = *sizes.last().expect("batch size list is not empty");
+
+        // Built one flavour at a time, and cooled down afterwards: generating the proofs
+        // is itself minutes of full-load `open`/`create` at domain16, so doing both up
+        // front would leave the CPU hot for the measurements that follow.
         let items = build_items(fx, max_batch);
         cooldown();
 
         let mut group =
             c.benchmark_group(format!("{}/batch_validate/{flavour}", fx.label));
         heavy(&mut group, fx.domain);
-        for &batch_size in &BATCH_SIZES {
+        for &batch_size in &sizes {
             let batch = &items[..batch_size];
             group.bench_function(format!("{batch_size}"), |b| {
                 b.iter(|| {
