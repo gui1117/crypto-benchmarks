@@ -1,17 +1,30 @@
 [package]
-name = "ressai"
+name = "crypto-benchmarks"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-sp-core = "*"
 verifiable = { git = "https://github.com/paritytech/verifiable.git" }
 
 [dev-dependencies]
 criterion = "0.5"
+# Reference baseline for the ring VRF timings; used only by benches/ed25519_verify.rs.
+sp-core = "38.1"
 # The ring operations are multi-threaded via `ark-vrf/parallel`; the benchmarks pin the
 # pool width so results are comparable between runs.
 rayon = "1"
+
+# Pin the compile configuration the same way the thread count is pinned. Left at the
+# defaults, incidental inlining differences between toolchains show up as apparent
+# performance changes, and the published numbers depend on settings nothing records.
+# Note this makes a cold build considerably slower: `lto = "fat"` with one codegen unit
+# over the arkworks tree is minutes, not seconds.
+[profile.bench]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+debug-assertions = false
+overflow-checks = false
 
 [[bench]]
 name = "ed25519_verify"

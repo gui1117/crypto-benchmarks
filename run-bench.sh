@@ -50,9 +50,26 @@ fi
 BENCH_COOLDOWN_SECS=${BENCH_COOLDOWN_SECS:-15}
 export BENCH_COOLDOWN_SECS
 
-$runner cargo bench 2>&1 | tee bench-output.txt
+here=$(dirname "$0")
+work=$(mktemp -d) || exit 1
+trap 'rm -rf "$work"' EXIT INT TERM
 
-./compare.py bench-output.txt --out-md=tmp323928421
+# `cargo bench | tee` would report tee's exit status, so stash cargo's own status and
+# check it: a crashed or interrupted run must not silently regenerate README.md from a
+# truncated bench-output.txt.
+{ $runner cargo bench 2>&1; echo $? >"$work/status"; } | tee bench-output.txt
+bench_status=$(cat "$work/status" 2>/dev/null || echo 1)
+if [ "$bench_status" -ne 0 ]; then
+    echo "error: cargo bench failed (exit $bench_status); README.md left unchanged" >&2
+    exit "$bench_status"
+fi
+
+# --strict makes dropped benchmarks, unparsable timings and partial domain coverage
+# fatal, for the same reason: a partial table must not be published as a complete one.
+if ! "$here/compare.py" bench-output.txt --strict --out-md="$work/table.md"; then
+    echo "error: compare.py rejected bench-output.txt; README.md left unchanged" >&2
+    exit 1
+fi
 
 # Describe the machine the numbers above were produced on.
 cpu_model=$(lscpu | sed -n 's/^Model name:[[:space:]]*//p' | head -1)
@@ -65,15 +82,39 @@ cpu_max=$(lscpu | sed -n 's/^CPU max MHz:[[:space:]]*//p' | head -1 \
 mem_total=$(free -h | awk '/^Mem:/ { print $2 }')
 rustc_ver=$(rustc -V)
 
+if [ -n "$cpu_list" ]; then
+    pinned_cpus=$cpu_list
+    pinned_count=$(printf '%s' "$cpu_list" | awk -F, '{ print NF }')
+else
+    pinned_cpus="unpinned"
+    pinned_count=$cpu_threads
+fi
+
+# Record which revision of the measured crate produced these numbers. Cargo.lock is the
+# only thing that pins it (Cargo.toml tracks the default branch), and without this the
+# table cannot be tied back to any particular upstream state.
+lock_block=$(grep -A3 '^name = "verifiable"$' Cargo.lock)
+verifiable_ver=$(printf '%s\n' "$lock_block" | sed -n 's/^version = "\(.*\)"/\1/p' | head -1)
+verifiable_src=$(printf '%s\n' "$lock_block" | sed -n 's/^source = "\(.*\)"/\1/p' | head -1)
+verifiable_rev=${verifiable_src##*#}
+verifiable_repo=${verifiable_src%#*}
+verifiable_repo=${verifiable_repo#git+}
+
 {
     echo "Benchmark results across ring domains:"
+    echo ""
+    echo "Measured crate:"
+    echo ""
+    echo "- verifiable $verifiable_ver"
+    echo "- $verifiable_repo"
+    echo "- revision \`$verifiable_rev\`"
     echo ""
     echo "Hardware:"
     echo ""
     echo "- CPU: $cpu_model ($cpu_cores cores / $cpu_threads threads, boost $cpu_max)"
     echo "- Memory: $mem_total"
     echo "- Toolchain: $rustc_ver"
-    echo "- Benchmark threads: $BENCH_THREADS (rayon pool, pinned)"
+    echo "- Benchmark CPUs: $pinned_cpus ($pinned_count rayon threads)"
     echo ""
     echo "Notes on reading the table:"
     echo ""
@@ -92,7 +133,5 @@ rustc_ver=$(rustc -V)
     echo "  regression guards on operations that are O(1) in the ring; see the module docs"
     echo "  in \`benches/verifiable_validate.rs\`."
     echo ""
-    cat tmp323928421
+    cat "$work/table.md"
 } > README.md
-
-rm tmp323928421
