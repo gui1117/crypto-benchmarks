@@ -21,6 +21,24 @@ DOMAIN_LABELS = {
 
 DURATION_RE = re.compile(r"([0-9]*\.?[0-9]+)\s*(ns|us|µs|μs|ms|s)\b")
 
+# Fill levels progress from emptiest to fullest, an order alphabetical sorting scrambles
+# (`full` first, `nearly_empty` in the middle). Rank them explicitly so those rows read
+# the same way the numeric batch sizes already do.
+#
+# One list covers both fill-level sets in `bench_ring_fill_levels`: the `push_one_member`
+# group uses `empty`/`full_minus_one` where the others use `nearly_empty`/`full`, and no
+# group mixes the two, so their relative rank never comes up.
+FILL_LEVEL_ORDER = [
+    "empty",
+    "nearly_empty",
+    "quarter",
+    "half",
+    "three_quarters",
+    "full_minus_one",
+    "full",
+]
+FILL_LEVEL_RANK = {label: rank for rank, label in enumerate(FILL_LEVEL_ORDER)}
+
 # Benchmarks that are deliberately not run for some domains, and the domains they are
 # absent from. Without this, an intentional omission is indistinguishable from a run that
 # died partway through, and --strict refuses to publish a table that is in fact complete.
@@ -109,8 +127,26 @@ def human_time(seconds: float) -> str:
     return f"{seconds:.3f} s"
 
 def natural_key(name: str):
-    # Sort embedded integers numerically so batch_validate/8 precedes batch_validate/128.
-    return [int(p) if p.isdigit() else p for p in re.split(r"(\d+)", name)]
+    """Sort key ordering each `/`-separated segment by meaning rather than by spelling.
+
+    Embedded integers sort numerically, so batch_validate/8 precedes batch_validate/128,
+    and a segment naming a fill level sorts by how full the ring is. Every element is a
+    tuple of the same shape, so a numeric segment compared against a named one orders
+    instead of raising, whatever mix of names ends up in the table.
+    """
+    key = []
+    for segment in name.split("/"):
+        rank = FILL_LEVEL_RANK.get(segment)
+        if rank is not None:
+            key.append((0, rank, ()))
+        else:
+            pieces = tuple(
+                (0, int(p), "") if p.isdigit() else (1, 0, p)
+                for p in re.split(r"(\d+)", segment)
+                if p
+            )
+            key.append((1, 0, pieces))
+    return key
 
 def collect_rows(domain_maps: dict) -> list:
     all_names = set()
